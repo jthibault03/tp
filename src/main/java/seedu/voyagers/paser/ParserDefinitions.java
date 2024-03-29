@@ -18,6 +18,5 @@ public class ParserDefinitions {
 
     public static final String[] SETDESCRIPTION = {"/d"};
 
-    public static final String[] REVIEW = {"/n", "/r"};
 
 }

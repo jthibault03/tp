@@ -8,7 +8,6 @@ import seedu.voyagers.commands.ExitCommand;
 import seedu.voyagers.commands.HelpCommand;
 import seedu.voyagers.commands.ListCommand;
 import seedu.voyagers.commands.ModifyTripCommand;
-import seedu.voyagers.commands.ReviewMainTripCommand;
 import seedu.voyagers.commands.AddBillCommand;
 
 
@@ -69,10 +68,6 @@ public class NewParser {
             return new ModifyTripCommand(values);
         case "help":
             return new HelpCommand();
-        case "reviewmaintrip":
-            values = parseArgs(line, ParserDefinitions.REVIEW);
-            return new ReviewMainTripCommand(values);
-
         default:
             throw new IllegalArgumentException("Invalid command");
 
