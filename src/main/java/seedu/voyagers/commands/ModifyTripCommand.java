@@ -3,7 +3,7 @@ package seedu.voyagers.commands;
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.utils.FormatDate;
 import seedu.voyagers.utils.Ui;
-import seedu.voyagers.utils.Storage;
+import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.classes.Trip;
 
 import java.util.Arrays;
@@ -15,7 +15,7 @@ public class ModifyTripCommand extends Command{
         super(args);
     }
 
-    public void execute(TripList trips, Ui ui, Storage storage){
+    public void execute(TripList trips, Ui ui, TripStorage tripStorage){
 
         String oldName = args[1];
         String modificationType = args[0];

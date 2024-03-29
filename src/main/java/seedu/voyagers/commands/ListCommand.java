@@ -2,12 +2,12 @@ package seedu.voyagers.commands;
 
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.utils.Ui;
-import seedu.voyagers.utils.Storage;
+import seedu.voyagers.utils.TripStorage;
 
 public class ListCommand extends Command{
 
 
-    public void execute(TripList trips, Ui ui, Storage storage){
+    public void execute(TripList trips, Ui ui, TripStorage tripStorage){
 
         if (trips.size() == 0){
             ui.echo("You have no trips in your list.");

@@ -2,12 +2,12 @@ package seedu.voyagers.commands;
 
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.utils.Ui;
-import seedu.voyagers.utils.Storage;
+import seedu.voyagers.utils.TripStorage;
 
 public class HelpCommand extends Command{
 
     @Override
-    public void execute(TripList tasks, Ui ui, Storage storage) {
+    public void execute(TripList tasks, Ui ui, TripStorage tripStorage) {
         ui.echo("Here are the commands you can use:", true, false);
         ui.echo("1. list - Lists all trips", false, false);
         ui.echo("2. add - Adds a trip", false, false);

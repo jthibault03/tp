@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class Storage {
+public class TripStorage {
 
     private static final Logger LOGGER = Logger.getLogger("Storage");
 
@@ -36,12 +36,12 @@ public class Storage {
                 System.out.println("Here are the trips in your list:");
             }
             while (s.hasNext()) {
-                String[] inputs = s.nextLine().split("\\|", 7);
-                assert inputs.length == 7 : "Invalid input format";
+                String[] inputs = s.nextLine().split("\\|", 6);
+                assert inputs.length == 6 : "Invalid input format";
                 java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
                 Date startDate = format.parse(inputs[1]);
                 Date endDate = format.parse(inputs[2]);
-                Trip trip = new Trip(inputs[0], startDate, endDate, inputs[3], inputs[4], inputs[5]);
+                Trip trip = new Trip(inputs[0], startDate, endDate, inputs[3], inputs[4]);
                 trips.add(trip);
             }
             s.close();
@@ -78,7 +78,7 @@ public class Storage {
                         FormatDate.dateFormat.format(trip.getEndDate()) + "|"
                         + trip.getLocation() + "|" + trip.getDescription()
                         //+ "\n");
-                        + "|" + trip.getReviewScore() + "|" + trip.getStatus().toString() + "\n");
+                        + "|" + trip.getStatus().toString() + "\n");
             }
         } catch (IOException e) {
             System.out.println("An error occurred: " + e.getMessage());

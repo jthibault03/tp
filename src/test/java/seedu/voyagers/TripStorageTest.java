@@ -3,7 +3,7 @@ package seedu.voyagers;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import seedu.voyagers.classes.Trip;
-import seedu.voyagers.utils.Storage;
+import seedu.voyagers.utils.TripStorage;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-public class StorageTest {
+public class TripStorageTest {
     private static final String TEST_FILE_NAME = "temp_test_file.txt";
 
     @Test
@@ -33,7 +33,7 @@ public class StorageTest {
         }
 
         // Call readTripFile method
-        Storage.readTripFile(trips, currentDir, TEST_FILE_NAME);
+        TripStorage.readTripFile(trips, currentDir, TEST_FILE_NAME);
 
         // Assert that the trips list contains expected trips
         Assertions.assertEquals(2, trips.size());
@@ -59,9 +59,9 @@ public class StorageTest {
             Date startDate2 = dateFormat.parse("2024-03-25");
             Date endDate2 = dateFormat.parse("2024-03-30");
             Trip trip1 = new Trip("Trip1", startDate1, endDate1, "Location1",
-                    "Description1", "5");
+                    "Description1");
             Trip trip2 = new Trip("Trip2", startDate2, endDate2, "Location2",
-                    "Description2", "3");
+                    "Description2");
             trips.add(trip1);
             trips.add(trip2);
         } catch (ParseException e) {
@@ -69,7 +69,7 @@ public class StorageTest {
         }
 
         // Call writeTripFile method
-        Storage.writeTripFile(trips, trips.size(), currentDir, TEST_FILE_NAME);
+        TripStorage.writeTripFile(trips, trips.size(), currentDir, TEST_FILE_NAME);
 
         // Read the content of the temporary file and assert its correctness
         try {
