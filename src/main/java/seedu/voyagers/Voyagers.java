@@ -27,7 +27,7 @@ public class Voyagers {
         this.ui = new Ui();
     }
     public static void main(String[] args) {
-            new Voyagers().run();
+        new Voyagers().run();
     }
 
     void run() {

@@ -76,9 +76,11 @@ public class TripStorageTest {
             File tempFile = new File(TEST_FILE_NAME);
             Scanner scanner = new Scanner(tempFile);
             Assertions.assertTrue(scanner.hasNextLine());
-            Assertions.assertEquals("Trip1|2024-03-15|2024-03-20|Location1|Description1|5", scanner.nextLine());
+            Assertions.assertEquals("Trip1|2024-03-15|2024-03-20|Location1|Description1|COMPLETED",
+                    scanner.nextLine());
             Assertions.assertTrue(scanner.hasNextLine());
-            Assertions.assertEquals("Trip2|2024-03-25|2024-03-30|Location2|Description2|3", scanner.nextLine());
+            Assertions.assertEquals("Trip2|2024-03-25|2024-03-30|Location2|Description2|ONGOING",
+                    scanner.nextLine());
             scanner.close();
         } catch (IOException e) {
             e.printStackTrace();

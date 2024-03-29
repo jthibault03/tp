@@ -6,8 +6,6 @@ import seedu.voyagers.classes.TripList;
 import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.utils.Ui;
 
-import java.util.Arrays;
-
 import static java.lang.Integer.parseInt;
 
 public class ReviewCommand extends Command{

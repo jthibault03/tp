@@ -1,7 +1,5 @@
 package seedu.voyagers.classes;
 
-import static java.lang.Integer.parseInt;
-
 public class Review {
 
     private int score;
