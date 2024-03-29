@@ -12,13 +12,14 @@ public class Trip {
     private Date endDate;
     private String location;
     private String description;
-    private Integer reviewScore = 0;
 
     private Status status;
 
+    private Review review;
+
     private ArrayList<Trip> subTrips = new ArrayList<>();
 
-    public Trip(String name, Date startDate, Date endDate, String location, String description, String reviewScore) {
+    public Trip(String name, Date startDate, Date endDate, String location, String description) {
 
         if (startDate.after(endDate)) {
             throw new IllegalArgumentException("Start date cannot be after end date");
@@ -31,7 +32,6 @@ public class Trip {
         this.endDate = endDate;
         this.location = location;
         this.description = description;
-        this.reviewScore = Integer.parseInt(reviewScore);
         // if the date is in the future, the trip is ongoing
         // if the date is in the past, the trip is completed
         if (endDate.before(new Date())) {
@@ -41,6 +41,7 @@ public class Trip {
         }   else {
             this.status = Status.ONGOING;
         }
+        this.review = new Review();
     }
 
     public Trip(String[] args) throws Exception{
@@ -85,10 +86,6 @@ public class Trip {
         return description;
     }
 
-    public Integer getReviewScore() {
-        return reviewScore;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -108,10 +105,6 @@ public class Trip {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setReviewScore(int reviewScore) {
-        this.reviewScore = reviewScore;
     }
 
     /**
@@ -176,13 +169,17 @@ public class Trip {
         }
     }
 
+    public Review getReview() {
+        return review;
+    }
+
     @Override
     public String toString() {
         String s = "Name: " + name + "\t\tStart Date: " +
                 FormatDate.dateFormat.format(startDate) + "\t\tEnd Date: " +
                 FormatDate.dateFormat.format(endDate) + "\t\tLocation: " +
-                location + "\t\tDescription: " + description + "\t\tReview: " +
-                getReviewScore() + "\t\tStatus: " + getStatus();
+                location + "\t\tDescription: " + description
+                + "\t\tStatus: " + getStatus();
         s += "\n\tSub-trips:";
         for (Trip t : subTrips) {
             s += "\n\t\t" + t.toString();
