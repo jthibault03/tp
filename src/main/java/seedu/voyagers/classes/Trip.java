@@ -15,6 +15,8 @@ public class Trip {
 
     private Status status;
 
+    private Review review;
+
     private ArrayList<Trip> subTrips = new ArrayList<>();
 
     public Trip(String name, Date startDate, Date endDate, String location, String description) {
@@ -39,6 +41,7 @@ public class Trip {
         }   else {
             this.status = Status.ONGOING;
         }
+        this.review = new Review();
     }
 
     public Trip(String[] args) throws Exception{
@@ -164,6 +167,10 @@ public class Trip {
         } catch (IndexOutOfBoundsException e) {
             throw new IndexOutOfBoundsException("Index out of bounds");
         }
+    }
+
+    public Review getReview() {
+        return review;
     }
 
     @Override
