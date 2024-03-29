@@ -76,6 +76,12 @@ percentages that different people owe, and set and return various attributes. Th
 not fully fleshed out, as we will add more features and better functionality in subsequent
 releases.
 
+## Review
+The Review class, instantiated solely by the Trip object. 
+It enables users to assign trip ratings (1-10) in Review's 'int score' attribute and input personal reflections and 
+encapsulates individual sentiments in Review's 'String reflection attribute, facilitating comprehensive user feedback.
+Currently, Reviews are not stored when the app exits, this implementation is planned.
+
 ## Product scope
 ### Target user profile
 

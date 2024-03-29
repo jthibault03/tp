@@ -55,6 +55,22 @@ To view a list of all trips along with their details, use the listall command.
 listall
 ```
 
+### Reviewing Trips
+
+To review a trip with a scale of 1-10 'score' and your open-ended 'reflection', use the review command.
+
+```bash
+review Trip1 /s 10 /r Trip1 was fantastic, I made 3 new friends.
+```
+
+### Reading Trip Reviews
+
+To read previously reviewed trip, use the readreview command with the name of the trip.
+
+```bash
+readreview Trip1
+```
+
 ### Enter "exit" to exit the application.
 
 ```bash 
