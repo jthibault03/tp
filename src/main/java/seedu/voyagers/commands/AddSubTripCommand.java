@@ -2,7 +2,7 @@ package seedu.voyagers.commands;
 
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.utils.Ui;
-import seedu.voyagers.utils.Storage;
+import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.classes.Trip;
 
 //TODO: check dates make sense with main trip
@@ -12,7 +12,7 @@ public class AddSubTripCommand extends Command{
         super(args);
     }
 
-    public void execute(TripList trips, Ui ui, Storage storage){
+    public void execute(TripList trips, Ui ui, TripStorage tripStorage){
 
         Trip mainTrip = null;
         String[] newArgs = new String[args.length - 1];

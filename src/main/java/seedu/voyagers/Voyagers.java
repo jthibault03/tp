@@ -9,8 +9,8 @@ import seedu.voyagers.commands.ListCommand;
 
 import java.util.ArrayList;
 
-import static seedu.voyagers.utils.Storage.readTripFile;
-import static seedu.voyagers.utils.Storage.writeTripFile;
+import static seedu.voyagers.utils.TripStorage.readTripFile;
+import static seedu.voyagers.utils.TripStorage.writeTripFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
