@@ -1,0 +1,4 @@
+Trip1|10|it was great
+Trip2|-1|null
+Trip3|-1|null
+Trip4|-1|null
