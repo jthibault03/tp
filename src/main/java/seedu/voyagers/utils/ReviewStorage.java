@@ -7,7 +7,6 @@ import seedu.voyagers.classes.Review;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.logging.Level;
