@@ -50,14 +50,14 @@ public class ReviewStorage {
             s.close();
         } catch (FileNotFoundException e) {
 
-            System.out.println("File not found.\nCreating new file...\nFile created.");
+            System.out.println("Review file not found.\nCreating new review file...\nReview file created.");
             try {
-                assert f.createNewFile() : "File creation failed";
+                assert f.createNewFile() : "Review File creation failed";
                 f.createNewFile();
-                logger.log(Level.INFO, "File created.");
+                logger.log(Level.INFO, "Review file created.");
             } catch (java.io.IOException ex) {
                 System.out.println("An error occurred.");
-                logger.log(Level.SEVERE, "An error occurred when creating the file.");
+                logger.log(Level.SEVERE, "An error occurred when creating the review file.");
             }
         }
     }
