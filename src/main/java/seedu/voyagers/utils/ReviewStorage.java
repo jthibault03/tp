@@ -59,6 +59,10 @@ public class ReviewStorage {
                 System.out.println("An error occurred.");
                 logger.log(Level.SEVERE, "An error occurred when creating the review file.");
             }
+        } catch (NullPointerException e) {
+            System.out.println("Trip from local-reviews.txt not found.");
+        } catch (Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
         }
     }
 
