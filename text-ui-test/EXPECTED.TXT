@@ -3,9 +3,12 @@ Voyagers
 		Hello! I'm Voyagers
 		What can I do for you?
 		Here are the trips in your list from the previous time:
-File not found.
-Creating new file...
-File created.
+Trip file not found.
+Creating new trip file...
+Trip file created.
+Review file not found.
+Creating new review file...
+Review file created.
 		____________________________________________________________
 		You have no trips in your list.
 		____________________________________________________________
