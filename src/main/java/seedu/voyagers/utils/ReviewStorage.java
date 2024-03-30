@@ -7,6 +7,7 @@ import seedu.voyagers.classes.Review;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -55,14 +56,10 @@ public class ReviewStorage {
                 assert f.createNewFile() : "File creation failed";
                 f.createNewFile();
                 logger.log(Level.INFO, "File created.");
-            } catch (IOException ex) {
+            } catch (java.io.IOException ex) {
                 System.out.println("An error occurred.");
                 logger.log(Level.SEVERE, "An error occurred when creating the file.");
             }
-        } catch (NullPointerException e) {
-            System.out.println("Trip not found");
-        } catch (Exception e) {
-            System.out.println("An error occurred: " + e.getMessage());
         }
     }
 
