@@ -5,6 +5,7 @@ import seedu.voyagers.utils.Payable;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 //NOTE: this class uses object Double class, since it implements ArrayLists.
 
@@ -14,6 +15,13 @@ public class Bill implements Payable {
     private double amount;
     private Currency currency;
     private Trip trip;
+
+    private Profile payer;
+
+    // hashmap with key as profile and value as the percentage of the bill they are responsible for
+    // percentages must sum to 100
+    private HashMap<Profile, Double> participants = new HashMap<>();
+
     private ArrayList<Profile> people = new ArrayList<>();
     private ArrayList<Double> percentages = new ArrayList<>();
     private boolean paid;
@@ -26,12 +34,22 @@ public class Bill implements Payable {
         //TODO: then call Bill(billName, newPeople, newPercentages) with this format.
 
     }
-    public Bill(String billName, ArrayList<Profile> people, ArrayList<Double> percentages) {
+    public Bill(String billName, Profile payer, Double amount, Currency currency,
+                ArrayList<Profile> people, ArrayList<Double> percentages) {
         if (people.size() != percentages.size()) {
             throw new IllegalArgumentException("Number of elements in 'people' and 'percentages' arrays must be equal");
         }
 
         checkPercentages(percentages);
+
+        this.participants = new HashMap<>();
+        for (int i = 0; i < people.size(); i++) {
+            this.participants.put(people.get(i), (percentages.get(i)*amount)/100.0);
+        }
+
+        this.payer = payer;
+        this.amount = amount;
+        this.currency = currency;
 
         this.billName = billName;
         this.people = people;
@@ -40,13 +58,24 @@ public class Bill implements Payable {
     }
 
     //sets default percentages to equal when no percentages are provided
-    public Bill(String billName, ArrayList<Profile> people) {
+    public Bill(String billName, Profile payer, Double amount, Currency currency,
+                ArrayList<Profile> people) {
         int numPeople = people.size();
         double percentage = 100 / numPeople;
         Double[] percentages = new Double[numPeople];
         Arrays.fill(percentages, percentage);
         ArrayList<Double> p = new ArrayList<>(Arrays.asList(percentages));
-        new Bill(billName, people, p);
+        new Bill(billName, payer, amount, currency, people, p);
+    }
+
+    public Bill(String billName, Profile payer, Double amount, Currency currency,
+                HashMap<Profile, Double> participants) {
+        this.billName = billName;
+        this.payer = payer;
+        this.amount = amount;
+        this.currency = currency;
+        this.participants = participants;
+        this.paid = false;
     }
 
     public Bill(String billName) {
@@ -160,4 +189,14 @@ public class Bill implements Payable {
     public void payBill() {
         this.paid = true;
     }
+
+    public Profile getPayer() {
+        return this.payer;
+    }
+
+    public HashMap<Profile, Double> getParticipants() {
+        return this.participants;
+    }
+
+
 }
