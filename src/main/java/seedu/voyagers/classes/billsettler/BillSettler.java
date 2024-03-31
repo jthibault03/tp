@@ -7,11 +7,17 @@ import seedu.voyagers.classes.Profile;
 import seedu.voyagers.classes.Bill;
 import seedu.voyagers.utils.Currency;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.List;
+
 
 public class BillSettler {
     private static final long OFFSET = 1000000000L;
     private static Set<Long> visitedEdges;
+
 
     public static void main(String[] args) {
         ArrayList<Bill> bills = new ArrayList<>();
