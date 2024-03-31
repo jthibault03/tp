@@ -7,6 +7,33 @@ public abstract class NetworkFlowSolverBase {
     // To avoid overflow, set infinity to a value less than Long.MAX_VALUE;
     protected static final long INF = Long.MAX_VALUE / 2;
 
+    // Inputs: n = number of nodes, s = source, t = sink
+    protected int n;
+    protected int s;
+    protected int t;
+
+    protected long maxFlow;
+    protected long minCost;
+
+    protected boolean[] minCut;
+    protected List<Edge>[] graph;
+    protected String[] vertexLabels;
+    protected List<Edge> edges;
+
+    // Indicates whether the network flow algorithm has ran. We should not need to
+    // run the solver multiple times, because it always yields the same result.
+
+    protected boolean solved;
+    private int[] visited;
+
+
+
+    // 'visited' and 'visitedToken' are variables used for graph sub-routines to
+    // track whether a node has been visited or not. In particular, node 'i' was
+    // recently visited if visited[i] == visitedToken is true. This is handy
+    // because to mark all nodes as unvisited simply increment the visitedToken.
+    private int visitedToken = 1;
+
     public static class Edge {
         public int from;
         public int to;
@@ -49,29 +76,7 @@ public abstract class NetworkFlowSolverBase {
         }
     }
 
-    // Inputs: n = number of nodes, s = source, t = sink
-    protected int n;
-    protected int s;
-    protected int t;
 
-    protected long maxFlow;
-    protected long minCost;
-
-    protected boolean[] minCut;
-    protected List<Edge>[] graph;
-    protected String[] vertexLabels;
-    protected List<Edge> edges;
-    private int[] visited;
-
-    // Indicates whether the network flow algorithm has ran. We should not need to
-    // run the solver multiple times, because it always yields the same result.
-    protected boolean solved;
-
-    // 'visited' and 'visitedToken' are variables used for graph sub-routines to
-    // track whether a node has been visited or not. In particular, node 'i' was
-    // recently visited if visited[i] == visitedToken is true. This is handy
-    // because to mark all nodes as unvisited simply increment the visitedToken.
-    private int visitedToken = 1;
 
 
 
@@ -171,8 +176,8 @@ public abstract class NetworkFlowSolverBase {
 
     /**
      * Returns the graph after the solver has been executed. This allow you to inspect the {@link
-     * seedu.voyagers.classes.NetworkFlowSolverBase.Edge#flow}
-     * compared to the {@link seedu.voyagers.classes.NetworkFlowSolverBase.Edge#capacity}
+     * Edge#flow}
+     * compared to the {@link Edge#capacity}
      * in each edge. This is useful if you want to
      * figure out which edges were used during the max flow.
      */
