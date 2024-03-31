@@ -8,7 +8,8 @@ public abstract class NetworkFlowSolverBase {
     protected static final long INF = Long.MAX_VALUE / 2;
 
     public static class Edge {
-        public int from, to;
+        public int from;
+        public int to;
         public Edge residual;
         public long flow;
         public long cost;
@@ -49,7 +50,9 @@ public abstract class NetworkFlowSolverBase {
     }
 
     // Inputs: n = number of nodes, s = source, t = sink
-    protected int n, s, t;
+    protected int n;
+    protected int s;
+    protected int t;
 
     protected long maxFlow;
     protected long minCost;
@@ -58,13 +61,14 @@ public abstract class NetworkFlowSolverBase {
     protected List<Edge>[] graph;
     protected String[] vertexLabels;
     protected List<Edge> edges;
+    private int[] visited;
 
     // 'visited' and 'visitedToken' are variables used for graph sub-routines to
     // track whether a node has been visited or not. In particular, node 'i' was
     // recently visited if visited[i] == visitedToken is true. This is handy
     // because to mark all nodes as unvisited simply increment the visitedToken.
     private int visitedToken = 1;
-    private int[] visited;
+
 
     // Indicates whether the network flow algorithm has ran. We should not need to
     // run the solver multiple times, because it always yields the same result.
