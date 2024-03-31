@@ -1,8 +1,6 @@
 package seedu.voyagers.classes.billsettler;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import seedu.voyagers.classes.billsettler.Dinics;
 import seedu.voyagers.classes.Profile;
 import seedu.voyagers.classes.Bill;
 import seedu.voyagers.utils.Currency;
@@ -27,20 +25,20 @@ public class BillSettler {
         Profile david = new Profile("David", Currency.EUR);
 
         Bill bill1 = new Bill("bill1", alice, 110.0, Currency.EUR, new HashMap<Profile, Double>(){{
-            put(bob, 40.0);
-            put(charlie, 20.0);
-            put(david, 40.0);
-        }});
+                put(bob, 40.0);
+                put(charlie, 20.0);
+                put(david, 40.0);
+            }});
 
         Bill bill2 = new Bill("bill2", bob, 50.0, Currency.EUR, new HashMap<Profile, Double>(){{
-            put(alice, 90.0);
-            put(charlie, 10.0);
-        }});
+                put(alice, 90.0);
+                put(charlie, 10.0);
+            }});
 
         Bill bill3 = new Bill("bill3", charlie, 60.0, Currency.EUR, new HashMap<Profile, Double>(){{
-            put(alice, 20.0);
-            put(bob, 80.0);
-        }});
+                put(alice, 20.0);
+                put(bob, 80.0);
+            }});
 
         bills.add(bill1);
         bills.add(bill2);

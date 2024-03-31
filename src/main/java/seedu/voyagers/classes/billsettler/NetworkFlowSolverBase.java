@@ -87,13 +87,17 @@ public abstract class NetworkFlowSolverBase {
     // Construct an empty graph with n nodes including the source and sink nodes.
     private void initializeGraph() {
         graph = new List[n];
-        for (int i = 0; i < n; i++) graph[i] = new ArrayList<Edge>();
+        for (int i = 0; i < n; i++){
+            graph[i] = new ArrayList<Edge>();
+        }
     }
 
     // Add labels to vertices in the graph.
     private void assignLabelsToVertices(String[] vertexLabels) {
-        if(vertexLabels.length != n)
+        if(vertexLabels.length != n){
             throw new IllegalArgumentException(String.format("You must pass %s number of labels", n));
+        }
+
         this.vertexLabels = vertexLabels;
     }
 
@@ -103,7 +107,9 @@ public abstract class NetworkFlowSolverBase {
      * @param edges - A list of all edges to be added to the flow graph.
      */
     public void addEdges(List<Edge> edges) {
-        if (edges == null) throw new IllegalArgumentException("Edges cannot be null");
+        if (edges == null){
+            throw new IllegalArgumentException("Edges cannot be null");
+        }
         for(Edge edge : edges) {
             addEdge(edge.from, edge.to, edge.capacity);
         }
@@ -117,9 +123,11 @@ public abstract class NetworkFlowSolverBase {
      * @param capacity - The capacity of the edge.
      */
     public void addEdge(int from, int to, long capacity) {
-        if (capacity < 0) throw new IllegalArgumentException("Capacity < 0");
+        if (capacity < 0){
+            throw new IllegalArgumentException("Capacity < 0");
+        }
         Edge e1 = new Edge(from, to, capacity);
-    Edge e2 = new Edge(to, from, 0);
+        Edge e2 = new Edge(to, from, 0);
         e1.residual = e2;
         e2.residual = e1;
         graph[from].add(e1);
@@ -156,7 +164,9 @@ public abstract class NetworkFlowSolverBase {
 
     /**
      * Returns the graph after the solver has been executed. This allow you to inspect the {@link
-     * seedu.voyagers.classes.NetworkFlowSolverBase.Edge#flow} compared to the {@link seedu.voyagers.classes.NetworkFlowSolverBase.Edge#capacity} in each edge. This is useful if you want to
+     * seedu.voyagers.classes.NetworkFlowSolverBase.Edge#flow}
+     * compared to the {@link seedu.voyagers.classes.NetworkFlowSolverBase.Edge#capacity}
+     * in each edge. This is useful if you want to
      * figure out which edges were used during the max flow.
      */
     public List<Edge>[] getGraph() {
@@ -232,13 +242,16 @@ public abstract class NetworkFlowSolverBase {
      */
     public void printEdges() {
         for(Edge edge : edges) {
-            System.out.println(String.format("%s ----%s----> %s", vertexLabels[edge.from], edge.capacity, vertexLabels[edge.to]));
+            System.out.println(String.format("%s ----%s----> %s",
+                    vertexLabels[edge.from], edge.capacity, vertexLabels[edge.to]));
         }
     }
 
     // Wrapper method that ensures we only call solve() once
     private void execute() {
-        if (solved) return;
+        if (solved){
+            return;
+        }
         solved = true;
         solve();
     }
