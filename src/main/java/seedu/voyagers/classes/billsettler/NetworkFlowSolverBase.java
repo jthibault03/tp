@@ -9,10 +9,11 @@ public abstract class NetworkFlowSolverBase {
 
     public static class Edge {
         public int from, to;
-        public String fromLabel, toLabel;
         public Edge residual;
-        public long flow, cost;
-        public final long capacity, originalCost;
+        public long flow;
+        public long cost;
+        public final long capacity;
+        public final long originalCost;
 
         public Edge(int from, int to, long capacity) {
             this(from, to, capacity, 0 /* unused */);

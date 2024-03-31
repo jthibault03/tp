@@ -34,7 +34,8 @@ public class Bill implements Payable {
         //TODO: then call Bill(billName, newPeople, newPercentages) with this format.
 
     }
-    public Bill(String billName, Profile payer, Double amount, Currency currency, ArrayList<Profile> people, ArrayList<Double> percentages) {
+    public Bill(String billName, Profile payer, Double amount, Currency currency,
+                ArrayList<Profile> people, ArrayList<Double> percentages) {
         if (people.size() != percentages.size()) {
             throw new IllegalArgumentException("Number of elements in 'people' and 'percentages' arrays must be equal");
         }
@@ -57,7 +58,8 @@ public class Bill implements Payable {
     }
 
     //sets default percentages to equal when no percentages are provided
-    public Bill(String billName, Profile payer, Double amount, Currency currency, ArrayList<Profile> people) {
+    public Bill(String billName, Profile payer, Double amount, Currency currency,
+                ArrayList<Profile> people) {
         int numPeople = people.size();
         double percentage = 100 / numPeople;
         Double[] percentages = new Double[numPeople];
@@ -66,7 +68,8 @@ public class Bill implements Payable {
         new Bill(billName, payer, amount, currency, people, p);
     }
 
-    public Bill(String billName, Profile payer, Double amount, Currency currency, HashMap<Profile, Double> participants) {
+    public Bill(String billName, Profile payer, Double amount, Currency currency,
+                HashMap<Profile, Double> participants) {
         this.billName = billName;
         this.payer = payer;
         this.amount = amount;

@@ -35,7 +35,11 @@ public class Dinics extends NetworkFlowSolverBase{
             }
         }
 
-        for (int i = 0; i < n; i++) if (level[i] != -1) minCut[i] = true;
+        for (int i = 0; i < n; i++){
+            if (level[i] != -1){
+                minCut[i] = true;
+            }
+        }
     }
 
     // Do a BFS from source to sink and compute the depth/level of each node
@@ -59,7 +63,9 @@ public class Dinics extends NetworkFlowSolverBase{
     }
 
     private long dfs(int at, int[] next, long flow) {
-        if (at == t) return flow;
+        if (at == t){
+            return flow;
+        }
         final int numEdges = graph[at].size();
 
         for (; next[at] < numEdges; next[at]++) {
