@@ -63,6 +63,10 @@ public abstract class NetworkFlowSolverBase {
     protected List<Edge> edges;
     private int[] visited;
 
+    // Indicates whether the network flow algorithm has ran. We should not need to
+    // run the solver multiple times, because it always yields the same result.
+    protected boolean solved;
+
     // 'visited' and 'visitedToken' are variables used for graph sub-routines to
     // track whether a node has been visited or not. In particular, node 'i' was
     // recently visited if visited[i] == visitedToken is true. This is handy
@@ -70,9 +74,7 @@ public abstract class NetworkFlowSolverBase {
     private int visitedToken = 1;
 
 
-    // Indicates whether the network flow algorithm has ran. We should not need to
-    // run the solver multiple times, because it always yields the same result.
-    protected boolean solved;
+
 
     /**
      * Creates an instance of a flow network solver. Use the {@link #addEdge} method to add edges to
