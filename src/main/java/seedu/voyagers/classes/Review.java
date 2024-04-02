@@ -1,5 +1,7 @@
 package seedu.voyagers.classes;
 
+import static java.lang.Integer.parseInt;
+
 public class Review {
 
     private int score;
@@ -8,12 +10,15 @@ public class Review {
 
     public Review(){
         this.score = -1;
-        this.reflection = null;
+        this.reflection = "empty";
     }
 
     public void setScore(int score) {
         this.score = score;
-        this.reflection = "";
+    }
+
+    public void setScore(String score) {
+        this.score = parseInt(score);
     }
 
     public void setReflection(String reflection) {
@@ -28,8 +33,4 @@ public class Review {
         return reflection;
     }
 
-    @Override
-    public String toString(){
-        return "Score: " + score + ", Reflection: " + reflection;
-    }
 }
