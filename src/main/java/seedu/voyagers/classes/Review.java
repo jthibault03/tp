@@ -33,8 +33,4 @@ public class Review {
         return reflection;
     }
 
-    @Override
-    public String toString(){
-        return "Score: " + score + ", Reflection: " + reflection;
-    }
 }
