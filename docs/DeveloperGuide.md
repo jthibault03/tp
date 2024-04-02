@@ -2,16 +2,17 @@
 
 ## Acknowledgements
 
-{list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+This project is a team effort by the NUS CS2113 Group W14-4
 
 ## Design & implementation
-
-{Describe the design and implementation of the product. Use UML diagrams and short code snippets where applicable.}
 
 The Voyagers application is designed as a command-line interface 
 (CLI) tool for managing travel trips. 
 It is implemented in Java and follows a modular architecture to promote scalability and maintainability.
 
+The following UML sequence diagram shows the flow of the application when the user enters a command.
+
+![Sequence Diagram](diagrams/seq_diagram_flow.png)
 
 ### Normal flow of the application
 
@@ -38,10 +39,6 @@ With these classes we can encapsulate the whole logic of the application in a re
             }
                                 ...
 ````
-
-The following UML sequence diagram shows the flow of the application when the user enters a command.
-
-![Sequence Diagram](diagrams/seq_diagram_flow.png)
 
 ### Settling a bill: minimizing number of transactions.
 
@@ -85,18 +82,23 @@ Currently, Reviews are not stored when the app exits, this implementation is pla
 ## Product scope
 ### Target user profile
 
-{Describe the target user profile}
+Individuals who frequently embark on journeys and require a reliable method to document their itinerary, 
+capture memories through photos, and track expenses effectively.
 
 ### Value proposition
 
-{Describe the value proposition: what problem does it solve?}
+The ultimate travel companion designed for adventurers who crave seamless organisation and unforgettable experiences. 
+With our intuitive digital diary, users can effortlessly manage their itinerary, capture precious memories with 
+integrated photo features, and track expenses for a worry-free journey. Users can enjoy anytime, anywhere access across 
+their local devices. We also have customisation options tailored to users’ unique style.
+
 
 ## User Stories
 
-|Version| As a ... | I want to ... | So that I can ...|
-|--------|----------|---------------|-|
-|v1.0|new user|add a new trip|plan my upcoming travel itinerary|
-|v2.0|user|find a to-do item by name|locate a to-do without having to go through the entire list|
+|Version| As a ... | I want to ...   | So that I can ...                                    |
+|--------|----------|-----------------|------------------------------------------------------|
+|v1.0|new user| add a new trip  | plan my upcoming travel itinerary                    |
+|v2.0|user| review my trips | give scores or simple comments on my completed trips |
 
 ## Non-Functional Requirements
 
