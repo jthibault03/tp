@@ -10,7 +10,7 @@ public class Review {
 
     public Review(){
         this.score = -1;
-        this.reflection = null;
+        this.reflection = "empty";
     }
 
     public void setScore(int score) {
@@ -33,8 +33,4 @@ public class Review {
         return reflection;
     }
 
-    @Override
-    public String toString(){
-        return "Score: " + score + ", Reflection: " + reflection;
-    }
 }

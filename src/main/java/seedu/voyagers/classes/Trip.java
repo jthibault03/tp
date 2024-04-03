@@ -35,11 +35,11 @@ public class Trip {
         // if the date is in the future, the trip is ongoing
         // if the date is in the past, the trip is completed
         if (endDate.before(new Date())) {
-            this.status = Status.COMPLETED;
+            setStatus(Status.COMPLETED);
         }   else if (startDate.after(new Date())) {
-            this.status = Status.UPCOMING;
+            setStatus(Status.UPCOMING);
         }   else {
-            this.status = Status.ONGOING;
+            setStatus(Status.ONGOING);
         }
         this.review = new Review();
     }
@@ -51,7 +51,14 @@ public class Trip {
         this.endDate =   FormatDate.dateFormat.parse(args[2]);
         this.location = args[3];
         this.description = args[4];
-
+        if (endDate.before(new Date())) {
+            setStatus(Status.COMPLETED);
+        }   else if (startDate.after(new Date())) {
+            setStatus(Status.UPCOMING);
+        }   else {
+            setStatus(Status.ONGOING);
+        }
+        this.review = new Review();
     }
 
     public String getName() {
