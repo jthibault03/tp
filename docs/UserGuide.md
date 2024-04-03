@@ -12,6 +12,12 @@ Voyagers is a Java application designed to simplify trip management. It provides
 - **Delete Main Trip**: Remove an existing main trip from the list.
 - **Set Trip Details**: Modify trip details such as name, dates, location, and description for existing trips.
 - **List All Trips**: View a comprehensive list of all trips along with their details.
+- **Add Review**: Review a trip by providing a score and reflection.
+- **Read Review**: Read the review of a specific trip.
+- **Update Status**: Update the status of a trip to 'Ongoing', 'Upcoming' or 'Completed'.
+- **Cancel Trip**: Cancel a trip and remove it from the list.
+- **Save Data**: Save the trip data to a file for future reference.
+- **Exit Application**: Exit the application.
 
 ## Usage
 
