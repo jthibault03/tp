@@ -2,7 +2,7 @@ package seedu.voyagers.commands;
 
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.utils.Ui;
-import seedu.voyagers.utils.Storage;
+import seedu.voyagers.utils.TripStorage;
 
 public class ExitCommand extends Command{
     public ExitCommand(){
@@ -13,9 +13,9 @@ public class ExitCommand extends Command{
      * Prints the goodbye message.
      * @param tasks the list of tasks
      * @param ui the user interface
-     * @param storage the storage
+     * @param tripStorage the storage
      */
-    public void execute(TripList tasks, Ui ui, Storage storage){
+    public void execute(TripList tasks, Ui ui, TripStorage tripStorage){
         ui.showExit();
     }
 

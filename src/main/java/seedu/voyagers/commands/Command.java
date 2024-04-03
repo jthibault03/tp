@@ -1,6 +1,6 @@
 package seedu.voyagers.commands;
 
-import seedu.voyagers.utils.Storage;
+import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.utils.Ui;
 
@@ -30,9 +30,9 @@ public abstract class Command {
      * Executes the command.
      * @param tasks the list of tasks
      * @param ui the user interface
-     * @param storage the storage
+     * @param tripStorage the storage
      */
-    public abstract void execute(TripList tasks, Ui ui, Storage storage);
+    public abstract void execute(TripList tasks, Ui ui, TripStorage tripStorage);
 
     /**
      * Returns true iff the command is an exit command.

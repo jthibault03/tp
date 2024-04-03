@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class Storage {
+public class TripStorage {
 
     private static final Logger LOGGER = Logger.getLogger("Storage");
 
@@ -41,20 +41,20 @@ public class Storage {
                 java.text.SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd");
                 Date startDate = format.parse(inputs[1]);
                 Date endDate = format.parse(inputs[2]);
-                Trip trip = new Trip(inputs[0], startDate, endDate, inputs[3], inputs[4], inputs[5]);
+                Trip trip = new Trip(inputs[0], startDate, endDate, inputs[3], inputs[4]);
                 trips.add(trip);
             }
             s.close();
         } catch (FileNotFoundException e) {
 
-            System.out.println("File not found.\nCreating new file...\nFile created.");
+            System.out.println("Trip file not found.\nCreating new trip file...\nTrip file created.");
             try {
-                assert f.createNewFile() : "File creation failed";
+                assert f.createNewFile() : "Trip file creation failed";
                 f.createNewFile();
-                logger.log(Level.INFO, "File created.");
+                logger.log(Level.INFO, "Trip file created.");
             } catch (java.io.IOException ex) {
                 System.out.println("An error occurred.");
-                logger.log(Level.SEVERE, "An error occurred when creating the file.");
+                logger.log(Level.SEVERE, "An error occurred when creating the trip file.");
             }
         } catch (ParseException e) {
             System.out.println("An error occurred.");
@@ -77,7 +77,8 @@ public class Storage {
                 writer.write(trip.getName() + "|" + FormatDate.dateFormat.format(trip.getStartDate()) + "|" +
                         FormatDate.dateFormat.format(trip.getEndDate()) + "|"
                         + trip.getLocation() + "|" + trip.getDescription()
-                        + "|" + trip.getReviewScore() + "\n");
+                        //+ "\n");
+                        + "|" + trip.getStatus().toString() + "\n");
             }
         } catch (IOException e) {
             System.out.println("An error occurred: " + e.getMessage());

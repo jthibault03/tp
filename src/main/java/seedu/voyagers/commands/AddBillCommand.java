@@ -1,9 +1,8 @@
 package seedu.voyagers.commands;
 
 import seedu.voyagers.classes.Bill;
-import seedu.voyagers.classes.Trip;
 import seedu.voyagers.classes.TripList;
-import seedu.voyagers.utils.Storage;
+import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.utils.Ui;
 
 public class AddBillCommand extends Command {
@@ -11,7 +10,7 @@ public class AddBillCommand extends Command {
         super(args);
     }
 
-    public void execute(TripList trips, Ui ui, Storage storage){
+    public void execute(TripList trips, Ui ui, TripStorage tripStorage){
 
         try{
             Bill bill = new Bill(args);
