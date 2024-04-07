@@ -20,6 +20,6 @@ public class ParserDefinitions {
 
     public static final String[] REVIEW = {"/s", "/r"};
 
-    public static final String[] SETSTATUS = {"/s, /status"};
+    public static final String[] SETSTATUS = {"/status"};
 
 }

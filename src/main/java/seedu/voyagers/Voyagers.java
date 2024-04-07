@@ -51,7 +51,6 @@ public class Voyagers {
 
 
         new ListCommand().execute(tripList, ui, null);
-        new AutoTripStatusUpdateCommand().execute(tripList, ui, null);
         boolean isExit = false;
 
         while (!isExit) {
