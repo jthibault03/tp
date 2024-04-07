@@ -2,12 +2,14 @@ package seedu.voyagers.commands;
 
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.utils.FormatDate;
+import seedu.voyagers.utils.Status;
 import seedu.voyagers.utils.Ui;
 import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.classes.Trip;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Objects;
 
 public class ModifyTripCommand extends Command{
 
@@ -54,6 +56,14 @@ public class ModifyTripCommand extends Command{
             break;
         case "description":
             trip.setDescription(args[2]);
+            break;
+        case "status":
+            if (args[2].equalsIgnoreCase( "cancel")) {
+                trip.setStatus(Status.CANCELLED);
+            } else if (args[2].equalsIgnoreCase("uncancel")) {
+                trip.setStatus(null);
+                new AutoTripStatusUpdateCommand().execute(trips, ui, null);
+            }
             break;
         default:
             ui.echo("Invalid modification type");

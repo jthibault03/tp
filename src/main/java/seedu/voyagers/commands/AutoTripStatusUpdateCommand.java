@@ -13,7 +13,23 @@ public class AutoTripStatusUpdateCommand {
 
         for (int i = 0; i < trips.size(); i++) {
             Trip trip = trips.get(i);
-            if (trip.getEndDate().before(currentDate) && (trip.getStatus() == Status.ONGOING ||
+            if (trip.getStatus() == null) {
+                //System.out.println("Trip status is null");
+                if (trip.getEndDate().before(currentDate)) {
+                   // System.out.println("Trip end date is before current date");
+                    trip.setStatus(Status.COMPLETED);
+                } else if (trip.getStartDate().after(currentDate)) {
+                    //System.out.println("Trip start date is after current date");
+                    trip.setStatus(Status.UPCOMING);
+                    //System.out.println("Trip status is now " + trip.getStatus());
+                } else {
+                    //System.out.println("Trip is ongoing");
+                    trip.setStatus(Status.ONGOING);
+                   // System.out.println("Trip status is now " + trip.getStatus());
+                }
+            }
+
+            else if (trip.getEndDate().before(currentDate) && (trip.getStatus() == Status.ONGOING ||
                     trip.getStatus() == Status.UPCOMING) ) {
                 trip.setStatus(Status.COMPLETED);
                 ui.echo("Trip " + trip.getName() + " has ended. It is now marked as completed.");
