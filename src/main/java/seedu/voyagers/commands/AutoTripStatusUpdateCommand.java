@@ -9,6 +9,8 @@ import java.util.Date;
 
 public class AutoTripStatusUpdateCommand {
     public void execute(TripList trips, Ui ui, TripStorage tripStorage) {
+        String currentDir = System.getProperty("user.dir");
+        final String TRIPS_FILE_NAME = "local-voyagers.txt";
         Date currentDate = new Date();
 
         for (int i = 0; i < trips.size(); i++) {
@@ -40,5 +42,7 @@ public class AutoTripStatusUpdateCommand {
                 ui.echo("Trip " + trip.getName() + " has started. It is now marked as ongoing.");
             }
         }
+
+        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, TRIPS_FILE_NAME);
     }
 }

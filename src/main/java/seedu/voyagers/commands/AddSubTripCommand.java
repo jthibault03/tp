@@ -13,7 +13,8 @@ public class AddSubTripCommand extends Command{
     }
 
     public void execute(TripList trips, Ui ui, TripStorage tripStorage){
-
+        String currentDir = System.getProperty("user.dir");
+        final String TRIPS_FILE_NAME = "local-voyagers.txt";
         Trip mainTrip = null;
         String[] newArgs = new String[args.length - 1];
         System.arraycopy(args, 1, newArgs, 0, args.length - 1);
@@ -35,6 +36,6 @@ public class AddSubTripCommand extends Command{
             ui.echo(e.getMessage());
         }
 
-        //storage.writeTripFile(trips, trips.size());
+        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, TRIPS_FILE_NAME);
     }
 }
