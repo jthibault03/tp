@@ -99,7 +99,7 @@ The code has been adapted to the one found in the following [link](https://mediu
 
 The next diagram shows the flow of the application after the user enters the `simplifybills` command.
 
-![Sequence Diagram](diagrams/diag_simplify_bills.png)
+![Sequence Diagram](diagrams/diag_simplify_bills_2.png)
 
 
 ## Bill
