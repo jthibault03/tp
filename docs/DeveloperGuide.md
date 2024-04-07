@@ -4,15 +4,32 @@
 
 This project is a team effort by the NUS CS2113 Group W14-4
 
+## Setting Up, Getting Started
+
+Run the JAR File, then follow the prompts through the command-line interface. Refer to this guide for syntax.
+
+## Architecture
+
+{UML Diagram of high-level app architecture}
+Given below is a quick overview of main components and how they interact with each other.
+
+Voyagers {...}  
+Parser {...}  
+Commands {...}  
+Storage {...}  
+Ui {...}  
+Trip {...}  
+Bill {...}
+
+How the architecture components interact with each other
+{Sequence Diagram}
+
+
 ## Design & implementation
 
 The Voyagers application is designed as a command-line interface 
 (CLI) tool for managing travel trips. 
 It is implemented in Java and follows a modular architecture to promote scalability and maintainability.
-
-The following UML sequence diagram shows the flow of the application when the user enters a command.
-
-![Sequence Diagram](diagrams/seq_diagram_flow.png)
 
 ### Normal flow of the application
 
@@ -37,32 +54,53 @@ With these classes we can encapsulate the whole logic of the application in a re
             } catch (Exception e) { 
                 ui.echo(e.getMessage());
             }
+        }
                                 ...
 ````
 
-### Settling a bill: minimizing number of transactions.
+The following UML sequence diagram shows the flow of the application when the user enters a command.
 
-To be implemented.
+![Sequence Diagram](diagrams/seq_diagram_flow.png)
 
-## Setting Up, Getting Started
+### Commands
 
-Run the JAR File, then follow the prompts through the command-line interface. Refer to this guide for syntax.
+As shown in the sequence diagram, commands are encapsulated in the `Command` class.
+This class is abstract and each command is implemented in a subclass of `Command`.
 
-## Architecture
+The `Command` class has the following structure:
 
-{UML Diagram of high-level app architecture}
-Given below is a quick overview of main components and how they interact with each other.
+````java
+public abstract class Command {
+    protected boolean isExit = false;
+    public abstract void execute(TripList tripList, Ui ui, Storage storage) throws VoyagersException;
+    public boolean isExit() {
+        return isExit;
+    }
+}
+````
 
-Voyagers {...}  
-Parser {...}  
-Commands {...}  
-Storage {...}  
-Ui {...}  
-Trip {...}  
-Bill {...}
+The main logic of each command is implemented in the `execute` method. 
 
-How the architecture components interact with each other
-{Sequence Diagram}
+### Parser
+
+To parser the user input into a command we have implemented a `Parser` class. 
+This parser is quite generic and easy to extend to include new commands.
+
+The parser works with another class called 'ParserDefinition'. This class is a simple data structure that contains the
+expected arguments for each command.
+
+### Simplifying bills: minimizing number of transactions.
+
+Each trip can have multiple bills associated. We have decided to include a functionality to simplify the bills
+from a trip. This means that we will try to minimize the number of transactions between the participants of the trip.
+
+The implementation uses a graph algorithm to find the minimum number of transactions between the participants of the trip.
+The code has been adapted to the one found in the following [link](https://medium.com/@mithunmk93/algorithm-behind-splitwises-debt-simplification-feature-8ac485e97688).
+
+The next diagram shows the flow of the application after the user enters the `simplifybills` command.
+
+![Sequence Diagram](diagrams/diag_simplify_bills.png)
+
 
 ## Bill
 Bill implements Payable, an interface to be used a few times in this project to cover 
