@@ -54,6 +54,18 @@ setname Europe Trip /n European Adventure
 setdates Europe /start 2024-05-01 /end 2024-07-31
 ```
 
+### Cancel a Trip
+
+```bash
+setstatus Europe /status cancel
+```
+
+### Uncancel a Trip
+
+```bash
+setstatus Europe /status uncancel
+```
+
 ### Deleting a Main Trip
 To delete an existing main trip, use the `deletemaintrip` command followed by the trip name.
 

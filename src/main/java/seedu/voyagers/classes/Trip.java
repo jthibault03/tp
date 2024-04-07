@@ -159,9 +159,7 @@ public class Trip {
     }
 
     public void setStatus(Status status) {
-        if (status == Status.CANCELLED) {
-            this.status = status;
-        }
+        this.status = status;
     }
 
     /**

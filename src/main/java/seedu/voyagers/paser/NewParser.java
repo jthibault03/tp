@@ -68,6 +68,10 @@ public class NewParser {
             values = concatenate(new String[]{"description"},
                     parseArgs(line, ParserDefinitions.SETDESCRIPTION, true));
             return new ModifyTripCommand(values);
+        case "setstatus":
+            values = concatenate(new String[]{"status"},
+                    parseArgs(line, ParserDefinitions.SETSTATUS, true));
+            return new ModifyTripCommand(values);
         case "help":
             return new HelpCommand();
         case "review":
