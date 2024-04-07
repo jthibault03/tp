@@ -2,6 +2,39 @@
 
 Voyagers is a Java application designed to manage trips efficiently through a command-line interface.
 
+
+## Table of Contents
+
+
+1. [Introduction](#introduction)
+2. [Features](#features)
+    - [Add Main Trip](#add-main-trip)
+    - [Delete Main Trip](#delete-main-trip)
+    - [Set Trip Details](#set-trip-details)
+    - [List All Trips](#list-all-trips)
+    - [Add Review](#add-review)
+    - [Read Review](#read-review)
+    - [Update Status](#update-status)
+    - [Cancel Trip](#cancel-trip)
+    - [Save Data](#save-data)
+    - [Exit Application](#exit-application)
+3. [Usage](#usage)
+    - [Adding a Main Trip](#adding-a-main-trip)
+    - [Setting Trip Details](#setting-trip-details)
+    - [Change the Name of a Trip](#change-the-name-of-a-trip)
+    - [Change the Date of a Trip](#change-the-date-of-a-trip)
+    - [Cancel a Trip](#cancel-a-trip)
+    - [Uncancel a Trip](#uncancel-a-trip)
+    - [Deleting a Main Trip](#deleting-a-main-trip)
+    - [Listing All Trips](#listing-all-trips)
+    - [Reviewing Trips](#reviewing-trips)
+    - [Reading Trip Reviews](#reading-trip-reviews)
+    - [Exit Command](#exit-command)
+    - [Managing Bills](#managing-bills)
+        - [Adding a Bill](#adding-a-bill)
+        - [Simplify Bills from a Trip](#simplify-bills-from-a-trip)
+    - [Currency](#currency)
+
 ## Introduction
 
 Voyagers is a Java application designed to simplify trip management. It provides users with a command-line interface to manage their trips efficiently, including adding main trips, setting trip details, listing all trips, and more.
@@ -100,3 +133,49 @@ readreview Trip1
 ```bash 
 exit
 ```
+
+### Managing bills
+
+You can add bills to a trip. The bills are payed by a person but it can involve multiple people.
+
+#### Adding a bill
+
+````bash
+addbill  <trip name> /description <description> /amount <amount> /currency <currency> /payer <payer> /participants <participants> /percentage <percentage>
+````
+
+Example:
+
+````bash
+addbill Europe /description "Dinner in Paris" /amount 100 /currency EUR /payer Alice /participants Bob Charlie /percentage 50 50
+````
+
+Note:
+- The amount must be positive.
+  - The currency must be a valid currency code. Consult the list of valid currency codes [here](#currency).
+  - The percentage must be between 0 and 100 and the sum of the percentages of all participants must be 100.
+  - The payer may not be involved in the bill: i.e the payer may not be in the list of participants.
+
+
+### Simplify bills from a trip
+
+In order to settle up all the bills. You can simplify all the bills from a trip.
+The simplification will reduce the number of transactions needed to settle up all the bills.
+
+````bash
+simplifybills <trip name>
+````
+
+
+
+Note: if the trip is a maintrip, the simplification will be done on all the subtrips of the maintrip.
+
+Note: the simplification will be made using dollars.
+
+#### Currency
+
+The app supports multiple currencies:
+- EUR: Euro
+- USD: US Dollar
+- SGD: Singapore Dollar
+
