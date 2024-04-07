@@ -24,7 +24,7 @@ public class TripList {
      * @param trip the trip to add
      */
     public void add(Trip trip){
-        if (isTripNameRepeated(trip.getName())){
+        if (isTripNameRepeated(trip.getName()) && !trip.getTripType().equals("sub")){
             throw new IllegalArgumentException("Trip name already exists");
         }
         this.trips.add(trip);

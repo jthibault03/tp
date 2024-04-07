@@ -12,9 +12,8 @@ public class Trip {
     private Date endDate;
     private String location;
     private String description;
-
+    private String tripType;
     private Status status;
-
     private Review review;
 
     private ArrayList<Trip> subTrips = new ArrayList<>();
@@ -75,6 +74,21 @@ public class Trip {
 
     public int getSubTripsSize(){
         return subTrips.size();
+    }
+
+
+    public String getTripType() {
+        return tripType;
+    }
+
+    public void setTripType(String tripType) {
+        if (tripType.equalsIgnoreCase("main")) {
+            this.tripType = "main";
+        } else if (tripType.equalsIgnoreCase("sub")) {
+            this.tripType = "sub";
+        } else {
+            this.tripType = "main";
+        }
     }
 
     /**
