@@ -12,20 +12,29 @@ Voyagers is a Java application designed to simplify trip management. It provides
 - **Delete Main Trip**: Remove an existing main trip from the list.
 - **Set Trip Details**: Modify trip details such as name, dates, location, and description for existing trips.
 - **List All Trips**: View a comprehensive list of all trips along with their details.
+- **Add Review**: Review a trip by providing a score and reflection.
+- **Read Review**: Read the review of a specific trip.
+- **Update Status**: Update the status of a trip to 'Ongoing', 'Upcoming' or 'Completed'.
+- **Cancel Trip**: Cancel a trip and remove it from the list.
+- **Save Data**: Save the trip data to a file for future reference.
+- **Exit Application**: Exit the application.
 
 ## Usage
+
+The core of Voyagers is to allow users to manage their trips efficiently. Especially adding a new main trip by typing a
+single line.
 
 ### Adding a Main Trip
 
 To add a new main trip, use the `addmaintrip` command followed by the trip details.
 
 ```bash
-addmaintrip /n <Name> /start <Start Date> /end <End Date> /location <Location> /d <Description>
+addmaintrip /n <Name> /start <yyyy-MM-dd> /end <yyyy-MM-dd> /location <Location> /d <Description>
 ```
 
 ### Setting Trip Details
 
-You can modify the details of an existing trip using the following commands:
+You can also modify the details of an existing trip using the following commands:
 
 - `setname`: Set the name of a trip.
 - `setdates`: Set the dates of a trip.
@@ -34,12 +43,15 @@ You can modify the details of an existing trip using the following commands:
 
 Example:
 
+### Change the Name of a Trip
 ```bash
-setname /old Europe Trip /new European Adventure
+setname Europe Trip /n European Adventure
 ```
 
+### Change the Date of a Trip
+
 ```bash
-setdates /n Europe Trip /start 2024/05/01 /end 2024/07/31
+setdates Europe /start 2024-05-01 /end 2024-07-31
 ```
 
 ### Deleting a Main Trip

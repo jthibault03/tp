@@ -15,7 +15,6 @@ public class Bill implements Payable {
     private double amount;
     private Currency currency;
     private Trip trip;
-
     private Profile payer;
 
     // hashmap with key as profile and value as the percentage of the bill they are responsible for
@@ -61,7 +60,7 @@ public class Bill implements Payable {
     public Bill(String billName, Profile payer, Double amount, Currency currency,
                 ArrayList<Profile> people) {
         int numPeople = people.size();
-        double percentage = 100 / numPeople;
+        double percentage = (double) 100 / numPeople;
         Double[] percentages = new Double[numPeople];
         Arrays.fill(percentages, percentage);
         ArrayList<Double> p = new ArrayList<>(Arrays.asList(percentages));
