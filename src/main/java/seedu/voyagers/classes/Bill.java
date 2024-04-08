@@ -30,10 +30,6 @@ public class Bill implements Payable {
     public Bill(String[] args) {
         //"/trip", "/n", "/payer", "/people", "/amount", /currency, "/percentages"}
        //assert(args.length );
-        //TODO: check that the parser is splitting the args by keyword, not space.
-        //TODO: change args[1] into ArrayList<Profile> people on the backend, and args[2] into ArrayList<Double>
-        // percentages.
-        //TODO: then call Bill(billName, newPeople, newPercentages) with this format.
 
         //TODO: setCurrency method and null currency
         tripName = args[0];
@@ -84,7 +80,7 @@ public class Bill implements Payable {
         Double[] percentages = new Double[numPeople];
         Arrays.fill(percentages, percentage);
         ArrayList<Double> p = new ArrayList<>(Arrays.asList(percentages));
-        new Bill(billName, payer, amount, currency, people, p);
+        new Bill(tripName, billName, payer, amount, currency, people, p);
     }
 
     public Bill(String billName, Profile payer, Double amount, Currency currency,
@@ -139,7 +135,8 @@ public class Bill implements Payable {
     //Right now, just concerns people within this Bill. Future goal: update to entire trip.
     public void addPeople(Profile[] newPeople) {
         for (Profile newPerson : newPeople) {
-            addPerson(newPerson);
+            addPerson(newPerson, this.amount / people.size());
+            people.add(newPerson);
         }
     }
 
