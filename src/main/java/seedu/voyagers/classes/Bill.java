@@ -47,9 +47,7 @@ public class Bill implements Payable {
         this.amount = Double.parseDouble(args[4]);
         this.participants = setParticipants(args[4], args[2], args[3], args[5]); //TODO: check these args are the right index number
         this.percentages = makeDoublesArray(args[5]);
-        this.payerRaw = args[2];
         this.othersRaw = args[3];
-        this.percentagesRaw = args[5];
         for (Profile x : participants.keySet()) {
             this.people.add(x);
         }
@@ -271,7 +269,8 @@ public class Bill implements Payable {
                 payer.getName() + "\t\tOthers: " + othersRaw
                 + "\t\tAmount: " + amount
                 + "\t\tPercentages: " + percentages
-                + "\t\tCurrency: " + this.currency;
+                + "\t\tCurrency: " + this.currency
+                + "\t\tPaid?: " + this.paid;
         return s;
     }
 }

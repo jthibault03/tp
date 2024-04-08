@@ -62,6 +62,10 @@ public enum Currency {
     public String getSymbol() {
         return symbol;
     }
+
+//    public Currency getEnum(String name) {
+//
+//    }
 }
 
 

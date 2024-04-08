@@ -4,7 +4,7 @@ import seedu.voyagers.VoyagerException;
 import java.util.ArrayList;
 
 public class BillList {
-    private ArrayList<Bill> bills;
+    public static ArrayList<Bill> bills;
     private Trip trip;
 
     public BillList(int size) {
@@ -18,8 +18,9 @@ public class BillList {
     public void add(Bill bill) {
         if (isBillNameRepeated(bill.getName())) {
             throw new IllegalArgumentException("Bill name already exists");
+        } else {
+            this.bills.add(bill);
         }
-        this.bills.add(bill);
     }
 
     /**
@@ -57,7 +58,7 @@ public class BillList {
      * @throws IndexOutOfBoundsException if the index is invalid
      */
     public Bill get(int index) throws IndexOutOfBoundsException{
-        return this.bills.get(index);
+        return bills.get(index);
     }
 
     /**
@@ -100,7 +101,7 @@ public class BillList {
      * @param name the name of the bill to find
      * @return the index of the bill with the specified name. Returns -1 if no such bill is found
      */
-    public int findBill(String name){
+    public static int findBill(String name){
         for (int i = 0; i < bills.size(); i++){
             if (bills.get(i).getName().equals(name)){
                 return i;
@@ -109,7 +110,7 @@ public class BillList {
         return -1;
     }
 
-    public Bill getBill(String name) throws IllegalArgumentException{
+    public static Bill getBill(String name) throws IllegalArgumentException{
         int index = findBill(name);
         if (index == -1){
             throw new IllegalArgumentException("No such trip found");
@@ -124,7 +125,7 @@ public class BillList {
 
 
     public ArrayList<Bill> getBills(){
-        return this.bills;
+        return bills;
     }
 
     /**
