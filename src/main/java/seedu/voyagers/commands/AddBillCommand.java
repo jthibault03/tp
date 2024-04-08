@@ -18,8 +18,8 @@ public class AddBillCommand extends Command {
 
         try{
             Bill bill = new Bill(args);
-            bills = bill.getTrip().getBillList(); //TODO: implement a way to get all the bills associated with a certain trip.
-            bills.add(bill);
+            bill.getTrip().addBill(bill);
+            BillList bills = bill.getTrip().getBills();
             //new AutoBillStatusUpdateCommand().execute(bills, ui, null);
             ui.echo("Got it. I've added this bill:\n" + bill
                     + "\nNow you have " + bills.size() +
