@@ -11,48 +11,67 @@ import java.util.HashMap;
 
 public class Bill implements Payable {
 
+    private String tripName;
     private String billName;
     private double amount;
     private Currency currency;
     private Trip trip;
-
     private Profile payer;
 
     // hashmap with key as profile and value as the percentage of the bill they are responsible for
     // percentages must sum to 100
     private HashMap<Profile, Double> participants = new HashMap<>();
 
+    //people on this bill.
     private ArrayList<Profile> people = new ArrayList<>();
     private ArrayList<Double> percentages = new ArrayList<>();
     private boolean paid;
 
     public Bill(String[] args) {
-        assert(args.length == 3);
+        //"/trip", "/n", "/payer", "/people", "/amount", /currency, "/percentages"}
+       //assert(args.length );
         //TODO: check that the parser is splitting the args by keyword, not space.
         //TODO: change args[1] into ArrayList<Profile> people on the backend, and args[2] into ArrayList<Double>
         // percentages.
         //TODO: then call Bill(billName, newPeople, newPercentages) with this format.
 
+        //TODO: setCurrency method and null currency
+        tripName = args[0];
+        billName = args[1];
+
+        if (ProfileList.findProfile(args[2]) == -1) {
+            payer = new Profile(args[2]);
+        } else {
+            payer = ProfileList.getProfile(args[2]);
+        }
+
+        participants = setParticipants(args[4], args[3], args[6]); //TODO: check these args are the right index number
+        percentages = makeDoublesArray(args[6]);
+        for (Profile x : participants.keySet()) {
+            people.add(x);
+        }
+        checkPercentages(percentages);
+        //new Bill(tripName, billName, payer, amount, currency, participants, percentages); //TODO: participants is a hashmap, rn constructor expects arraylist. fix dis
+        new Bill(tripName, billName, payer, amount, currency, people, percentages);
     }
-    public Bill(String billName, Profile payer, Double amount, Currency currency,
+    public Bill(String tripName, String billName, Profile payer, Double amount, Currency currency,
                 ArrayList<Profile> people, ArrayList<Double> percentages) {
         if (people.size() != percentages.size()) {
-            throw new IllegalArgumentException("Number of elements in 'people' and 'percentages' arrays must be equal");
+            throw new IllegalArgumentException("Number of elements in 'people' and 'percentages' must be equal");
         }
 
         checkPercentages(percentages);
 
         this.participants = new HashMap<>();
         for (int i = 0; i < people.size(); i++) {
-            this.participants.put(people.get(i), (percentages.get(i)*amount)/100.0);
+            this.participants.put(people.get(i), (percentages.get(i)*amount)/100.0); //TODO: check; this would be the actual amount they're responsible for
         }
-
+        this.tripName = tripName;
         this.payer = payer;
         this.amount = amount;
         this.currency = currency;
 
         this.billName = billName;
-        this.people = people;
         this.percentages = percentages;
         this.paid = false;
     }
@@ -61,7 +80,7 @@ public class Bill implements Payable {
     public Bill(String billName, Profile payer, Double amount, Currency currency,
                 ArrayList<Profile> people) {
         int numPeople = people.size();
-        double percentage = 100 / numPeople;
+        double percentage = (double) 100 / numPeople; //TODO: check that this is compatible w the rest; this is a decimal
         Double[] percentages = new Double[numPeople];
         Arrays.fill(percentages, percentage);
         ArrayList<Double> p = new ArrayList<>(Arrays.asList(percentages));
@@ -83,6 +102,39 @@ public class Bill implements Payable {
         this.paid = false;
     }
 
+    public ArrayList<Double> makeDoublesArray(String input) {
+        String[] inputs = input.split("\\s+");
+        ArrayList<Double> arr = new ArrayList<>();
+        for (String i : inputs) {
+            arr.add(Double.parseDouble(i));
+        }
+        return arr;
+    }
+
+
+    public HashMap<Profile, Double> setParticipants(String amount, String profiles, String percentages) {
+        participants.clear();
+        Double amountAsDouble = Double.parseDouble(amount);
+        String[] words = profiles.split("\\s+");
+        String[] percentagesArr = percentages.split("\\s+");
+        for (int i = 0; i < words.length; i++) {
+            Profile person;
+            if (ProfileList.findProfile(words[i]) == -1) {
+                //Creates a profile for this person and adds them to the ProfileList if they are not already in the list.
+                person = new Profile(words[i]);
+                ProfileList.add(person);
+            } else {
+                person = ProfileList.getProfile(words[i]);
+            }
+            participants.put(person, Double.parseDouble(percentagesArr[i])*amountAsDouble);
+        }
+        return participants;
+    }
+
+    public String getName() {
+        return this.billName;
+    }
+
 
     //Right now, just concerns people within this Bill. Future goal: update to entire trip.
     public void addPeople(Profile[] newPeople) {
@@ -91,9 +143,10 @@ public class Bill implements Payable {
         }
     }
 
-    public void addPerson(Profile person) {
+    public void addPerson(Profile person, Double percentage) {
         if (!nameExists(person)) {
-            people.add(person);
+            //refactorPercentages(); TODO: implement this method
+            participants.put(person, percentage * this.amount);
         }
     }
 
@@ -148,7 +201,7 @@ public class Bill implements Payable {
         return sum;
     }
     public void modifyPercentages(Double[] percentages) {
-        if (percentages.length != this.people.size()) {
+        if (percentages.length != this.participants.size()) {
             throw new IllegalArgumentException("Number of percentage arguments must equal the number of people");
         }
 

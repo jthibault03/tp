@@ -7,8 +7,7 @@ public class ParserDefinitions {
 
     public static final String[] ADDSUBTRIP = {"/n", "/start", "/end", "/location", "/d"};
 
-    public static final String[] ADDBILL = {"/n", "/people", "/percentages"};
-
+    public static final String[] ADDBILL = {"/trip", "/n", "/payer", "/people", "/amount", "/percentages"};
 
     public static final String[] SETNAME = {"/n"};
 
@@ -19,5 +18,7 @@ public class ParserDefinitions {
     public static final String[] SETDESCRIPTION = {"/d"};
 
     public static final String[] REVIEW = {"/s", "/r"};
+
+    public static final String[] SETSTATUS = {"/status"};
 
 }

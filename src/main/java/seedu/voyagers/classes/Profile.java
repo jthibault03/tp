@@ -13,6 +13,10 @@ public class Profile {
         this.currency = currency;
     }
 
+    public Profile(String name) {
+        new Profile(name, null);
+    }
+
     public boolean equals(Profile p) {
         if (this.name.equals(p.name)) {
             return true;
