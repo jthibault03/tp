@@ -109,7 +109,7 @@ is dependent on the Bill class. We will include this in the UML diagrams to be i
 Currently, the supported public methods can add and remove Profiles, pay the bill, change
 percentages that different people owe, and set and return various attributes. This is still
 not fully fleshed out, as we will add more features and better functionality in subsequent
-releases.
+releases. 
 
 ## Review
 The Review class, instantiated solely by the Trip object. 

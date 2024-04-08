@@ -1,16 +1,6 @@
 package seedu.voyagers.paser;
 
-import seedu.voyagers.commands.AddSubTripCommand;
-import seedu.voyagers.commands.AddTripCommand;
-import seedu.voyagers.commands.Command;
-import seedu.voyagers.commands.DeleteCommand;
-import seedu.voyagers.commands.ExitCommand;
-import seedu.voyagers.commands.HelpCommand;
-import seedu.voyagers.commands.ListCommand;
-import seedu.voyagers.commands.ModifyTripCommand;
-import seedu.voyagers.commands.ReviewCommand;
-import seedu.voyagers.commands.ReadReviewCommand;
-import seedu.voyagers.commands.AddBillCommand;
+import seedu.voyagers.commands.*;
 
 
 import java.util.Arrays;
@@ -52,6 +42,12 @@ public class NewParser {
             return new AddSubTripCommand(parseArgs(line, ParserDefinitions.ADDSUBTRIP, true));
         case "addBill":
             return new AddBillCommand(parseArgs(line, ParserDefinitions.ADDBILL));
+        case "listBills":
+            return new ListBillCommand();
+        case "payBill":
+            return new PayBillCommand(parseArgs(line, ParserDefinitions.PAYBILL));
+        case "setBillCurrency":
+            return new SetBillCurrencyCommand(parseArgs(line, ParserDefinitions.SETBILLCURRENCY));
         case "setname":
             values = concatenate(new String[]{"name"},
                     parseArgs(line, ParserDefinitions.SETNAME, true));

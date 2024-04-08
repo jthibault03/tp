@@ -13,6 +13,11 @@ public class Profile {
         this.currency = currency;
     }
 
+    public Profile(String name) {
+        this.name = name;
+        this.currency = null;
+    }
+
     public boolean equals(Profile p) {
         if (this.name.equals(p.name)) {
             return true;
@@ -32,7 +37,7 @@ public class Profile {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setCurrency(Currency currency) {

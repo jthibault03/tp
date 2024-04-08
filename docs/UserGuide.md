@@ -45,6 +45,9 @@ Voyagers is a Java application designed to simplify trip management. It provides
 - **Delete Main Trip**: Remove an existing main trip from the list.
 - **Set Trip Details**: Modify trip details such as name, dates, location, and description for existing trips.
 - **List All Trips**: View a comprehensive list of all trips along with their details.
+- **Add Bill**: Add a bill to a certain trip, along with who paid, people who owe, and what percentage of the bill 
+each person owes.
+- **Pay Bill** Mark a bill as paid.
 - **Add Review**: Review a trip by providing a score and reflection.
 - **Read Review**: Read the review of a specific trip.
 - **Update Status**: Update the status of a trip to 'Ongoing', 'Upcoming' or 'Completed'.
@@ -110,6 +113,24 @@ To view a list of all trips along with their details, use the listall command.
 
 ```bash 
 listall
+```
+
+### Creating a Bill
+To add a bill to a trip, use the `addBill` command followed by the following information
+```bash
+addBill /trip China /n dinner /payer Alice /others Bob Carol /amount 50 /percentages 33.3 33.3 33.3
+```
+
+### Paying a Bill
+To mark a bill as paid, use the `payBill` command followed by the name of the bill.
+```bash
+payBill /n dinner
+```
+
+### Listing all Bills
+To list all bills in Voyagers, use the `listBills` command.
+```bash
+listBills
 ```
 
 ### Reviewing Trips
