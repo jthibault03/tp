@@ -51,7 +51,7 @@ public class NewParser {
         case "addsubtrip":
             return new AddSubTripCommand(parseArgs(line, ParserDefinitions.ADDSUBTRIP, true));
         case "addBill":
-            return new AddBillCommand(parseArgs(line, ParserDefinitions.ADDBILL, true));
+            return new AddBillCommand(parseArgs(line, ParserDefinitions.ADDBILL));
         case "setname":
             values = concatenate(new String[]{"name"},
                     parseArgs(line, ParserDefinitions.SETNAME, true));

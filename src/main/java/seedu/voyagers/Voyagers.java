@@ -1,5 +1,7 @@
 package seedu.voyagers;
 
+import seedu.voyagers.classes.Profile;
+import seedu.voyagers.classes.ProfileList;
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.commands.AutoTripStatusUpdateCommand;
 import seedu.voyagers.paser.NewParser;
@@ -24,10 +26,12 @@ public class Voyagers {
 
     //TODO: change to private and add to the command.execute(Ui, tripList, storage)
     public TripList tripList;
+    public ProfileList profileList;
     public Ui ui;
 
     public Voyagers() {
         this.tripList = new TripList(new ArrayList<>());
+        profileList = new ProfileList(new ArrayList<Profile>());
         this.ui = new Ui();
     }
     public static void main(String[] args) {
@@ -49,6 +53,7 @@ public class Voyagers {
         readTripFile(tripList.getTrips(), currentDir, TRIPS_FILE_NAME);
         readReviewFile(tripList, currentDir, REVIEWS_FILE_NAME);
 
+        //TODO: load in Profiles and Bills from save file
 
         new ListCommand().execute(tripList, ui, null);
         boolean isExit = false;

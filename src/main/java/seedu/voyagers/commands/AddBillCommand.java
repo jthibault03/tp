@@ -11,13 +11,12 @@ public class AddBillCommand extends Command {
         super(args);
     }
 
-    //"/trip", "/n", "/payer", "/people", "/amount", "/percentages"} <-- these are the args. theyre all strings now.
     //TODO: also need currency
 
     public void execute(TripList trips, Ui ui, TripStorage tripStorage){
 
         try{
-            Bill bill = new Bill(args);
+            Bill bill = new Bill(args, trips);
             bill.getTrip().addBill(bill);
             BillList bills = bill.getTrip().getBills();
             //new AutoBillStatusUpdateCommand().execute(bills, ui, null);

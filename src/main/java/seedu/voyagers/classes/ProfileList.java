@@ -9,10 +9,9 @@ public class ProfileList {
      * Represents a list of all profiles across trips. Static class since one ProfileList is used across all trips.
      */
 
-    private static ArrayList<Profile> ProfileList;
+    private static ArrayList<Profile> ProfileList = new ArrayList<>();
 
     public ProfileList(ArrayList<Profile> profiles){
-        ProfileList = new ArrayList<>();
     }
 
     /**

@@ -1,6 +1,7 @@
 package seedu.voyagers.classes;
 
 import seedu.voyagers.utils.Currency;
+import seedu.voyagers.utils.FormatDate;
 import seedu.voyagers.utils.Payable;
 
 import java.util.ArrayList;
@@ -18,6 +19,9 @@ public class Bill implements Payable {
     private Trip trip;
     private Profile payer;
 
+    //raw Strings to be used in toString method.
+    private String othersRaw;
+
     // hashmap with key as profile and value as the percentage of the bill they are responsible for
     // percentages must sum to 100
     private HashMap<Profile, Double> participants = new HashMap<>();
@@ -27,28 +31,32 @@ public class Bill implements Payable {
     private ArrayList<Double> percentages = new ArrayList<>();
     private boolean paid;
 
-    public Bill(String[] args) {
-        //"/trip", "/n", "/payer", "/people", "/amount", /currency, "/percentages"}
-       //assert(args.length );
+    public Bill(String[] args, TripList trips) {
 
         //TODO: setCurrency method and null currency
-        tripName = args[0];
-        billName = args[1];
+
+        this.trip = trips.getTrip(args[0]); //TODO: check that error message reveals helpful info if no such trip exists
+        this.tripName = args[0];
+        this.billName = args[1];
 
         if (ProfileList.findProfile(args[2]) == -1) {
-            payer = new Profile(args[2]);
+            this.payer = new Profile(args[2]);
         } else {
-            payer = ProfileList.getProfile(args[2]);
+            this.payer = ProfileList.getProfile(args[2]);
+        }
+        this.amount = Double.parseDouble(args[4]);
+        this.participants = setParticipants(args[4], args[2], args[3], args[5]); //TODO: check these args are the right index number
+        this.percentages = makeDoublesArray(args[5]);
+        this.payerRaw = args[2];
+        this.othersRaw = args[3];
+        this.percentagesRaw = args[5];
+        for (Profile x : participants.keySet()) {
+            this.people.add(x);
         }
 
-        participants = setParticipants(args[4], args[3], args[6]); //TODO: check these args are the right index number
-        percentages = makeDoublesArray(args[6]);
-        for (Profile x : participants.keySet()) {
-            people.add(x);
-        }
         checkPercentages(percentages);
         //new Bill(tripName, billName, payer, amount, currency, participants, percentages); //TODO: participants is a hashmap, rn constructor expects arraylist. fix dis
-        new Bill(tripName, billName, payer, amount, currency, people, percentages);
+        //new Bill(tripName, billName, payer, amount, currency, people, percentages);
     }
     public Bill(String tripName, String billName, Profile payer, Double amount, Currency currency,
                 ArrayList<Profile> people, ArrayList<Double> percentages) {
@@ -108,10 +116,10 @@ public class Bill implements Payable {
     }
 
 
-    public HashMap<Profile, Double> setParticipants(String amount, String profiles, String percentages) {
+    public HashMap<Profile, Double> setParticipants(String amount, String payer, String others, String percentages) {
         participants.clear();
         Double amountAsDouble = Double.parseDouble(amount);
-        String[] words = profiles.split("\\s+");
+        String[] words = payer.concat(" ").concat(others).split("\\s+");
         String[] percentagesArr = percentages.split("\\s+");
         for (int i = 0; i < words.length; i++) {
             Profile person;
@@ -174,7 +182,8 @@ public class Bill implements Payable {
             }
         }
 
-        if (sum != 100) {
+        //In the case of number of people not divisible by 3
+        if (Math.abs(sum - 100) >= 0.5) {
             throw new IllegalArgumentException("Percentages do not sum to 100");
         }
     }
@@ -248,5 +257,21 @@ public class Bill implements Payable {
         return this.participants;
     }
 
-
+    public String listOthers() {
+        String s = "";
+        for (Profile p : participants.keySet()) {
+            s += p.getName() + ", ";
+        }
+        return s.substring(0, s.length() - 2);
+    }
+    @Override
+    public String toString() {
+        String s = "Trip: " + tripName + "\t\tBill Name: " +
+                billName + "\t\tPayer: " +
+                payer.getName() + "\t\tOthers: " + othersRaw
+                + "\t\tAmount: " + amount
+                + "\t\tPercentages: " + percentages
+                + "\t\tCurrency: " + this.currency;
+        return s;
+    }
 }
