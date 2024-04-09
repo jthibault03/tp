@@ -11,6 +11,8 @@ public class DeleteCommand extends Command{
         super(args);
     }
     public void execute(TripList trips, Ui ui, TripStorage tripStorage){
+        String currentDir = System.getProperty("user.dir");
+        final String TRIPS_FILE_NAME = "local-voyagers.txt";
         int index = trips.findTrip(args[0]);
 
         if (index == -1){
@@ -22,7 +24,7 @@ public class DeleteCommand extends Command{
         ui.echo("Noted. I've removed this trip:\n" + trip
                 + "\nNow you have " + trips.size() +
                 " trips in the list.");
-        //storage.writeTripFile(trips, trips.size());
+        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, TRIPS_FILE_NAME);
     }
 
 }

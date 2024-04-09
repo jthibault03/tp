@@ -16,9 +16,12 @@ public class AddTripCommand extends Command{
     }
 
     public void execute(TripList trips, Ui ui, TripStorage tripStorage){
+        String currentDir = System.getProperty("user.dir");
+        final String TRIPS_FILE_NAME = "local-voyagers.txt";
 
         try{
             Trip trip = new Trip(args);
+            trip.setTripType("main");
             trips.add(trip);
             new AutoTripStatusUpdateCommand().execute(trips, ui, null);
             ui.echo("Got it. I've added this trip:\n" + trip
@@ -28,7 +31,7 @@ public class AddTripCommand extends Command{
             ui.echo(e.getMessage());
         }
 
-        //storage.writeTripFile(trips, trips.size());
+        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, TRIPS_FILE_NAME);
     }
 
 }
