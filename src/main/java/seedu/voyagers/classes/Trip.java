@@ -17,6 +17,7 @@ public class Trip {
     private Review review;
 
     private ArrayList<Trip> subTrips = new ArrayList<>();
+    private BillList bills = new BillList(new ArrayList<Bill>());
 
     public Trip(String name, Date startDate, Date endDate, String location, String description) {
 
@@ -166,6 +167,19 @@ public class Trip {
         } catch (IndexOutOfBoundsException e) {
             throw new IndexOutOfBoundsException("Index out of bounds");
         }
+    }
+
+    public void addBill(Bill bill) {
+        bills.add(bill);
+    }
+
+    //TODO: implement way to find bills in BillList from index
+    public void removeBill(Bill bill) {
+
+    }
+
+    public BillList getBills() {
+        return this.bills;
     }
 
     public Status getStatus() {

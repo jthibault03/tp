@@ -4,6 +4,7 @@ import seedu.voyagers.VoyagerException;
 import java.util.ArrayList;
 
 
+
 /**
  * Represents a list of trips
  */
