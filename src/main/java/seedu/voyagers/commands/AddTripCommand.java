@@ -21,6 +21,7 @@ public class AddTripCommand extends Command{
 
         try{
             Trip trip = new Trip(args);
+            trip.setTripType("main");
             trips.add(trip);
             new AutoTripStatusUpdateCommand().execute(trips, ui, null);
             ui.echo("Got it. I've added this trip:\n" + trip

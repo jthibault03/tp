@@ -32,9 +32,9 @@ public class TripStorage {
 
         try {
             Scanner s = new Scanner(f);
-            if (s.hasNext()) {
-                System.out.println("Here are the trips in your list:");
-            }
+//            if (s.hasNext()) {
+//                System.out.println("Here are the trips in your list:");
+//            }
             while (s.hasNext()) {
                 String[] inputs = s.nextLine().split("\\|", 7);
                 assert inputs.length == 7 : "Invalid input format";
@@ -43,7 +43,16 @@ public class TripStorage {
                 Date endDate = format.parse(inputs[3]);
                 Trip trip = new Trip(inputs[1], startDate, endDate, inputs[4], inputs[5]);
                 trip.setTripType(inputs[0]);
-                trips.add(trip);
+                if (inputs[0].equalsIgnoreCase("main")) {
+                    trips.add(trip);
+                } else {
+                    for (Trip t : trips) {
+                        if (t.getTripType().equalsIgnoreCase("main") && t.getName().
+                        equalsIgnoreCase(inputs[1])) {
+                            t.addSubTrip(trip);
+                        }
+                    }
+                }
             }
             s.close();
         } catch (FileNotFoundException e) {
