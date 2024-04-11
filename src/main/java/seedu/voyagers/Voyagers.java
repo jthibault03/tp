@@ -4,7 +4,7 @@ import seedu.voyagers.classes.BillList;
 import seedu.voyagers.classes.Profile;
 import seedu.voyagers.classes.ProfileList;
 import seedu.voyagers.classes.TripList;
-import seedu.voyagers.commands.AutoTripStatusUpdateCommand;
+//import seedu.voyagers.commands.AutoTripStatusUpdateCommand;
 import seedu.voyagers.paser.NewParser;
 import seedu.voyagers.utils.Ui;
 import seedu.voyagers.commands.Command;

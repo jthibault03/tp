@@ -9,7 +9,6 @@ import seedu.voyagers.classes.Trip;
 
 import java.util.Arrays;
 import java.util.Date;
-import java.util.Objects;
 
 public class ModifyTripCommand extends Command{
 
@@ -72,7 +71,7 @@ public class ModifyTripCommand extends Command{
 
         ui.echo("Noted. I've modified this trip:\n" + trip);
         String currentDir = System.getProperty("user.dir");
-        final String TRIPS_FILE_NAME = "local-voyagers.txt";
-        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, TRIPS_FILE_NAME);
+        final String tripsFileName = "local-voyagers.txt";
+        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, tripsFileName);
     }
 }

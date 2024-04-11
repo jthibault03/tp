@@ -1,7 +1,7 @@
 package seedu.voyagers.classes;
 
 import seedu.voyagers.utils.Currency;
-import seedu.voyagers.utils.FormatDate;
+//import seedu.voyagers.utils.FormatDate;
 import seedu.voyagers.utils.Payable;
 
 import java.util.ArrayList;
@@ -35,7 +35,8 @@ public class Bill implements Payable {
 
         //TODO: setCurrency method and null currency
 
-        this.trip = trips.getTrip(args[0]); //TODO: check that error message reveals helpful info if no such trip exists
+        this.trip = trips.getTrip(args[0]);
+        //TODO: check that error message reveals helpful info if no such trip exists
         this.tripName = args[0];
         this.billName = args[1];
 
@@ -45,7 +46,8 @@ public class Bill implements Payable {
             this.payer = ProfileList.getProfile(args[2]);
         }
         this.amount = Double.parseDouble(args[4]);
-        this.participants = setParticipants(args[4], args[2], args[3], args[5]); //TODO: check these args are the right index number
+        this.participants = setParticipants(args[4], args[2], args[3], args[5]);
+        //TODO: check these args are the right index number
         this.percentages = makeDoublesArray(args[5]);
         this.othersRaw = args[3];
         for (Profile x : participants.keySet()) {
@@ -53,7 +55,8 @@ public class Bill implements Payable {
         }
 
         checkPercentages(percentages);
-        //new Bill(tripName, billName, payer, amount, currency, participants, percentages); //TODO: participants is a hashmap, rn constructor expects arraylist. fix dis
+        //new Bill(tripName, billName, payer, amount, currency, participants, percentages);
+        // TODO: participants is a hashmap, rn constructor expects arraylist. fix dis
         //new Bill(tripName, billName, payer, amount, currency, people, percentages);
     }
     public Bill(String tripName, String billName, Profile payer, Double amount, Currency currency,
@@ -66,7 +69,8 @@ public class Bill implements Payable {
 
         this.participants = new HashMap<>();
         for (int i = 0; i < people.size(); i++) {
-            this.participants.put(people.get(i), (percentages.get(i)*amount)/100.0); //TODO: check; this would be the actual amount they're responsible for
+            this.participants.put(people.get(i), (percentages.get(i)*amount)/100.0);
+            //TODO: check; this would be the actual amount they're responsible for
         }
         this.tripName = tripName;
         this.payer = payer;
@@ -82,7 +86,8 @@ public class Bill implements Payable {
     public Bill(String billName, Profile payer, Double amount, Currency currency,
                 ArrayList<Profile> people) {
         int numPeople = people.size();
-        double percentage = (double) 100 / numPeople; //TODO: check that this is compatible w the rest; this is a decimal
+        double percentage = (double) 100 / numPeople;
+        //TODO: check that this is compatible w the rest; this is a decimal
         Double[] percentages = new Double[numPeople];
         Arrays.fill(percentages, percentage);
         ArrayList<Double> p = new ArrayList<>(Arrays.asList(percentages));
@@ -122,7 +127,7 @@ public class Bill implements Payable {
         for (int i = 0; i < words.length; i++) {
             Profile person;
             if (ProfileList.findProfile(words[i]) == -1) {
-                //Creates a profile for this person and adds them to the ProfileList if they are not already in the list.
+                //Creates a profile for this person and adds them to the ProfileList if they are not already in list.
                 person = new Profile(words[i]);
                 ProfileList.add(person);
             } else {
