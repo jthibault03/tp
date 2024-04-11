@@ -109,10 +109,21 @@ To delete an existing main trip, use the `deletemaintrip` command followed by th
 deletemaintrip /n Europe Trip
 ```
 ### Listing All Trips
-To view a list of all trips along with their details, use the listall command.
+To view a list of all trips along with their details, use the list command.
 
 ```bash 
-listall
+list
+```
+
+### Listing Trips by Status
+To view a list of trips of only a specific status, add the status after the list command
+
+```bash
+list upcoming
+```
+
+```bash
+list cancelled
 ```
 
 ### Creating a Bill
@@ -135,7 +146,7 @@ listBills
 
 ### Reviewing Trips
 
-To review a trip with a scale of 1-10 'score' and your open-ended 'reflection', use the review command.
+To review a main trip with a scale of 1-10 'score' and your open-ended 'reflection', use the review command.
 
 ```bash
 review Trip1 /s 10 /r Trip1 was fantastic, I made 3 new friends.
@@ -143,7 +154,7 @@ review Trip1 /s 10 /r Trip1 was fantastic, I made 3 new friends.
 
 ### Reading Trip Reviews
 
-To read previously reviewed trip, use the readreview command with the name of the trip.
+To read previously reviewed main trip, use the readreview command with the name of the trip.
 
 ```bash
 readreview Trip1
