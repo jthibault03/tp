@@ -87,8 +87,8 @@ public class TripStorage {
         try (java.io.FileWriter writer = new java.io.FileWriter(f)) {
             for (int i = 0; i < tripsCount; i++) {
                 Trip trip = trips.get(i);
-                parseToFile(writer, trip);
                 if (trip.getTripType() == "main") {
+                    parseToFile(writer, trip);
                     writeTripFileSub(trip.getSubTrips(), trip.getSubTripsSize(), writer);
                 }
             }
