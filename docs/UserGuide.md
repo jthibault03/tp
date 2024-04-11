@@ -37,7 +37,8 @@ Voyagers is a Java application designed to manage trips efficiently through a co
 
 ## Introduction
 
-Voyagers is a Java application designed to simplify trip management. It provides users with a command-line interface to manage their trips efficiently, including adding main trips, setting trip details, listing all trips, and more.
+Voyagers is a Java application designed to simplify trip management. It provides users with a command-line interface to 
+manage their trips efficiently, including adding main trips, setting trip details, listing all trips, and more.
 
 ## Features
 
