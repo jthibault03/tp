@@ -178,13 +178,13 @@ Note:
   - The payer may not be involved in the bill: i.e the payer may not be in the list of participants.
 
 
-### Simplify bills from a trip
+### Simplify bills
 
-In order to settle up all the bills. You can simplify all the bills from a trip.
+In order to settle up all the bills. You can simplify all the bills.
 The simplification will reduce the number of transactions needed to settle up all the bills.
 
 ````bash
-simplifybills <trip name>
+simplifybills
 ````
 
 
@@ -198,5 +198,11 @@ Note: the simplification will be made using dollars.
 The app supports multiple currencies:
 - EUR: Euro
 - USD: US Dollar
-- SGD: Singapore Dollar
+- SGD: Singapore Dollar                                                                                                                                                                                                                                                                                                                       
+- JPY: Japanese Yen
+- CNY: Chinese Yuan
+- KRW: South Korean Won
+- GBP: British Pound
+- AUD: Australian Dollar
+- CAD: Canadian Dollar
 
