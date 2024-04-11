@@ -69,7 +69,7 @@ public class TripStorageTest {
         }
 
         // Call writeTripFile method
-        TripStorage.writeTripFile(trips, trips.size(), currentDir, TEST_FILE_NAME);
+        TripStorage.writeTripFileMain(trips, trips.size(), currentDir, TEST_FILE_NAME);
 
         // Read the content of the temporary file and assert its correctness
         try {

@@ -72,6 +72,6 @@ public class ModifyTripCommand extends Command{
         ui.echo("Noted. I've modified this trip:\n" + trip);
         String currentDir = System.getProperty("user.dir");
         final String tripsFileName = "local-voyagers.txt";
-        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, tripsFileName);
+        TripStorage.writeTripFileMain(trips.getTrips(), trips.size(),currentDir, tripsFileName);
     }
 }
