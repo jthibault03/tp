@@ -215,9 +215,12 @@ public class Trip {
                 FormatDate.dateFormat.format(endDate) + "\t\tLocation: " +
                 location + "\t\tDescription: " + description
                 + "\t\tStatus: " + getStatus();
-        s += "\n\tSub-trips:";
-        for (Trip t : subTrips) {
-            s += "\n\t\t" + t.toString();
+
+        if (this.tripType == "main") {
+            s += "\n\tSub-trips:";
+            for (Trip t : subTrips) {
+                s += "\n\t\t" + t.toString();
+            }
         }
 
         return s;
