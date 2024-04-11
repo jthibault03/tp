@@ -1,12 +1,12 @@
 package seedu.voyagers.commands;
 
-import seedu.voyagers.classes.Bill;
 import seedu.voyagers.classes.BillList;
+//import seedu.voyagers.classes.Bill;
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.utils.Ui;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class ListBillCommand extends Command{
     public void execute(TripList trips, Ui ui, TripStorage tripStorage){

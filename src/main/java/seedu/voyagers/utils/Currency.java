@@ -22,9 +22,6 @@ public enum Currency {
     BRL("Brazilian Real", "R$"),
     ZAR("South African Rand", "R");
 
-    private final String name;
-    private final String symbol;
-
     //Default conversion rates from SGD to other currencies
     public static final double SGDTOEUR = 0.63;
     public static final double SGDTOUSD = 0.74;
@@ -46,12 +43,15 @@ public enum Currency {
     public static final double SGDTOBRL = 4.5;
     public static final double SGDTOZAR = 11.0;
 
+    private final String name;
+    private final String symbol;
+
     Currency(String name, String symbol) {
         this.name = name;
         this.symbol = symbol;
     }
 
-    public double CurrencyConversion(double foreignCurrencyAmount, double conversionRate) {
+    public double currencyConversion(double foreignCurrencyAmount, double conversionRate) {
         return foreignCurrencyAmount * conversionRate;
     }
 
@@ -63,9 +63,9 @@ public enum Currency {
         return symbol;
     }
 
-//    public Currency getEnum(String name) {
-//
-//    }
+    /*public Currency getEnum(String name) {
+
+    }*/
 }
 
 

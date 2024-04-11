@@ -35,10 +35,6 @@ public class BillList {
         return bill;
     }
 
-    public ArrayList<Bill> getList(){
-        return this.bills;
-    }
-
     /**
      * Removes a bill from the list
      * @param index the index of the bill to remove. Index starts from 0
@@ -49,6 +45,10 @@ public class BillList {
         Bill bill = bills.get(index);
         this.bills.remove(index);
         return bill;
+    }
+
+    public ArrayList<Bill> getList(){
+        return this.bills;
     }
 
     /**
