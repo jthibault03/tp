@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import static seedu.voyagers.utils.BillStorage.readBillFile;
 import static seedu.voyagers.utils.ProfileStorage.readProfileFile;
 import static seedu.voyagers.utils.ReviewStorage.readReviewFile;
-import static seedu.voyagers.utils.ReviewStorage.writeReviewFile;
+import static seedu.voyagers.utils.ReviewStorage.writeReviewFileMain;
 import static seedu.voyagers.utils.TripStorage.readTripFile;
 import static seedu.voyagers.utils.TripStorage.writeTripFileMain;
 import java.util.logging.Level;
@@ -81,7 +81,7 @@ public class Voyagers {
         }
 
         writeTripFileMain(tripList.getTrips(), tripList.size(), currentDir, TRIPS_FILE_NAME);
-        writeReviewFile(tripList, tripList.size(), currentDir, REVIEWS_FILE_NAME);
+        writeReviewFileMain(tripList, tripList.size(), currentDir, REVIEWS_FILE_NAME);
     }
 
 }

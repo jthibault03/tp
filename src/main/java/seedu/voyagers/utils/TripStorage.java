@@ -105,7 +105,8 @@ public class TripStorage {
                 + "|" + trip.getStatus().toString() + "\n");
     }
 
-    public static void writeTripFileSub(ArrayList<Trip> trips, int tripsCount, java.io.FileWriter writer) throws IOException {
+    public static void writeTripFileSub(ArrayList<Trip> trips, int tripsCount, java.io.FileWriter writer)
+            throws IOException {
 
         for (int i = 0; i < tripsCount; i++) {
             Trip trip = trips.get(i);
