@@ -59,11 +59,11 @@ public class ListCommand extends Command{
                 numberTrips ++;
             }
         }
-        if (trips.size() == 0){
-            ui.echo("You have no trips in your list.");
+        if (numberTrips == 0){
+            ui.echo("You have no upcoming trips in your list.");
             return;
         }
-        ui.echo("Here are the trips in your list:");
+        ui.echo("Here are the upcoming trips in your list:");
         for (int i = 0; i < trips.size(); i++){
             if (trips.get(i).getStatus() == Status.UPCOMING){
                 ui.echo((i + 1) + ". " + trips.get(i));
@@ -78,11 +78,11 @@ public class ListCommand extends Command{
                 numberTrips ++;
             }
         }
-        if (trips.size() == 0){
-            ui.echo("You have no trips in your list.");
+        if (numberTrips == 0){
+            ui.echo("You have no ongoing trips in your list.");
             return;
         }
-        ui.echo("Here are the trips in your list:");
+        ui.echo("Here are the ongoing trips in your list:");
         for (int i = 0; i < trips.size(); i++){
             if (trips.get(i).getStatus() == Status.ONGOING){
                 ui.echo((i + 1) + ". " + trips.get(i));
@@ -97,11 +97,11 @@ public class ListCommand extends Command{
                 numberTrips ++;
             }
         }
-        if (trips.size() == 0){
-            ui.echo("You have no trips in your list.");
+        if (numberTrips == 0){
+            ui.echo("You have no completed trips in your list.");
             return;
         }
-        ui.echo("Here are the trips in your list:");
+        ui.echo("Here are the completed trips in your list:");
         for (int i = 0; i < trips.size(); i++){
             if (trips.get(i).getStatus() == Status.COMPLETED){
                 ui.echo((i + 1) + ". " + trips.get(i));
