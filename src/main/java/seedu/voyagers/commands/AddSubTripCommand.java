@@ -1,9 +1,13 @@
 package seedu.voyagers.commands;
 
 import seedu.voyagers.classes.TripList;
+import seedu.voyagers.utils.FormatDate;
 import seedu.voyagers.utils.Ui;
 import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.classes.Trip;
+
+import java.text.ParseException;
+import java.util.Date;
 
 //TODO: check dates make sense with main trip
 public class AddSubTripCommand extends Command{
@@ -12,7 +16,7 @@ public class AddSubTripCommand extends Command{
         super(args);
     }
 
-    public void execute(TripList trips, Ui ui, TripStorage tripStorage){
+    public void execute(TripList trips, Ui ui, TripStorage tripStorage) throws ParseException {
         Trip mainTrip = null;
         String[] newArgs = new String[args.length - 1];
         System.arraycopy(args, 1, newArgs, 0, args.length - 1);
@@ -21,6 +25,21 @@ public class AddSubTripCommand extends Command{
             mainTrip = trips.getTrip(newArgs[0]);
         } catch (Exception e){
             ui.echo(e.getMessage());
+            return;
+        }
+
+        Date mainTripStart = mainTrip.getStartDate();
+        Date mainTripEnd = mainTrip.getEndDate();
+        Date subTripStart = FormatDate.dateFormat.parse(newArgs[1]);
+        Date subTripEnd = FormatDate.dateFormat.parse(newArgs[2]);
+
+        if (mainTripStart.after(subTripStart) || mainTripEnd.before(subTripEnd)){
+            ui.echo("This trip is not within the main trip's dates");
+            return;
+        }
+
+        if (subTripStart.after(subTripEnd)){
+            ui.echo("The start date of this trip is after the end date");
             return;
         }
 
