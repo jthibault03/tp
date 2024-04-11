@@ -24,11 +24,11 @@ public class BillSettler {
         Profile charlie = new Profile("Charlie", Currency.EUR);
         Profile david = new Profile("David", Currency.EUR);
 
-        Bill bill1 = new Bill("bill1", alice, 110.0, Currency.EUR, new HashMap<Profile, Double>(){{
-                put(bob, 40.0);
-                put(charlie, 20.0);
-                put(david, 40.0);
-            }});
+        Bill bill1 = new Bill("bill1", alice, 110.0, Currency.EUR, new HashMap<>() {{
+            put(bob, 40.0);
+            put(charlie, 20.0);
+            put(david, 40.0);
+        }});
 
         Bill bill2 = new Bill("bill2", bob, 50.0, Currency.EUR, new HashMap<Profile, Double>(){{
                 put(alice, 90.0);
@@ -43,7 +43,9 @@ public class BillSettler {
         bills.add(bill1);
         bills.add(bill2);
         bills.add(bill3);
-
+        System.out.println(bill1);
+        System.out.println(bill2);
+        System.out.println(bill3);
         createGraphForDebts(bills);
     }
 
