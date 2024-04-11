@@ -4,6 +4,7 @@ import seedu.voyagers.classes.Trip;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -20,9 +21,10 @@ public class TripStorage {
 
     /**
      * Reads the trip file and adds the trips to the list of trips.
-     * @param trips The list of trips to add the trips to.
+     *
+     * @param trips      The list of trips to add the trips to.
      * @param currentDir The current directory of the file.
-     * @param fileName The name of the file to read from.
+     * @param fileName   The name of the file to read from.
      */
     public static void readTripFile(ArrayList<Trip> trips, String currentDir, String fileName) {
 
@@ -73,26 +75,41 @@ public class TripStorage {
 
     /**
      * Writes the trips to the trip file.
-     * @param trips The list of trips to write to the file.
+     *
+     * @param trips      The list of trips to write to the file.
      * @param tripsCount The number of trips in the list.
      * @param currentDir The current directory of the file.
      */
-    public static void writeTripFile(ArrayList<Trip> trips, int tripsCount, String currentDir, String fileName) {
+    public static void writeTripFileMain(ArrayList<Trip> trips, int tripsCount, String currentDir, String fileName) {
         //local path of data file
         File f = new File(currentDir + "/" + fileName);
 
         try (java.io.FileWriter writer = new java.io.FileWriter(f)) {
             for (int i = 0; i < tripsCount; i++) {
                 Trip trip = trips.get(i);
-                writer.write(trip.getTripType() + "|" + trip.getName() + "|" +
-                        FormatDate.dateFormat.format(trip.getStartDate()) + "|" +
-                        FormatDate.dateFormat.format(trip.getEndDate()) + "|"
-                        + trip.getLocation() + "|" + trip.getDescription()
-                        + "|" + trip.getStatus().toString() + "\n");
+                parseToFile(writer, trip);
+                if (trip.getTripType() == "main") {
+                    writeTripFileSub(trip.getSubTrips(), trip.getSubTripsSize(), writer);
+                }
             }
         } catch (IOException e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
     }
 
+    private static void parseToFile(FileWriter writer, Trip trip) throws IOException {
+        writer.write(trip.getTripType() + "|" + trip.getName() + "|" +
+                FormatDate.dateFormat.format(trip.getStartDate()) + "|" +
+                FormatDate.dateFormat.format(trip.getEndDate()) + "|"
+                + trip.getLocation() + "|" + trip.getDescription()
+                + "|" + trip.getStatus().toString() + "\n");
+    }
+
+    public static void writeTripFileSub(ArrayList<Trip> trips, int tripsCount, java.io.FileWriter writer) throws IOException {
+
+        for (int i = 0; i < tripsCount; i++) {
+            Trip trip = trips.get(i);
+            parseToFile(writer, trip);
+        }
+    }
 }

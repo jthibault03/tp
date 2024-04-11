@@ -42,6 +42,6 @@ public class AutoTripStatusUpdateCommand {
 
         }
 
-        TripStorage.writeTripFile(trips.getTrips(), trips.size(), currentDir, tripsFileName);
+        TripStorage.writeTripFileMain(trips.getTrips(), trips.size(), currentDir, tripsFileName);
     }
 }

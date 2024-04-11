@@ -31,7 +31,7 @@ public class AddTripCommand extends Command{
             ui.echo(e.getMessage());
         }
 
-        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, tripsFileName);
+        TripStorage.writeTripFileMain(trips.getTrips(), trips.size(),currentDir, tripsFileName);
     }
 
 }

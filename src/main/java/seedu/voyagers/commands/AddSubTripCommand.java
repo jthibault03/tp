@@ -64,6 +64,6 @@ public class AddSubTripCommand extends Command{
 
         String currentDir = System.getProperty("user.dir");
         final String tripsFileName = "local-voyagers.txt";
-        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, tripsFileName);
+        TripStorage.writeTripFileMain(trips.getTrips(), trips.size(),currentDir, tripsFileName);
     }
 }

@@ -24,7 +24,7 @@ public class DeleteCommand extends Command{
         ui.echo("Noted. I've removed this trip:\n" + trip
                 + "\nNow you have " + trips.size() +
                 " trips in the list.");
-        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, tripsFileName);
+        TripStorage.writeTripFileMain(trips.getTrips(), trips.size(),currentDir, tripsFileName);
     }
 
 }
