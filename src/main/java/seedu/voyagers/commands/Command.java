@@ -1,5 +1,9 @@
 package seedu.voyagers.commands;
 
+import seedu.voyagers.classes.BillList;
+import seedu.voyagers.classes.ProfileList;
+import seedu.voyagers.utils.BillStorage;
+import seedu.voyagers.utils.ProfileStorage;
 import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.utils.Ui;

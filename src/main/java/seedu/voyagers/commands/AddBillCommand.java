@@ -6,6 +6,8 @@ import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.utils.Ui;
 import seedu.voyagers.classes.BillList;
 
+import static seedu.voyagers.utils.BillStorage.writeBillFile;
+
 public class AddBillCommand extends Command {
     public AddBillCommand(String[] args){
         super(args);
@@ -23,11 +25,12 @@ public class AddBillCommand extends Command {
             ui.echo("Got it. I've added this bill:\n" + bill
                     + "\nNow you have " + bills.size() +
                     " bill(s) in the list.");
+            String currentDir = System.getProperty("user.dir");
+            String BILLS_FILE_NAME = "local-bills.txt";
+            writeBillFile(bills, bills.size(), currentDir, BILLS_FILE_NAME);
         } catch (Exception e){
             ui.echo(e.getMessage());
         }
-
-        //storage.writeTripFile(trips, trips.size());
     }
 
 }

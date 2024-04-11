@@ -37,7 +37,7 @@ public class NewParser {
         String tripName="";
         String keyword="";
 
-        //Check sintax
+        //Check syntax
         try{
             tripName = words[1];
             keyword = words[1];
@@ -60,6 +60,8 @@ public class NewParser {
             return new AddBillCommand(parseArgs(line, ParserDefinitions.ADDBILL));
         case "listBills":
             return new ListBillCommand();
+        case "simplifybill":
+            return new SimplifyBillCommand();
         case "payBill":
             return new PayBillCommand(parseArgs(line, ParserDefinitions.PAYBILL));
         case "setBillCurrency":

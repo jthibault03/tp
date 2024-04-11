@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ProfileStorage {
-    public static void readProfileFile(String currentDir, String fileName) {
+    public static void readProfileFile(ProfileList profileList, String currentDir, String fileName) {
         try {
             File f = new File(currentDir + "/" + fileName);
             Scanner s = new Scanner(f);

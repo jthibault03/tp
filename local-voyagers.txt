@@ -1,3 +1,2 @@
 main|China|2024-05-01|2024-05-24|CD|go home|UPCOMING
 main|Korea|2024-05-01|2024-05-24|Suwon|dating|UPCOMING
-sub|Korea|2024-05-10|2024-05-12|Suwon|happy|UPCOMING

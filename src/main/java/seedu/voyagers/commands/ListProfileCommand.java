@@ -1,25 +1,25 @@
 package seedu.voyagers.commands;
 
-import seedu.voyagers.classes.BillList;
-//import seedu.voyagers.classes.Bill;
+import seedu.voyagers.classes.ProfileList;
 import seedu.voyagers.classes.TripList;
+import seedu.voyagers.utils.ProfileStorage;
 import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.utils.Ui;
 
-//import java.util.ArrayList;
-
-public class ListBillCommand extends Command{
+/*
+public class ListProfileCommand extends Command{
     public void execute(TripList trips, Ui ui, TripStorage tripStorage){
         if (trips.size() == 0){
-            ui.echo("You have no bills in your list.");
+            ui.echo("You have no profiles in your list.");
             return;
         }
-        ui.echo("Here are the bills in your list:");
+
+        ui.echo("Here are the profiles in your list:");
         int counter = 0;
         for (int i = 0; i < trips.size(); i++){
-            BillList bills = trips.get(i).getBills();
-            for (int j = 0; j < bills.size(); j++) {
-                ui.echo((counter + 1) + ". " + bills.get(j));
+            ProfileList profileList = trips.get(i).getProfiles();
+            for (int j = 0; j < profileList.size(); j++) {
+                ui.echo((counter + 1) + ". " + profileList.get(j));
                 counter++;
             }
         }
@@ -30,3 +30,4 @@ public class ListBillCommand extends Command{
         }
     }
 }
+*/
