@@ -63,13 +63,9 @@ public class BillSettler {
      * This example graph is taken from my Medium blog post.
      * Here Alice, Bob, Charlie, David, Ema, Fred and Gabe are represented by vertices from 0 to 6 respectively.
      */
-    private static void createGraphForDebts(ArrayList<Bill> bills) {
+    public static void createGraphForDebts(ArrayList<Bill> bills) {
 
         String[] person = getNames(bills);
-
-
-
-
         int n = person.length;
         //  Creating a graph with n vertices
         Dinics solver = new Dinics(n, person);

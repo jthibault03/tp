@@ -262,6 +262,7 @@ public class Bill implements Payable {
         }
         return s.substring(0, s.length() - 2);
     }
+
     @Override
     public String toString() {
         String s = "Trip: " + tripName + "\t\tBill Name: " +
@@ -271,6 +272,22 @@ public class Bill implements Payable {
                 + "\t\tPercentages: " + percentages
                 + "\t\tCurrency: " + this.currency
                 + "\t\tPaid?: " + this.paid;
+        return s;
+    }
+
+    public String toStorage() {
+//        String s = "Trip: " + tripName + "\t\tBill Name: " +
+//                billName + "\t\tPayer: " +
+//                payer.getName() + "\t\tOthers: " + othersRaw
+//                + "\t\tAmount: " + amount
+//                + "\t\tPercentages: " + percentages
+//                + "\t\tCurrency: " + this.currency
+//                + "\t\tPaid?: " + this.paid;
+          String s = tripName + "|" + billName + "|" + payer.getName() +
+                  "|" + amount + "|" + currency + "|" + othersRaw + "|"
+                  + percentages.toString().replace("[", "").
+                  replace("]", "") + "|"
+                  + paid + "\n";
         return s;
     }
 }

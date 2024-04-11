@@ -1,5 +1,6 @@
 package seedu.voyagers;
 
+import seedu.voyagers.classes.BillList;
 import seedu.voyagers.classes.Profile;
 import seedu.voyagers.classes.ProfileList;
 import seedu.voyagers.classes.TripList;
@@ -11,6 +12,8 @@ import seedu.voyagers.commands.ListCommand;
 
 import java.util.ArrayList;
 
+import static seedu.voyagers.utils.BillStorage.readBillFile;
+import static seedu.voyagers.utils.ProfileStorage.readProfileFile;
 import static seedu.voyagers.utils.ReviewStorage.readReviewFile;
 import static seedu.voyagers.utils.ReviewStorage.writeReviewFile;
 import static seedu.voyagers.utils.TripStorage.readTripFile;
@@ -24,13 +27,19 @@ public class Voyagers {
 
     private static final String REVIEWS_FILE_NAME = "local-reviews.txt";
 
+    private static final String BILLS_FILE_NAME = "local-bills.txt";
+
+    private static final String PROFILES_FILE_NAME = "local-profiles.txt";
+
     //TODO: change to private and add to the command.execute(Ui, tripList, storage)
     public TripList tripList;
     public ProfileList profileList;
+    public BillList billList;
     public Ui ui;
 
     public Voyagers() {
         this.tripList = new TripList(new ArrayList<>());
+        billList = new BillList(new ArrayList<>());
         profileList = new ProfileList(new ArrayList<Profile>());
         this.ui = new Ui();
     }
@@ -52,8 +61,9 @@ public class Voyagers {
         //TODO: check
         readTripFile(tripList.getTrips(), currentDir, TRIPS_FILE_NAME);
         readReviewFile(tripList, currentDir, REVIEWS_FILE_NAME);
-
         //TODO: load in Profiles and Bills from save file
+        readBillFile(billList, currentDir, BILLS_FILE_NAME);
+        readProfileFile(profileList, currentDir, PROFILES_FILE_NAME);
 
         new ListCommand().execute(tripList, ui, null);
         boolean isExit = false;

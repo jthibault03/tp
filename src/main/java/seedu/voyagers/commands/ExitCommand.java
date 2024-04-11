@@ -11,11 +11,14 @@ public class ExitCommand extends Command{
     /**
      * Executes the command to exit the program.
      * Prints the goodbye message.
-     * @param tasks the list of tasks
+     * @param trips the list of trips
      * @param ui the user interface
      * @param tripStorage the storage
      */
-    public void execute(TripList tasks, Ui ui, TripStorage tripStorage){
+    public void execute(TripList trips, Ui ui, TripStorage tripStorage){
+        String currentDir = System.getProperty("user.dir");
+        final String TRIPS_FILE_NAME = "local-voyagers.txt";
+        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, TRIPS_FILE_NAME);
         ui.showExit();
     }
 
