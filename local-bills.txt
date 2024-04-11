@@ -1,4 +1,2 @@
-Korea|dinner|Luo|100.0|null|Su|70.0, 30.0|false
-Korea|lunch|Luo|100.0|null|Ma|70.0, 30.0|false
-Korea|shopping|Ma|100.0|null|Su|70.0, 30.0|false
-Korea|house|Luo|100.0|null|Su|70.0, 30.0|false
+Korea|dinner|Luo|200.0|null|Su, Ma|50.0, 50.0|false
+Korea|lunch|Luo|100.0|null|Ma|100.0|false

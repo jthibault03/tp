@@ -295,4 +295,8 @@ public class Bill implements Payable {
                   + paid + "\n";
         return s;
     }
+
+    public Object getPayers() {
+        return this.payer;
+    }
 }

@@ -1,13 +1,17 @@
 package seedu.voyagers.commands;
 import seedu.voyagers.classes.Bill;
 import seedu.voyagers.classes.BillList;
+import seedu.voyagers.classes.Profile;
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.classes.billsettler.BillSettler;
 import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.utils.Ui;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Objects;
+
+import static javax.swing.UIManager.put;
 
 public class SimplifyBillCommand extends Command{
     public void execute (TripList trips, Ui ui, TripStorage tripStorage){
@@ -19,10 +23,17 @@ public class SimplifyBillCommand extends Command{
             ArrayList<Bill> bills = new ArrayList<>();
             for (int i = 0; i < trips.size(); i++) {
                 billList = trips.get(i).getBills();
+                bills.add(billList.get(i));
             }
-            for (int j = 0; j < Objects.requireNonNull(billList).size(); j++) {
-                bills.add(billList.get(j));
-            }
+//            for (int j = 0; j < Objects.requireNonNull(billList).size(); j++) {
+//                Bill billtemp = billList.get(j);
+//                Bill bill = new Bill(billtemp.getName(), billtemp.getPayer(), billtemp.getAmount(),
+//                        billtemp.getCurrency(), new HashMap<Profile, Double>(){{
+//                        for (int k = 0; k < billtemp.getParticipants().size(); k++) {
+//                            put(billtemp.getParticipants(k), billtemp.getAmount() * billtemp.getPercentages().get(k));
+//                        }
+//                }});
+//            }
             BillSettler.createGraphForDebts(bills);
         }
     }
