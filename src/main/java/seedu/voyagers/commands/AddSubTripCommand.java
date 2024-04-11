@@ -16,7 +16,7 @@ public class AddSubTripCommand extends Command{
         super(args);
     }
 
-    public void execute(TripList trips, Ui ui, TripStorage tripStorage) throws ParseException {
+    public void execute(TripList trips, Ui ui, TripStorage tripStorage) {
         Trip mainTrip = null;
         String[] newArgs = new String[args.length - 1];
         System.arraycopy(args, 1, newArgs, 0, args.length - 1);
@@ -30,8 +30,15 @@ public class AddSubTripCommand extends Command{
 
         Date mainTripStart = mainTrip.getStartDate();
         Date mainTripEnd = mainTrip.getEndDate();
-        Date subTripStart = FormatDate.dateFormat.parse(newArgs[1]);
-        Date subTripEnd = FormatDate.dateFormat.parse(newArgs[2]);
+        Date subTripStart = null;
+        Date subTripEnd = null;
+        try {
+            subTripStart = FormatDate.dateFormat.parse(newArgs[1]);
+            subTripEnd = FormatDate.dateFormat.parse(newArgs[2]);
+        } catch (ParseException e) {
+            ui.echo("Failure to parse dates in AddSubTripCommand");
+            return;
+        }
 
         if (mainTripStart.after(subTripStart) || mainTripEnd.before(subTripEnd)){
             ui.echo("This trip is not within the main trip's dates");
@@ -56,7 +63,7 @@ public class AddSubTripCommand extends Command{
         }
 
         String currentDir = System.getProperty("user.dir");
-        final String TRIPS_FILE_NAME = "local-voyagers.txt";
-        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, TRIPS_FILE_NAME);
+        final String tripsFileName = "local-voyagers.txt";
+        TripStorage.writeTripFile(trips.getTrips(), trips.size(),currentDir, tripsFileName);
     }
 }

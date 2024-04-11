@@ -32,9 +32,9 @@ public class TripStorage {
 
         try {
             Scanner s = new Scanner(f);
-//            if (s.hasNext()) {
-//                System.out.println("Here are the trips in your list:");
-//            }
+            /*if (s.hasNext()) {
+                System.out.println("Here are the trips in your list:");
+            }*/
             while (s.hasNext()) {
                 String[] inputs = s.nextLine().split("\\|", 7);
                 assert inputs.length == 7 : "Invalid input format";
@@ -47,8 +47,8 @@ public class TripStorage {
                     trips.add(trip);
                 } else {
                     for (Trip t : trips) {
-                        if (t.getTripType().equalsIgnoreCase("main") && t.getName().
-                        equalsIgnoreCase(inputs[1])) {
+                        if (t.getTripType().equalsIgnoreCase("main") &&
+                                t.getName().equalsIgnoreCase(inputs[1])) {
                             t.addSubTrip(trip);
                         }
                     }
@@ -84,7 +84,8 @@ public class TripStorage {
         try (java.io.FileWriter writer = new java.io.FileWriter(f)) {
             for (int i = 0; i < tripsCount; i++) {
                 Trip trip = trips.get(i);
-                writer.write(trip.getTripType() + "|" + trip.getName() + "|" + FormatDate.dateFormat.format(trip.getStartDate()) + "|" +
+                writer.write(trip.getTripType() + "|" + trip.getName() + "|" +
+                        FormatDate.dateFormat.format(trip.getStartDate()) + "|" +
                         FormatDate.dateFormat.format(trip.getEndDate()) + "|"
                         + trip.getLocation() + "|" + trip.getDescription()
                         + "|" + trip.getStatus().toString() + "\n");

@@ -4,8 +4,6 @@ import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.utils.Ui;
 
-import java.text.ParseException;
-
 
 // Code taken from https://github.com/azamanis/ip
 
@@ -34,7 +32,7 @@ public abstract class Command {
      * @param ui the user interface
      * @param tripStorage the storage
      */
-    public abstract void execute(TripList tasks, Ui ui, TripStorage tripStorage) throws ParseException;
+    public abstract void execute(TripList tasks, Ui ui, TripStorage tripStorage);
 
     /**
      * Returns true iff the command is an exit command.
