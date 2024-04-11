@@ -48,62 +48,67 @@ public class ListCommand extends Command{
 
         ui.echo("Here are the trips in your list:");
         for (int i = 0; i < trips.size(); i++){
-            ui.echo((i + 1) + ". " + trips.get(i));
+            if(trips.get(i).getTripType() == "main"){
+                ui.echo((i + 1) + ". " + trips.get(i));
+            }
         }
     }
 
     public void listUpcoming(TripList trips, Ui ui) {
-        int numberTrips = 0;
+        boolean hasTrip = false;
         for (int i = 0; i < trips.size(); i++){
             if (trips.get(i).getStatus() == Status.UPCOMING){
-                numberTrips ++;
+                hasTrip = true;
+                break;
             }
         }
-        if (numberTrips == 0){
+        if (!hasTrip){
             ui.echo("You have no upcoming trips in your list.");
             return;
         }
         ui.echo("Here are the upcoming trips in your list:");
         for (int i = 0; i < trips.size(); i++){
-            if (trips.get(i).getStatus() == Status.UPCOMING){
+            if (trips.get(i).getStatus() == Status.UPCOMING && trips.get(i).getTripType() == "main"){
                 ui.echo((i + 1) + ". " + trips.get(i));
             }
         }
     }
 
     public void listOngoing(TripList trips, Ui ui) {
-        int numberTrips = 0;
+        boolean hasTrip = false;
         for (int i = 0; i < trips.size(); i++){
             if (trips.get(i).getStatus() == Status.ONGOING){
-                numberTrips ++;
+                hasTrip = true;
+                break;
             }
         }
-        if (numberTrips == 0){
+        if (!hasTrip){
             ui.echo("You have no ongoing trips in your list.");
             return;
         }
         ui.echo("Here are the ongoing trips in your list:");
         for (int i = 0; i < trips.size(); i++){
-            if (trips.get(i).getStatus() == Status.ONGOING){
+            if (trips.get(i).getStatus() == Status.ONGOING && trips.get(i).getTripType() == "main"){
                 ui.echo((i + 1) + ". " + trips.get(i));
             }
         }
     }
 
     public void listCompleted(TripList trips, Ui ui) {
-        int numberTrips = 0;
+        boolean hasTrip = false;
         for (int i = 0; i < trips.size(); i++){
             if (trips.get(i).getStatus() == Status.COMPLETED){
-                numberTrips ++;
+                hasTrip = true;
+                break;
             }
         }
-        if (numberTrips == 0){
+        if (!hasTrip){
             ui.echo("You have no completed trips in your list.");
             return;
         }
         ui.echo("Here are the completed trips in your list:");
         for (int i = 0; i < trips.size(); i++){
-            if (trips.get(i).getStatus() == Status.COMPLETED){
+            if (trips.get(i).getStatus() == Status.COMPLETED && trips.get(i).getTripType() == "main"){
                 ui.echo((i + 1) + ". " + trips.get(i));
             }
         }
