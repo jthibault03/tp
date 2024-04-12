@@ -3,7 +3,7 @@ package seedu.voyagers;
 import seedu.voyagers.commands.AddSubTripCommand;
 import seedu.voyagers.commands.AddTripCommand;
 import seedu.voyagers.commands.Command;
-import seedu.voyagers.commands.DeleteCommand;
+import seedu.voyagers.commands.DeleteMainTripCommand;
 import seedu.voyagers.commands.EmptyCommand;
 import seedu.voyagers.commands.ExitCommand;
 import seedu.voyagers.commands.HelpCommand;
@@ -378,6 +378,6 @@ public class Parser {
 
     private static Command deleteMainTrip(String[] tokens) {
         String[] args = {tokens[1]};
-        return new DeleteCommand(args);
+        return new DeleteMainTripCommand(args);
     }
 }

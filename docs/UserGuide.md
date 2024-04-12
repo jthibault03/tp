@@ -11,7 +11,10 @@ Voyagers is a Java application designed to manage trips efficiently through a co
     - [Add Main Trip](#add-main-trip)
     - [Delete Main Trip](#delete-main-trip)
     - [Set Trip Details](#set-trip-details)
+    - [Add Sub Trip](#adding-a-sub-trip)
+    - [Delete Sub Trip](#deleting-a-sub-trip)
     - [List All Trips](#list-all-trips)
+    - [Listing Trips by Status](#listing-trips-by-status)
     - [Add Review](#add-review)
     - [Read Review](#read-review)
     - [Update Status](#update-status)
@@ -26,7 +29,10 @@ Voyagers is a Java application designed to manage trips efficiently through a co
     - [Cancel a Trip](#cancel-a-trip)
     - [Uncancel a Trip](#uncancel-a-trip)
     - [Deleting a Main Trip](#deleting-a-main-trip)
+    - [Add Sub Trip](#adding-a-sub-trip)
+    - [Delete Sub Trip](#deleting-a-sub-trip)
     - [Listing All Trips](#listing-all-trips)
+    - [Listing Trips by Status](#listing-trips-by-status)
     - [Reviewing Trips](#reviewing-trips)
     - [Reading Trip Reviews](#reading-trip-reviews)
     - [Exit Command](#exit-command)
@@ -107,8 +113,32 @@ setstatus Europe /status uncancel
 To delete an existing main trip, use the `deletemaintrip` command followed by the trip name.
 
 ```bash
-deletemaintrip /n Europe Trip
+deletemaintrip /n Europe
 ```
+
+### Adding a Sub Trip
+To add sub trips under a main trip, use the addsubtrip command.
+
+```bash
+addsubtrip /n <Existing Main Trip Name> /start <yyyy-MM-dd> /end <yyyy-MM-dd> /location <location>
+```
+
+```bash
+addsubtrip /n Europe /start 2024-05-30 /end 2024-05-30 /location louvre /d check out art
+```
+
+
+### Deleting a Sub Trip
+To delete a sub trip, use the deletesubtrip command.
+
+```bash
+deletesubtrip /n <Main trip name> /i <index of subtrip>
+```
+
+```bash
+deletesubtrip /n Europe /i 1
+```
+
 ### Listing All Trips
 To view a list of all trips along with their details, use the list command.
 

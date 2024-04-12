@@ -5,9 +5,9 @@ import seedu.voyagers.utils.Ui;
 import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.classes.Trip;
 
-public class DeleteCommand extends Command{
+public class DeleteMainTripCommand extends Command{
 
-    public DeleteCommand(String[] args){
+    public DeleteMainTripCommand(String[] args){
         super(args);
     }
     public void execute(TripList trips, Ui ui, TripStorage tripStorage){
