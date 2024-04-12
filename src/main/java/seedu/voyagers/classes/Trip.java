@@ -16,6 +16,8 @@ public class Trip {
     private Status status;
     private Review review;
 
+    private int subTripIndex = 0;
+
     private ArrayList<Trip> subTrips = new ArrayList<>();
     private BillList bills = new BillList(new ArrayList<Bill>());
 
@@ -145,6 +147,7 @@ public class Trip {
      */
     public void addSubTrip(Trip subTrip) {
         subTrips.add(subTrip);
+        subTrip.subTripIndex = subTrips.size();
     }
 
     /**
@@ -164,6 +167,9 @@ public class Trip {
     public void removeSubTrip(int i) {
         try {
             subTrips.remove(i);
+            for(int j = i; j < subTrips.size(); j++){
+                subTrips.get(j).subTripIndex--;
+            }
         } catch (IndexOutOfBoundsException e) {
             throw new IndexOutOfBoundsException("Index out of bounds");
         }
@@ -210,7 +216,14 @@ public class Trip {
 
     @Override
     public String toString() {
-        String s = "Name: " + name + "\t\tStart Date: " +
+        String s;
+        if(this.tripType == "main"){
+            s = "\tTrip Name: " + name;
+        } else {
+            s = "\t" + name + "-"+ subTripIndex;
+        }
+
+        s += "\t\tStart Date: " +
                 FormatDate.dateFormat.format(startDate) + "\t\tEnd Date: " +
                 FormatDate.dateFormat.format(endDate) + "\t\tLocation: " +
                 location + "\t\tDescription: " + description

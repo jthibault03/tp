@@ -39,7 +39,9 @@ public class NewParser {
             values = line.split(" ");
             return new ListCommand(values);
         case "deletemaintrip":
-            return new DeleteCommand(parseArgs(line, ParserDefinitions.DELETE));
+            return new DeleteMainTripCommand(parseArgs(line, ParserDefinitions.DELETEMAINTRIP));
+        case "deletesubtrip":
+            return new DeleteSubTripCommand(parseArgs(line, ParserDefinitions.DELETESUBTRIP));
         case "addmaintrip":
             return new AddTripCommand(parseArgs(line, ParserDefinitions.ADDMAINTRIP));
         case "addsubtrip":
