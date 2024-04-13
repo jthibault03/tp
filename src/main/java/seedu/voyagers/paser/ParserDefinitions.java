@@ -24,4 +24,6 @@ public class ParserDefinitions {
     public static final String[] REVIEW = {"/s", "/r"};
 
     public static final String[] SETSTATUS = {"/status"};
+
+    public static final String[] FIND = {"/n"};
 }

@@ -13,6 +13,7 @@ import seedu.voyagers.commands.DeleteSubTripCommand;
 //import seedu.voyagers.commands.EmptyCommand;
 import seedu.voyagers.commands.ExitCommand;
 import seedu.voyagers.commands.HelpCommand;
+import seedu.voyagers.commands.FindCommand;
 import seedu.voyagers.commands.ListBillCommand;
 import seedu.voyagers.commands.ListCommand;
 import seedu.voyagers.commands.ModifyTripCommand;
@@ -103,6 +104,9 @@ public class NewParser {
         case "readreview":
             values = line.split(" ");
             return new ReadReviewCommand(values);
+        case "find":
+            values = parseArgs(line, ParserDefinitions.FIND);
+            return new FindCommand(values);
         default:
             throw new IllegalArgumentException("Invalid command");
 

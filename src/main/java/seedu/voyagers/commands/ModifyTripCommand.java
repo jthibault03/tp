@@ -20,7 +20,6 @@ public class ModifyTripCommand extends Command{
 
         String oldName = args[1];
         String modificationType = args[0];
-        System.out.println(Arrays.toString(args));
 
         int index = trips.findTrip(oldName);
         if (index == -1){
