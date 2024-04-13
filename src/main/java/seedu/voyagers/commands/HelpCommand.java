@@ -15,7 +15,7 @@ public class HelpCommand extends Command{
                 , false, false);
         ui.echo("2. How to modify main trips:",
                 false, false);
-        ui.echo("   setname <current_name> /n <new_name>",
+        ui.echo("   setname <current_name> /n <new_name> - You can change name of main trips only",
                 false, false);
         ui.echo("   setdates <current_name> /start <yyyy-MM-dd> /end <yyyy-MM-dd>",
                 false, false);
