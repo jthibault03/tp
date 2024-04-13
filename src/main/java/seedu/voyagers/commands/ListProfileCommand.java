@@ -1,10 +1,10 @@
 package seedu.voyagers.commands;
 
-import seedu.voyagers.classes.ProfileList;
+/*import seedu.voyagers.classes.ProfileList;
 import seedu.voyagers.classes.TripList;
 import seedu.voyagers.utils.ProfileStorage;
 import seedu.voyagers.utils.TripStorage;
-import seedu.voyagers.utils.Ui;
+import seedu.voyagers.utils.Ui;*/
 
 /*
 public class ListProfileCommand extends Command{

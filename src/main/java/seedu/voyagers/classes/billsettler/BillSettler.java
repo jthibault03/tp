@@ -1,6 +1,7 @@
 package seedu.voyagers.classes.billsettler;
 
 import java.util.ArrayList;
+
 import seedu.voyagers.classes.Profile;
 import seedu.voyagers.classes.Bill;
 import seedu.voyagers.utils.Currency;
@@ -24,21 +25,27 @@ public class BillSettler {
         Profile charlie = new Profile("Charlie", Currency.EUR);
         Profile david = new Profile("David", Currency.EUR);
 
-        Bill bill1 = new Bill("bill1", alice, 110.0, Currency.EUR, new HashMap<>() {{
-            put(bob, 40.0);
-            put(charlie, 20.0);
-            put(david, 40.0);
-        }});
+        Bill bill1 = new Bill("bill1", alice, 110.0, Currency.EUR, new HashMap<>() {
+            {
+                put(bob, 40.0);
+                put(charlie, 20.0);
+                put(david, 40.0);
+            }
+        });
 
-        Bill bill2 = new Bill("bill2", bob, 50.0, Currency.EUR, new HashMap<Profile, Double>(){{
+        Bill bill2 = new Bill("bill2", bob, 50.0, Currency.EUR, new HashMap<Profile, Double>() {
+            {
                 put(alice, 90.0);
                 put(charlie, 10.0);
-            }});
+            }
+        });
 
-        Bill bill3 = new Bill("bill3", charlie, 60.0, Currency.EUR, new HashMap<Profile, Double>(){{
+        Bill bill3 = new Bill("bill3", charlie, 60.0, Currency.EUR, new HashMap<Profile, Double>() {
+            {
                 put(alice, 20.0);
                 put(bob, 80.0);
-            }});
+            }
+        });
 
         bills.add(bill1);
         bills.add(bill2);
@@ -50,7 +57,7 @@ public class BillSettler {
     }
 
 
-    private static String[] getNames(ArrayList<Bill> bills){
+    private static String[] getNames(ArrayList<Bill> bills) {
         Set<String> names = new HashSet<>();
         for (Bill bill : bills) {
             names.add(bill.getPayer().getName());
@@ -86,7 +93,7 @@ public class BillSettler {
         visitedEdges = new HashSet<>();
         Integer edgePos;
 
-        while((edgePos = getNonVisitedEdge(solver.getEdges())) != null) {
+        while ((edgePos = getNonVisitedEdge(solver.getEdges())) != null) {
             //  Force recomputation of subsequent flows in the graph
             solver.recompute();
             //  Set source and sink in the flow graph
@@ -97,12 +104,12 @@ public class BillSettler {
             List<Dinics.Edge>[] residualGraph = solver.getGraph();
             List<Dinics.Edge> newEdges = new ArrayList<>();
 
-            for(List<Dinics.Edge> allEdges : residualGraph) {
-                for(Dinics.Edge edge : allEdges) {
+            for (List<Dinics.Edge> allEdges : residualGraph) {
+                for (Dinics.Edge edge : allEdges) {
                     long remainingFlow = ((edge.flow < 0) ? edge.capacity : (edge.capacity - edge.flow));
                     //  If there is capacity remaining in the graph, then add the remaining capacity as an edge
                     //  so that it can be used for optimizing other debts within the graph
-                    if(remainingFlow > 0) {
+                    if (remainingFlow > 0) {
                         newEdges.add(new Dinics.Edge(edge.from, edge.to, remainingFlow));
                     }
                 }
@@ -137,14 +144,14 @@ public class BillSettler {
 
         for (Bill bill : bills) {
             Profile payer = bill.getPayer();
-            HashMap <Profile, Double> participants = bill.getParticipants();
+            HashMap<Profile, Double> participants = bill.getParticipants();
 
             int indexReceiver = nameToIndex.get(payer.getName());
             double amount = bill.getAmount();
 
             for (Map.Entry<Profile, Double> entry : participants.entrySet()) {
                 Profile ower = entry.getKey();
-                double owing = entry.getValue()  * amount; //in cents
+                double owing = entry.getValue() * amount; //in cents
 
                 int indexOwer = nameToIndex.get(ower.getName());
                 //Quantity in cents
@@ -157,14 +164,15 @@ public class BillSettler {
 
     /**
      * Get any non visited edge in the graph
+     *
      * @param edges list of all edges in the graph
      * @return index of a non visited edge
      */
     private static Integer getNonVisitedEdge(List<Dinics.Edge> edges) {
         Integer edgePos = null;
         int curEdge = 0;
-        for(Dinics.Edge edge : edges) {
-            if(!visitedEdges.contains(getHashKeyForEdge(edge.from, edge.to))) {
+        for (Dinics.Edge edge : edges) {
+            if (!visitedEdges.contains(getHashKeyForEdge(edge.from, edge.to))) {
                 edgePos = curEdge;
             }
             curEdge++;
@@ -174,6 +182,7 @@ public class BillSettler {
 
     /**
      * Get a unique hash key for a given edge
+     *
      * @param u the starting vertex in the edge
      * @param v the ending vertex in the edge
      * @return a unique hash key

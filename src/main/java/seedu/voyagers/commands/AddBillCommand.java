@@ -26,8 +26,8 @@ public class AddBillCommand extends Command {
                     + "\nNow you have " + bills.size() +
                     " bill(s) in the list.");
             String currentDir = System.getProperty("user.dir");
-            String BILLS_FILE_NAME = "local-bills.txt";
-            writeBillFile(bills, bills.size(), currentDir, BILLS_FILE_NAME);
+            String billsFileName = "local-bills.txt";
+            writeBillFile(bills, bills.size(), currentDir, billsFileName);
         } catch (Exception e){
             ui.echo(e.getMessage());
         }
