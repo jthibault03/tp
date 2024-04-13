@@ -7,7 +7,6 @@ import seedu.voyagers.utils.Ui;
 import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.classes.Trip;
 
-import java.util.Arrays;
 import java.util.Date;
 
 public class ModifyTripCommand extends Command{
