@@ -3,7 +3,25 @@ package seedu.voyagers.paser;
 
 
 
-import seedu.voyagers.commands.*;
+import seedu.voyagers.commands.AddBillCommand;
+import seedu.voyagers.commands.AddSubTripCommand;
+import seedu.voyagers.commands.AddTripCommand;
+//import seedu.voyagers.commands.AutoTripStatusUpdateCommand;
+import seedu.voyagers.commands.Command;
+import seedu.voyagers.commands.DeleteMainTripCommand;
+import seedu.voyagers.commands.DeleteSubTripCommand;
+//import seedu.voyagers.commands.EmptyCommand;
+import seedu.voyagers.commands.ExitCommand;
+import seedu.voyagers.commands.HelpCommand;
+import seedu.voyagers.commands.ListBillCommand;
+import seedu.voyagers.commands.ListCommand;
+import seedu.voyagers.commands.ModifyTripCommand;
+import seedu.voyagers.commands.PayBillCommand;
+import seedu.voyagers.commands.ReadReviewCommand;
+import seedu.voyagers.commands.ReviewCommand;
+import seedu.voyagers.commands.SetBillCurrencyCommand;
+import seedu.voyagers.commands.SimplifyBillCommand;
+
 
 
 import java.util.Arrays;

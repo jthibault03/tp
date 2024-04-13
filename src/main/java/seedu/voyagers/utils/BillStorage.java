@@ -1,8 +1,9 @@
 package seedu.voyagers.utils;
+
 import seedu.voyagers.classes.Bill;
 import seedu.voyagers.classes.BillList;
 import seedu.voyagers.classes.Profile;
-import seedu.voyagers.classes.ProfileList;
+//import seedu.voyagers.classes.ProfileList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -25,8 +26,9 @@ public class BillStorage {
                 Currency currency;
                 if (inputs[4].equalsIgnoreCase("null")) {
                     currency = null;
+                } else {
+                    currency = Currency.valueOf(inputs[4]);
                 }
-                else currency = Currency.valueOf(inputs[4]);
                 ArrayList<Profile> people = new ArrayList<>();
                 ArrayList<Double> percentages = new ArrayList<>();
                 String[] peopleNames = inputs[5].split(", ");
@@ -44,7 +46,7 @@ public class BillStorage {
         }
     }
 
-    public static void writeBillFile(BillList billList, int size, String currentDir, String fileName){
+    public static void writeBillFile(BillList billList, int size, String currentDir, String fileName) {
         try {
             FileWriter fileWriter = new FileWriter(currentDir + "/" + fileName);
             for (int i = 0; i < size; i++) {
