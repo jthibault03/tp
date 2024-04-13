@@ -165,7 +165,16 @@ list cancelled
 ```
 
 ### Creating a Bill
-To add a bill to a trip, use the `addBill` command followed by the following information
+To add a bill to a trip, use the `addBill` command followed by the following flags:
+ 
+ `/trip`: name of the trip this bill belongs to  
+`/n`: name of this bill  
+`/payer`: name of the person who paid the bill  
+`/others`: other people involved in the bill, owing the payer for this expense  
+`/amount`: how much this bill costed. Default currency will be the currency of the trip.
+`/percentages`: the percentage of the total amount that each person is responsible for
+in the bill. Must have the same number of arguments as the number of people in `/payer` and `/others`. 
+ Must add up to 100 (+-0.5).
 ```bash
 addBill /trip China /n dinner /payer Alice /others Bob Carol /amount 50 /percentages 33.3 33.3 33.3
 ```
