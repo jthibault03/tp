@@ -16,8 +16,7 @@ Given below are my contributions to the project.
 - Fixed bugs and updated NewParser to implement new features.
 - Fixed bugs to in modifying main trip.
 
-### Code contributed: [Repo link](https://cerealmillertp.netlify.app/?search=Cereal%20OR%20chong&sort=groupTitle%20dsc&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false)
-My username is CerealMiller, but 'DESKTOP-BVBGAVI\chong' is also me.
+### Code contributed: [Repo link](https://cerealmillertp.netlify.app/?search=CerealMiller&sort=groupTitle%20dsc&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false&tabOpen=true&tabType=authorship&tabAuthor=LAPTOP-IO707OMP%5Cchong&tabRepo=AY2324S2-CS2113-W14-4%2Ftp%5Bmaster%5D&authorshipIsMergeGroup=false&authorshipFileTypes=md~java&authorshipIsBinaryFileTypeChecked=false&authorshipIsIgnoredFilesChecked=false)
 
 ### Project management:
 - Managed releases `v1.0 - v2.1` (Latest release)
