@@ -17,9 +17,7 @@ Given below are my contributions to the project.
 - Fixed bugs to in modifying main trip.
 
 ### Code contributed: [Repo link](https://cerealmillertp.netlify.app/?search=Cereal%20OR%20chong&sort=groupTitle%20dsc&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=false)
-My github username is CerealMiller.
-
-Note that 'DESKTOP-BVBGAVI\chong' is also me.
+My username is CerealMiller, but 'DESKTOP-BVBGAVI\chong' is also me.
 
 ### Project management:
 - Managed releases `v1.0 - v2.1` (Latest release)
@@ -31,11 +29,6 @@ Note that 'DESKTOP-BVBGAVI\chong' is also me.
 - **Enhancement 1**: Updated the `README.md` file to include a brief description of the project.
 - **Enhancement 2**: Updated the `UserGuide.md` file to include a detailed user guide for parts I implemented.
 - **Enhancement 3**: Updated the `AboutUs.md` file to include a brief introduction of the team members.
-
-### Documentation:
-- **Documentation 1**: [User Guide](
-- **Documentation 2**: [Developer Guide](
-- **Documentation 3**: [About Us](
 
 ### Community:
 - **Community 1**: Reported bugs and suggestions for other teams in the project.
