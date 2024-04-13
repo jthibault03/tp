@@ -2,6 +2,9 @@
 
 Voyagers is a Java application designed to manage trips efficiently through a command-line interface.
 
+<!---
+@@author azamanis
+-->
 
 ## Table of Contents
 
@@ -40,6 +43,10 @@ Voyagers is a Java application designed to manage trips efficiently through a co
         - [Adding a Bill](#adding-a-bill)
         - [Simplify Bills from a Trip](#simplify-bills-from-a-trip)
     - [Currency](#currency)
+
+<!---
+@@author azamanis
+-->
 
 ## Introduction
 
@@ -197,6 +204,10 @@ readreview Trip1
 exit
 ```
 
+<!---
+@@author azamanis
+-->
+
 ### Managing bills
 
 You can add bills to a trip. The bills are payed by a person but it can involve multiple people.
@@ -248,3 +259,6 @@ The app supports multiple currencies:
 - AUD: Australian Dollar
 - CAD: Canadian Dollar
 
+<!---
+@@author azamanis
+-->
