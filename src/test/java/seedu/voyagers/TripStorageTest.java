@@ -25,8 +25,8 @@ public class TripStorageTest {
         // Create a temporary file with sample trip data
         try {
             FileWriter writer = new FileWriter(TEST_FILE_NAME);
-            writer.write("Trip1|2024-03-15|2024-03-20|Location1|Description1|4\n");
-            writer.write("Trip2|2024-03-25|2024-03-30|Location2|Description2|5\n");
+            writer.write("main|Trip1|2024-03-15|2024-03-20|Location1|Description1|4\n");
+            writer.write("main|Trip2|2024-03-25|2024-03-30|Location2|Description2|5\n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
@@ -60,10 +60,16 @@ public class TripStorageTest {
             Date endDate2 = dateFormat.parse("2024-03-30");
             Trip trip1 = new Trip("Trip1", startDate1, endDate1, "Location1",
                     "Description1");
+            trip1.setTripType("main");
             Trip trip2 = new Trip("Trip2", startDate2, endDate2, "Location2",
                     "Description2");
+            trip2.setTripType("main");
+            Trip trip1sub1 = new Trip("Trip1", startDate1, endDate1, "Location1",
+                    "Description1");
+            trip1sub1.setTripType("sub");
             trips.add(trip1);
             trips.add(trip2);
+            trip1.addSubTrip(trip1sub1);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -76,10 +82,13 @@ public class TripStorageTest {
             File tempFile = new File(TEST_FILE_NAME);
             Scanner scanner = new Scanner(tempFile);
             Assertions.assertTrue(scanner.hasNextLine());
-            Assertions.assertEquals("Trip1|2024-03-15|2024-03-20|Location1|Description1|COMPLETED",
+            Assertions.assertEquals("main|Trip1|2024-03-15|2024-03-20|Location1|Description1|COMPLETED",
                     scanner.nextLine());
             Assertions.assertTrue(scanner.hasNextLine());
-            Assertions.assertEquals("Trip2|2024-03-25|2024-03-30|Location2|Description2|COMPLETED",
+            Assertions.assertEquals("sub|Trip1|2024-03-15|2024-03-20|Location1|Description1|COMPLETED",
+                    scanner.nextLine());
+            Assertions.assertTrue(scanner.hasNextLine());
+            Assertions.assertEquals("main|Trip2|2024-03-25|2024-03-30|Location2|Description2|COMPLETED",
                     scanner.nextLine());
             scanner.close();
         } catch (IOException e) {
