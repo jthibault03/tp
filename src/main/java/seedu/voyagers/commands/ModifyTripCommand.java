@@ -7,7 +7,6 @@ import seedu.voyagers.utils.Ui;
 import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.classes.Trip;
 
-import java.util.Arrays;
 import java.util.Date;
 
 public class ModifyTripCommand extends Command{
@@ -20,7 +19,6 @@ public class ModifyTripCommand extends Command{
 
         String oldName = args[1];
         String modificationType = args[0];
-        System.out.println(Arrays.toString(args));
 
         int index = trips.findTrip(oldName);
         if (index == -1){
