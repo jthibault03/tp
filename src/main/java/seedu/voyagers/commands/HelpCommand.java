@@ -31,13 +31,14 @@ public class HelpCommand extends Command{
         ui.echo("   list <status> - list by status (upcoming, ongoing, completed, cancelled)",
                 false, false);
         ui.echo("2. add - Adds a trip", false, false);
-        ui.echo("3. delete - Deletes a trip", false, false);
-        ui.echo("4. find - Finds a trip", false, false);
+        ui.echo("3. deletemaintrip /n <main_trip_name> - Deletes a main trip", false, false);
+        ui.echo("4. deletesubtrip /n <main_trip_name> /i <index - Deletes a sub trip", false, false);
+        ui.echo("5. find - Finds a trip", false, false);
         ui.echo("   find <keyword> - show trips whose names contain the keyword", false, false);
-        ui.echo("5. help - Shows the help message", false, false);
-        ui.echo("6. review <main_trip_name> /s <1-10> /r <reflection> - Give your thoughts on a main trip",
+        ui.echo("6. help - Shows the help message", false, false);
+        ui.echo("7. review <main_trip_name> /s <1-10> /r <reflection> - Give your thoughts on a main trip",
                 false, false);
-        ui.echo("7. readreview <main_trip_name> - Read your review", false, false);
-        ui.echo("8. exit - Exits the program",false, true);
+        ui.echo("8. readreview <main_trip_name> - Read your review", false, false);
+        ui.echo("9. exit - Exits the program",false, true);
     }
 }
