@@ -81,6 +81,20 @@ To add a new main trip, use the `addmaintrip` command followed by the trip detai
 ```bash
 addmaintrip /n <Name> /start <yyyy-MM-dd> /end <yyyy-MM-dd> /location <Location> /d <Description>
 ```
+Example:
+```bash
+addmaintrip /n EuropeTrip /start 2024-05-01 /end 2024-07-01 /location Europe /d Travelling western europe with the family
+```
+Example output:
+```bash
+		____________________________________________________________
+		Got it. I've added this trip:
+	Trip Name: EuropeTrip		Start Date: 2024-05-01		End Date: 2024-07-01		Location: Europe		Description: Travelling western europe with the family		Status: UPCOMING
+	Sub-trips:
+Now you have 3 trips in the list.
+        ____________________________________________________________
+```
+
 
 ### Setting Trip Details
 
@@ -91,47 +105,123 @@ You can also modify the details of an existing trip using the following commands
 - `setlocation`: Set the location of a trip.
 - `setdescription`: Set the description of a trip.
 
+### Change the Name of a Trip (only for main trips)
+```bash
+setname <current_name> /n <new_name>
+```
+
+
 Example:
 
-### Change the Name of a Trip
 ```bash
-setname Europe Trip /n European Adventure
+setname EuropeTrip /n EuropeanAdventure
+```
+
+Example output:
+
+```bash
+		____________________________________________________________
+		Noted. I've modified this trip:
+	Trip Name: EuropeanAdventure		Start Date: 2024-05-01		End Date: 2024-07-01		Location: Europe		Description: Travelling western europe with the family		Status: UPCOMING
+	Sub-trips:
+		____________________________________________________________
 ```
 
 ### Change the Date of a Trip
 
+Example:
 ```bash
-setdates Europe /start 2024-05-01 /end 2024-07-31
+setdates EuropeanAdventure /start 2024-05-01 /end 2024-07-31
 ```
 
+Example output:
+```bash
+        ____________________________________________________________
+		Noted. I've modified this trip:
+	Trip Name: EuropeanAdventure		Start Date: 2024-05-01		End Date: 2024-07-31		Location: Europe		Description: Travelling western europe with the family		Status: UPCOMING
+	Sub-trips:
+        ____________________________________________________________
+```
 ### Cancel a Trip
 
 ```bash
-setstatus Europe /status cancel
+setstatus <current_name> /status cancel
+```
+
+Example:
+```bash
+setstatus EuropeanAdventure /status cancel
+```
+
+Example output:
+```bash
+		____________________________________________________________
+		Noted. I've modified this trip:
+	Trip Name: EuropeanAdventure		Start Date: 2024-05-01		End Date: 2024-07-31		Location: Europe		Description: Travelling western europe with the family		Status: CANCELLED
+	Sub-trips:
+		____________________________________________________________
 ```
 
 ### Uncancel a Trip
-
 ```bash
-setstatus Europe /status uncancel
+setstatus <trip_name> /status uncancel
+```
+
+Example:
+```bash
+setstatus EuropeanAdventure /status uncancel
+```
+
+Example output:
+```bash
+		____________________________________________________________
+		Noted. I've modified this trip:
+	Trip Name: EuropeanAdventure		Start Date: 2024-05-01		End Date: 2024-07-31		Location: Europe		Description: Travelling western europe with the family		Status: UPCOMING
+	Sub-trips:
+		____________________________________________________________
 ```
 
 ### Deleting a Main Trip
 To delete an existing main trip, use the `deletemaintrip` command followed by the trip name.
 
 ```bash
-deletemaintrip /n Europe
+deletemaintrip /n <main_trip_name>
+```
+
+Example:
+```bash
+deletemaintrip /n EuropeanAdventure
+```
+
+Example output:
+```
+		____________________________________________________________
+		Noted. I've removed this trip:
+	Trip Name: EuropeanAdventure		Start Date: 2024-05-01		End Date: 2024-07-31		Location: Europe		Description: Travelling western europe with the family		Status: UPCOMING
+	Sub-trips:
+Now you have 2 trips in the list.
+		____________________________________________________________
 ```
 
 ### Adding a Sub Trip
 To add sub trips under a main trip, use the addsubtrip command.
 
 ```bash
-addsubtrip /n <Existing Main Trip Name> /start <yyyy-MM-dd> /end <yyyy-MM-dd> /location <location>
+addsubtrip /n <existing_main_trip_name> /start <yyyy-MM-dd> /end <yyyy-MM-dd> /location <location> /d <description>
 ```
 
+Example:
 ```bash
-addsubtrip /n Europe /start 2024-05-30 /end 2024-05-30 /location louvre /d check out art
+addsubtrip /n Korea /start 2024-05-10 /end 2024-05-24 /location Gwanggyo Lake Park /d have a picnic
+```
+
+Example output:
+```bash
+		____________________________________________________________
+		Got it. I've added this trip as a subtrip of :Korea
+	Korea-1		Start Date: 2024-05-10		End Date: 2024-05-24		Location: Gwanggyo Lake Park		Description: have a picnic		Status: UPCOMING
+Now you have 1 subtrips.
+		____________________________________________________________
 ```
 
 
@@ -142,8 +232,17 @@ To delete a sub trip, use the deletesubtrip command.
 deletesubtrip /n <Main trip name> /i <index of subtrip>
 ```
 
+Example:
 ```bash
-deletesubtrip /n Europe /i 1
+deletesubtrip /n Korea /i 1
+```
+
+Example output:
+```bash
+		____________________________________________________________
+		Noted. I've removed this subtrip:
+	Korea-1		Start Date: 2024-05-10		End Date: 2024-05-24		Location: Gwanggyo Lake Park		Description: have a picnic		Status: UPCOMING
+		____________________________________________________________
 ```
 
 ### Listing All Trips
@@ -153,15 +252,50 @@ To view a list of all trips along with their details, use the list command.
 list
 ```
 
+Example output:
+```bash
+____________________________________________________________
+		Here are the trips in your list:
+		____________________________________________________________
+		____________________________________________________________
+		1. 	Trip Name: Korea		Start Date: 2024-05-01		End Date: 2024-07-31		Location: Suwon		Description: dating		Status: UPCOMING
+	Sub-trips:
+		____________________________________________________________
+```
+
 ### Listing Trips by Status
 To view a list of trips of only a specific status, add the status after the list command
 
 ```bash
+list <status>
+```
+
+Example 1:
+```bash
 list upcoming
 ```
 
+Example output 1:
+```bash
+		____________________________________________________________
+		Here are the upcoming trips in your list:
+		____________________________________________________________
+		____________________________________________________________
+		1. 	Trip Name: Korea		Start Date: 2024-05-01		End Date: 2024-07-31		Location: Suwon		Description: dating		Status: UPCOMING
+	Sub-trips:
+		____________________________________________________________
+```
+
+Example 2:
 ```bash
 list cancelled
+```
+
+Example output 2:
+```bash
+		____________________________________________________________
+		You have no cancelled trips in your list.
+		____________________________________________________________
 ```
 
 ### Creating a Bill
@@ -196,21 +330,56 @@ listBills
 To review a main trip with a scale of 1-10 'score' and your open-ended 'reflection', use the review command.
 
 ```bash
-review Trip1 /s 10 /r Trip1 was fantastic, I made 3 new friends.
+review <main_trip_name> /s <1-10> /r <open-ended thoughts>
+```
+
+Example:
+```bash
+review Korea /s 7 /r Great food, great weather, expensive though
+```
+
+Example output:
+```bash
+		____________________________________________________________
+		Noted. you reviewed this trip: Korea with a score of 7
+		noting: Great food, great weather, expensive though
+		____________________________________________________________
+
 ```
 
 ### Reading Trip Reviews
 
 To read previously reviewed main trip, use the readreview command with the name of the trip.
-
 ```bash
-readreview Trip1
+readreview <main_trip_name>
+```
+
+Example:
+```bash
+readreview Korea
+```
+
+Example output:
+```bash
+		____________________________________________________________
+		Here's what you wrote about Korea
+		Score: 7
+		Reflection:
+		Great food, great weather, expensive though
+		____________________________________________________________
 ```
 
 ### Enter "exit" to exit the application.
 
 ```bash 
 exit
+```
+
+Output:
+```bash
+		____________________________________________________________
+		Bye. Hope to see you again soon!
+		____________________________________________________________
 ```
 
 <!---
