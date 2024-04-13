@@ -11,17 +11,17 @@ Voyagers is a Java application designed to manage trips efficiently through a co
 
 1. [Introduction](#introduction)
 2. [Features](#features)
-    - [Add Main Trip](#add-main-trip)
-    - [Delete Main Trip](#delete-main-trip)
-    - [Set Trip Details](#set-trip-details)
+    - [Add Main Trip](#adding-a-main-trip)
+    - [Delete Main Trip](#deleting-a-main-trip)
+    - [Set Trip Details](#setting-trip-details)
     - [Add Sub Trip](#adding-a-sub-trip)
     - [Delete Sub Trip](#deleting-a-sub-trip)
-    - [List All Trips](#list-all-trips)
+    - [List All Trips](#listing-all-trips)
     - [Listing Trips by Status](#listing-trips-by-status)
-    - [Add Review](#add-review)
-    - [Read Review](#read-review)
+    - [Add Review](#reviewing-trips)
+    - [Read Review](#reading-trip-reviews)
     - [Update Status](#update-status)
-    - [Cancel Trip](#cancel-trip)
+    - [Cancel Trip](#canceling-a-trip)
     - [Save Data](#save-data)
     - [Exit Application](#exit-application)
 3. [Usage](#usage)
@@ -29,6 +29,8 @@ Voyagers is a Java application designed to manage trips efficiently through a co
     - [Setting Trip Details](#setting-trip-details)
     - [Change the Name of a Trip](#change-the-name-of-a-trip)
     - [Change the Date of a Trip](#change-the-date-of-a-trip)
+    - [Change the Location of a Trip](#Change-the-Location-of-a-Trip)
+    - [Change the Description of a Trip](#Change-the-Description-of-a-Trip)
     - [Cancel a Trip](#cancel-a-trip)
     - [Uncancel a Trip](#uncancel-a-trip)
     - [Deleting a Main Trip](#deleting-a-main-trip)
@@ -129,6 +131,10 @@ Example output:
 
 ### Change the Date of a Trip
 
+```bash
+setdates <current_trip_name> /start <yyyy-MM-dd> /end <yyyy-MM-dde>
+```
+
 Example:
 ```bash
 setdates EuropeanAdventure /start 2024-05-01 /end 2024-07-31
@@ -142,7 +148,48 @@ Example output:
 	Sub-trips:
         ____________________________________________________________
 ```
-### Cancel a Trip
+
+### Change the Location of a Trip
+
+```bash
+setdates <current_trip_name> /location <new_location>
+```
+
+Example:
+```bash
+setdates DateWithSO /location Fancy Restaurant
+```
+
+Example output:
+```bash
+        ____________________________________________________________
+		Noted. I've modified this trip:
+	Trip Name: DateWithSO		Start Date: 2024-08-27		End Date: 2024-08-27		Location: Fancy Restaurant		Description: Having Italian with beloved		Status: UPCOMING
+	Sub-trips:
+        ____________________________________________________________
+```
+
+### Change the Description of a Trip
+
+```bash
+setdates <current_trip_name> /d <new_description>
+```
+
+Example:
+```bash
+setdates DateWithSO /d Double dating with other friends at Italian place
+```
+
+Example output:
+```bash
+        ____________________________________________________________
+		Noted. I've modified this trip:
+	Trip Name: DateWithSO		Start Date: 2024-08-27		End Date: 2024-08-27		Location: Fancy Restaurant		Description: Double dating with other friends at Italian place		Status: UPCOMING
+	Sub-trips:
+        ____________________________________________________________
+```
+
+### Canceling a Trip
 
 ```bash
 setstatus <current_name> /status cancel
@@ -368,6 +415,9 @@ Example output:
 		Great food, great weather, expensive though
 		____________________________________________________________
 ```
+
+### Save data
+Remember to properly exit to save trip data.
 
 ### Enter "exit" to exit the application.
 
