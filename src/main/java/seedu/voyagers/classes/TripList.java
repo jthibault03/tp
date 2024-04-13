@@ -52,6 +52,9 @@ public class TripList {
     public Trip remove(int index) throws IndexOutOfBoundsException{
         Trip trip = trips.get(index);
         this.trips.remove(index);
+        for(int i = index; i < trips.size() - 2; i++){
+            trips.set(i, trips.get(i + 1));
+        }
         return trip;
     }
 
