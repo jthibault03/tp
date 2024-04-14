@@ -65,3 +65,6 @@ The following (all the) sequence diagrams in the DG were created by me.
 
 Furthermore, I contributed to other minimal sections of the DG such as the index and organizing the different sections.
 
+### Community:
+- **Community 1**: Reported bugs and suggestions for other teams in the project, both during labs and the PE dry run test.
+- **Community 2**: 
