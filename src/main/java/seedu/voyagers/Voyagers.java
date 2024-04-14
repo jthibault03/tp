@@ -54,7 +54,7 @@ public class Voyagers {
 
         ui.showWelcome();
         //assert false : "This is a debug assertion set to fail.";
-        ui.echo("Here are the trips in your list from the previous time:", false, false);
+        //ui.echo("Here are the trips in your list from the previous time:", false, false);
 
         //TODO: make Storage a singleton
         String currentDir = System.getProperty("user.dir");
@@ -63,7 +63,7 @@ public class Voyagers {
         readReviewFile(tripList, currentDir, REVIEWS_FILE_NAME);
         //TODO: load in Profiles and Bills from save file
         readBillFile(billList, currentDir, BILLS_FILE_NAME);
-        readProfileFile(profileList, currentDir, PROFILES_FILE_NAME);
+        //readProfileFile(profileList, currentDir, PROFILES_FILE_NAME);
 
         new ListCommand().execute(tripList, ui, null);
         boolean isExit = false;
