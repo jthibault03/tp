@@ -126,6 +126,14 @@ public class Trip {
         }
         this.startDate = startDate;
         this.endDate = endDate;
+
+        if(endDate.before(new Date())) {
+            setStatus(Status.COMPLETED);
+        } else if(startDate.after(new Date())) {
+            setStatus(Status.UPCOMING);
+        } else {
+            setStatus(Status.ONGOING);
+        }
     }
 
     public void setLocation(String location) {
