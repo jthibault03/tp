@@ -33,9 +33,6 @@ public class ReviewStorage {
 
         try {
             Scanner s = new Scanner(f);
-            if (s.hasNext()) {
-                System.out.println("Here are the trips in your list:");
-            }
             while (s.hasNext()) {
                 readReviewLine(tripList, s);
             }
