@@ -65,15 +65,15 @@ public class NewParser {
             return new AddTripCommand(parseArgs(line, ParserDefinitions.ADDMAINTRIP));
         case "addsubtrip":
             return new AddSubTripCommand(parseArgs(line, ParserDefinitions.ADDSUBTRIP, true));
-        case "addBill":
+        case "addbill":
             return new AddBillCommand(parseArgs(line, ParserDefinitions.ADDBILL));
-        case "listBills":
+        case "listbills":
             return new ListBillCommand();
         case "simplifybill":
             return new SimplifyBillCommand();
-        case "payBill":
+        case "paybill":
             return new PayBillCommand(parseArgs(line, ParserDefinitions.PAYBILL));
-        case "setBillCurrency":
+        case "setbillcurrency":
             return new SetBillCurrencyCommand(parseArgs(line, ParserDefinitions.SETBILLCURRENCY));
         case "setname":
             values = concatenate(new String[]{"name"},
