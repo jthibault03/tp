@@ -16,7 +16,7 @@ public class BillList {
     }
 
     public void add(Bill bill) {
-        if (isBillNameRepeated(bill.getName())) {
+        if (isBillNameRepeated(bill)) {
             throw new IllegalArgumentException("Bill name already exists");
         } else {
             this.bills.add(bill);
@@ -118,11 +118,20 @@ public class BillList {
         return bills.get(index);
     }
 
-    public boolean isBillNameRepeated(String name){
-        return findBill(name) != -1;
+    public boolean isBillNameRepeated(Bill newBill){
+        Trip trip =  newBill.getTrip();
+        for(int i = 0; i < bills.size(); i++){
+            Bill existingBill = bills.get(i);
+            if (matchingTripNameAndBillName(existingBill, newBill)){
+                return true;
+            }
+        }
+        return false;
     }
 
-
+    private boolean matchingTripNameAndBillName(Bill bill1, Bill bill2){
+        return bill1.getTripName().equals(bill2.getTripName()) && bill1.getName().equals(bill2.getName());
+    }
 
     public ArrayList<Bill> getBills(){
         return bills;

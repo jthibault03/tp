@@ -13,7 +13,7 @@ import seedu.voyagers.commands.ListCommand;
 import java.util.ArrayList;
 
 import static seedu.voyagers.utils.BillStorage.readBillFile;
-import static seedu.voyagers.utils.ProfileStorage.readProfileFile;
+//import static seedu.voyagers.utils.ProfileStorage.readProfileFile;
 import static seedu.voyagers.utils.ReviewStorage.readReviewFile;
 import static seedu.voyagers.utils.ReviewStorage.writeReviewFileMain;
 import static seedu.voyagers.utils.TripStorage.readTripFile;
