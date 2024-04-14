@@ -15,7 +15,7 @@ public class PayBillCommand extends Command{
 
     public void execute(TripList trips, Ui ui, TripStorage tripStorage){
         try{
-            Bill bill = BillList.getBill(args[0]);
+            Bill bill = BillList.getBill(args[0], args[1]);
             bill.payBill();
             ui.echo("Got it. This bill is now marked as paid.");
         } catch (Exception e){
