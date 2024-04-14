@@ -62,7 +62,7 @@ public class Voyagers {
         readTripFile(tripList.getTrips(), currentDir, TRIPS_FILE_NAME);
         readReviewFile(tripList, currentDir, REVIEWS_FILE_NAME);
         //TODO: load in Profiles and Bills from save file
-        readBillFile(billList, currentDir, BILLS_FILE_NAME);
+        //readBillFile(billList, currentDir, BILLS_FILE_NAME);
         //readProfileFile(profileList, currentDir, PROFILES_FILE_NAME);
 
         new ListCommand().execute(tripList, ui, null);

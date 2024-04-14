@@ -98,20 +98,23 @@ public class BillList {
 
     /**
      * Finds the index of the bill with the specified name
-     * @param name the name of the bill to find
+     * @param tripName the trip name containing the bill to find
+     * @param billName the name of the bill to find
      * @return the index of the bill with the specified name. Returns -1 if no such bill is found
      */
-    public static int findBill(String name){
+    public static int findBill(String tripName, String billName){
         for (int i = 0; i < bills.size(); i++){
-            if (bills.get(i).getName().equals(name)){
+            if (bills.get(i).getName().equals(billName) && bills.get(i).getTripName().equals(tripName)){
                 return i;
             }
         }
         return -1;
     }
 
-    public static Bill getBill(String name) throws IllegalArgumentException{
-        int index = findBill(name);
+
+
+    public static Bill getBill(String tripName, String billName) throws IllegalArgumentException{
+        int index = findBill(tripName, billName);
         if (index == -1){
             throw new IllegalArgumentException("No such trip found");
         }

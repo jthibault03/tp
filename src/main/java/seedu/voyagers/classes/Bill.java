@@ -62,7 +62,7 @@ public class Bill implements Payable {
 
     public Bill(String tripName, String billName, Profile payer, Double amount, Currency currency,
                 ArrayList<Profile> people, ArrayList<Double> percentages) {
-        if (people.size() != percentages.size()) {
+        if (people.size() + 1 != percentages.size()) {
             throw new IllegalArgumentException("Number of elements in 'people' and 'percentages' must be equal");
         }
 
