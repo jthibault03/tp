@@ -1,3 +1,1 @@
-Korea|dinner|Luo|200.0|null|null|50.0, 50.0|false
-Korea|lunch|Luo|100.0|null|null|100.0|false
-Beijing|dinner|May|100.0|null|Bob Tim|30.0, 35.0, 35.0|false
+Beijing|food|Mr.tickles|50.0|null|Jessica|50.0, 50.0|false

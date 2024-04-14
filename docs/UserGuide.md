@@ -355,7 +355,7 @@ Example output 2:
 You can add bills to a trip. The bills are payed by a person but it can involve multiple people.
 
 ### Creating a Bill
-To add a bill to a trip, use the `addBill` command followed by the following flags:
+To add a bill to a trip, use the `addbill` command followed by the following flags:
  
  `/trip`: name of the trip this bill belongs to  
 `/n`: name of this bill  
@@ -374,16 +374,18 @@ Note:
    - The currency must be a valid currency code. Consult the list of valid currency codes [here](#currency).
    - The percentage must be between 0 and 100 and the sum of the percentages of all participants must be 100.
    - The payer may not be involved in the bill: i.e the payer may not be in the list of participants.
-
+- The listed percentages are attributed to the listed users in the order that they appear. For example,
+in the below command, Bob is responsible for 50% of the bill, Charles for 45%, and Denise for 5%.  
+`addbill /trip China /n breakfast /payer Bob /others Charles Denise /amount 45 /percentages 50 45 5`
 
 ### Paying a Bill
-To mark a bill as paid, use the `payBill` command followed by the name of the bill.
+To mark a bill as paid, use the `paybill` command followed by the name of the bill.
 ```bash
 paybill /n dinner
 ```
 
 ### Listing all Bills
-To list all bills in Voyagers, use the `listBills` command.
+To list all bills in Voyagers, use the `listbills` command.
 ```bash
 listbills
 ```
