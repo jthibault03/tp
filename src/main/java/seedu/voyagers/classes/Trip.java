@@ -25,7 +25,7 @@ public class Trip {
             throw new IllegalArgumentException("Start date cannot be after end date");
         }
 
-        assert startDate.before(endDate) : "Start date cannot be after end date";
+        assert !startDate.after(endDate) : "Start date cannot be after end date";
 
         this.name = name;
         this.startDate = startDate;

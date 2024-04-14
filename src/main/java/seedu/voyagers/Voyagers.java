@@ -66,6 +66,7 @@ public class Voyagers {
         //readProfileFile(profileList, currentDir, PROFILES_FILE_NAME);
 
         new ListCommand().execute(tripList, ui, null);
+        ui.showNextCommand();
         boolean isExit = false;
 
         while (!isExit) {

@@ -1,4 +1,4 @@
 main|China|2024-05-01|2024-05-24|CD|go home|UPCOMING
 sub|China|2024-05-01|2024-05-24|Beijing|wazzup beijing|UPCOMING
-sub|China|2024-05-02|2024-05-03|Chengdu|visit family|UPCOMING
+sub|China|2024-05-02|2024-05-02|Chengdu|visit family|UPCOMING
 main|Korea|2024-05-01|2024-05-24|Suwon|dating|UPCOMING

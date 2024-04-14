@@ -75,6 +75,10 @@ public class Ui {
         return this.lastLine;
     }
 
+    public void showNextCommand() {
+        echo("Enter your next command:");
+    }
+
     /**
      * Prints the message after deleting a task
      * @param task task that has been deleted
