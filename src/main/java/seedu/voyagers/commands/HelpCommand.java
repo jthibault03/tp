@@ -33,10 +33,10 @@ public class HelpCommand extends Command{
         ui.echo("4. add - Adds a trip", false, false);
         ui.echo("5. deletemaintrip /n <main_trip_name> - Deletes a main trip", false, false);
         ui.echo("6. deletesubtrip /n <main_trip_name> /i <index - Deletes a sub trip", false, false);
-        ui.echo("7. addBill /trip <trip_name> /n <bill_name> /payer <payer_name> /others <debtor_names> /amount <bill_total> /percentages <percentages>", false, false);
+        ui.echo("7. addbill /trip <trip_name> /n <bill_name> /payer <payer_name> /others <debtor_names> /amount <bill_total> /percentages <percentages>", false, false);
 
-        ui.echo("8. payBill /trip <trip_name> /n <bill_name>", false, false);
-        ui.echo("9. listBills - lists all bills", false, false);
+        ui.echo("8. paybill /trip <trip_name> /n <bill_name>", false, false);
+        ui.echo("9. listbills - lists all bills", false, false);
         ui.echo("10. find - Finds a trip", false, false);
         ui.echo("   find <keyword> - show trips whose names contain the keyword", false, false);
         ui.echo("11. help - Shows the help message", false, false);
