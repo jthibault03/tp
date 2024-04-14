@@ -7,8 +7,8 @@ public class BillList {
     public static ArrayList<Bill> bills;
     private Trip trip;
 
-    public BillList(int size) {
-        this.bills = new ArrayList<Bill>(size);
+    public BillList() {
+        this.bills = bills;
     }
 
     public BillList(ArrayList<Bill> bills) {

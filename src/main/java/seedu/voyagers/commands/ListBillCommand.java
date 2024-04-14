@@ -32,14 +32,11 @@ public class ListBillCommand extends Command {
             return;
         }*/
 
-
-        for (int i = 0; i < trips.size(); i++) {
-            BillList billList = trips.get(i).getBills();
-            ArrayList<Bill> bills = new ArrayList<>();
-            for (int j = 0; j < billList.size(); j++) {
-                bills.add(billList.get(j));
-                System.out.println(bills.get(j).toString());
-            }
+        BillList billList = new BillList();
+        ArrayList<Bill> bills = billList.getBills();
+        for (int j = 0; j < billList.size(); j++) {
+            ui.echo((j + 1) + ". " + bills.get(j).toString());
         }
+
     }
 }
