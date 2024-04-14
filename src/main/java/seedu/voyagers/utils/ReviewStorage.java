@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,17 +34,7 @@ public class ReviewStorage {
         try {
             Scanner s = new Scanner(f);
             while (s.hasNext()) {
-                String[] inputs = s.nextLine().split("\\|", 3);
-                assert inputs.length == 3 : "Invalid input format";
-                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                Trip trip = null;
-                trip = tripList.getTrip(inputs[0]);
-                if (trip == null) {
-                    throw new NullPointerException("Trip not found");
-                }
-                Review review = trip.getReview();
-                review.setScore(inputs[1]);
-                review.setReflection(inputs[2]);
+                readReviewLine(tripList, s);
             }
             s.close();
         } catch (FileNotFoundException e) {
@@ -63,6 +53,21 @@ public class ReviewStorage {
         } catch (Exception e) {
             System.out.println("An error occurred: " + e.getMessage());
         }
+    }
+
+    private static void readReviewLine(TripList tripList, Scanner s) {
+        String[] inputs = s.nextLine().split("\\|", 3);
+        assert inputs.length == 3 : "Invalid input format";
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Trip trip = null;
+        trip = tripList.getTrip(inputs[0]);
+        if (trip == null) {
+            throw new NullPointerException("Trip not found");
+        }
+        Review review = trip.getReview();
+        review.setScore(inputs[1]);
+        review.setReflection(inputs[2]);
+        review.setTrip(trip);
     }
 
     /**

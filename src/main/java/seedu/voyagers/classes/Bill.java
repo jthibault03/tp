@@ -59,6 +59,7 @@ public class Bill implements Payable {
         // TODO: participants is a hashmap, rn constructor expects arraylist. fix dis
         //new Bill(tripName, billName, payer, amount, currency, people, percentages);
     }
+
     public Bill(String tripName, String billName, Profile payer, Double amount, Currency currency,
                 ArrayList<Profile> people, ArrayList<Double> percentages) {
         if (people.size() != percentages.size()) {
@@ -69,7 +70,7 @@ public class Bill implements Payable {
 
         this.participants = new HashMap<>();
         for (int i = 0; i < people.size(); i++) {
-            this.participants.put(people.get(i), (percentages.get(i)*amount)/100.0);
+            this.participants.put(people.get(i), (percentages.get(i) * amount) / 100.0);
             //TODO: check; this would be the actual amount they're responsible for
         }
         this.tripName = tripName;
@@ -133,7 +134,7 @@ public class Bill implements Payable {
             } else {
                 person = ProfileList.getProfile(words[i]);
             }
-            participants.put(person, Double.parseDouble(percentagesArr[i])*amountAsDouble);
+            participants.put(person, Double.parseDouble(percentagesArr[i]) * amountAsDouble);
         }
         return participants;
     }
@@ -167,11 +168,13 @@ public class Bill implements Payable {
     private boolean nameExists(Profile person) {
         return people.contains(person);
     }
+
     public void removePeople(Profile[] removeThesePeople) {
         for (Profile person : removeThesePeople) {
             removePerson(person);
         }
     }
+
     public ArrayList<Profile> getPeople() {
         return people;
     }
@@ -191,7 +194,7 @@ public class Bill implements Payable {
         }
     }
 
-    public static void checkPercentages(Double[] p){
+    public static void checkPercentages(Double[] p) {
         checkPercentages(new ArrayList<>(Arrays.asList(p)));
     }
 
@@ -202,6 +205,7 @@ public class Bill implements Payable {
         }
         return sum;
     }
+
     public static double sumPercentages(Double[] list) {
         double sum = 0;
         for (double num : list) {
@@ -209,6 +213,7 @@ public class Bill implements Payable {
         }
         return sum;
     }
+
     public void modifyPercentages(Double[] percentages) {
         if (percentages.length != this.participants.size()) {
             throw new IllegalArgumentException("Number of percentage arguments must equal the number of people");
@@ -219,6 +224,7 @@ public class Bill implements Payable {
         this.percentages = new ArrayList<>(Arrays.asList(percentages));
 
     }
+
     public ArrayList<Double> getPercentages() {
         return this.percentages;
     }
@@ -241,9 +247,11 @@ public class Bill implements Payable {
     public Currency getCurrency() {
         return this.currency;
     }
+
     public void setTrip(Trip trip) {
         this.trip = trip;
     }
+
     public Trip getTrip() {
         return this.trip;
     }
@@ -281,18 +289,18 @@ public class Bill implements Payable {
     }
 
     public String toStorage() {
-//        String s = "Trip: " + tripName + "\t\tBill Name: " +
-//                billName + "\t\tPayer: " +
-//                payer.getName() + "\t\tOthers: " + othersRaw
-//                + "\t\tAmount: " + amount
-//                + "\t\tPercentages: " + percentages
-//                + "\t\tCurrency: " + this.currency
-//                + "\t\tPaid?: " + this.paid;
-          String s = tripName + "|" + billName + "|" + payer.getName() +
-                  "|" + amount + "|" + currency + "|" + othersRaw + "|"
-                  + percentages.toString().replace("[", "").
-                  replace("]", "") + "|"
-                  + paid + "\n";
+        /*String s = "Trip: " + tripName + "\t\tBill Name: " +
+                billName + "\t\tPayer: " +
+                payer.getName() + "\t\tOthers: " + othersRaw
+                + "\t\tAmount: " + amount
+                + "\t\tPercentages: " + percentages
+                + "\t\tCurrency: " + this.currency
+                + "\t\tPaid?: " + this.paid;*/
+        String s = tripName + "|" + billName + "|" + payer.getName() +
+                "|" + amount + "|" + currency + "|" + othersRaw + "|"
+                + percentages.toString().replace("[", "").
+                replace("]", "") + "|"
+                + paid + "\n";
         return s;
     }
 

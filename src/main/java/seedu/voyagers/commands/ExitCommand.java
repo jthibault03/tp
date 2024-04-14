@@ -17,8 +17,8 @@ public class ExitCommand extends Command{
      */
     public void execute(TripList trips, Ui ui, TripStorage tripStorage){
         String currentDir = System.getProperty("user.dir");
-        final String TRIPS_FILE_NAME = "local-voyagers.txt";
-        TripStorage.writeTripFileMain(trips.getTrips(), trips.size(),currentDir, TRIPS_FILE_NAME);
+        final String tripsFileName = "local-voyagers.txt";
+        TripStorage.writeTripFileMain(trips.getTrips(), trips.size(),currentDir, tripsFileName);
         ui.showExit();
     }
 

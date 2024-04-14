@@ -3,7 +3,9 @@ package seedu.voyagers.paser;
 public class ParserDefinitions {
 
     public static final String[] ADDMAINTRIP = {"/n", "/start", "/end", "/location", "/d"};
-    public static final String[] DELETE = {"/n"};
+    public static final String[] DELETEMAINTRIP = {"/n"};
+
+    public static final String[] DELETESUBTRIP = {"/n", "/i"};
 
     public static final String[] ADDSUBTRIP = {"/n", "/start", "/end", "/location", "/d"};
 
@@ -22,4 +24,6 @@ public class ParserDefinitions {
     public static final String[] REVIEW = {"/s", "/r"};
 
     public static final String[] SETSTATUS = {"/status"};
+
+    public static final String[] FIND = {"/n"};
 }

@@ -8,9 +8,15 @@ public class Review {
 
     private String reflection;
 
+    private Trip trip;
+
     public Review(){
         this.score = -1;
         this.reflection = "empty";
+    }
+
+    public void setTrip(Trip trip) {
+        this.trip = trip;
     }
 
     public void setScore(int score) {
@@ -31,6 +37,12 @@ public class Review {
 
     public String getReflection() {
         return reflection;
+    }
+
+    @Override
+    public String toString() {
+        return "Here's what you wrote about " + this.trip.getName() + "\n\t\tScore: " + score
+                + "\n\t\tReflection:\n\t\t" + reflection;
     }
 
 }

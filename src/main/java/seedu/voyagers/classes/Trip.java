@@ -2,6 +2,7 @@ package seedu.voyagers.classes;
 
 import java.util.ArrayList;
 import java.util.Date;
+
 import seedu.voyagers.utils.FormatDate;
 import seedu.voyagers.utils.Status;
 
@@ -15,6 +16,8 @@ public class Trip {
     private String tripType;
     private Status status;
     private Review review;
+
+    private int subTripIndex = 0;
 
     private ArrayList<Trip> subTrips = new ArrayList<>();
     private BillList bills = new BillList(new ArrayList<Bill>());
@@ -36,26 +39,26 @@ public class Trip {
         // if the date is in the past, the trip is completed
         if (endDate.before(new Date())) {
             setStatus(Status.COMPLETED);
-        }   else if (startDate.after(new Date())) {
+        } else if (startDate.after(new Date())) {
             setStatus(Status.UPCOMING);
-        }   else {
+        } else {
             setStatus(Status.ONGOING);
         }
         this.review = new Review();
     }
 
-    public Trip(String[] args) throws Exception{
+    public Trip(String[] args) throws Exception {
         this.name = args[0];
 
-        this.startDate =  FormatDate.dateFormat.parse(args[1]);
-        this.endDate =   FormatDate.dateFormat.parse(args[2]);
+        this.startDate = FormatDate.dateFormat.parse(args[1]);
+        this.endDate = FormatDate.dateFormat.parse(args[2]);
         this.location = args[3];
         this.description = args[4];
         if (endDate.before(new Date())) {
             setStatus(Status.COMPLETED);
-        }   else if (startDate.after(new Date())) {
+        } else if (startDate.after(new Date())) {
             setStatus(Status.UPCOMING);
-        }   else {
+        } else {
             setStatus(Status.ONGOING);
         }
         this.review = new Review();
@@ -73,7 +76,7 @@ public class Trip {
         return endDate;
     }
 
-    public int getSubTripsSize(){
+    public int getSubTripsSize() {
         return subTrips.size();
     }
 
@@ -94,6 +97,7 @@ public class Trip {
 
     /**
      * Returns the duration of the trip in days.
+     *
      * @return duration of the trip in days
      */
     public int getDuration() {
@@ -110,6 +114,9 @@ public class Trip {
 
     public void setName(String name) {
         this.name = name;
+        for (Trip subTrip : subTrips) {
+            subTrip.setName(name);
+        }
     }
 
     public void setDates(Date startDate, Date endDate) {
@@ -145,6 +152,7 @@ public class Trip {
      */
     public void addSubTrip(Trip subTrip) {
         subTrips.add(subTrip);
+        subTrip.subTripIndex = subTrips.size();
     }
 
     /**
@@ -164,6 +172,9 @@ public class Trip {
     public void removeSubTrip(int i) {
         try {
             subTrips.remove(i);
+            for (int j = i; j < subTrips.size(); j++) {
+                subTrips.get(j).subTripIndex--;
+            }
         } catch (IndexOutOfBoundsException e) {
             throw new IndexOutOfBoundsException("Index out of bounds");
         }
@@ -210,7 +221,14 @@ public class Trip {
 
     @Override
     public String toString() {
-        String s = "Name: " + name + "\t\tStart Date: " +
+        String s;
+        if (this.tripType == "main") {
+            s = "\tTrip Name: " + name;
+        } else {
+            s = "\t" + name + "-" + subTripIndex;
+        }
+
+        s += "\t\tStart Date: " +
                 FormatDate.dateFormat.format(startDate) + "\t\tEnd Date: " +
                 FormatDate.dateFormat.format(endDate) + "\t\tLocation: " +
                 location + "\t\tDescription: " + description

@@ -3,7 +3,26 @@ package seedu.voyagers.paser;
 
 
 
-import seedu.voyagers.commands.*;
+import seedu.voyagers.commands.AddBillCommand;
+import seedu.voyagers.commands.AddSubTripCommand;
+import seedu.voyagers.commands.AddTripCommand;
+//import seedu.voyagers.commands.AutoTripStatusUpdateCommand;
+import seedu.voyagers.commands.Command;
+import seedu.voyagers.commands.DeleteMainTripCommand;
+import seedu.voyagers.commands.DeleteSubTripCommand;
+//import seedu.voyagers.commands.EmptyCommand;
+import seedu.voyagers.commands.ExitCommand;
+import seedu.voyagers.commands.HelpCommand;
+import seedu.voyagers.commands.FindCommand;
+import seedu.voyagers.commands.ListBillCommand;
+import seedu.voyagers.commands.ListCommand;
+import seedu.voyagers.commands.ModifyTripCommand;
+import seedu.voyagers.commands.PayBillCommand;
+import seedu.voyagers.commands.ReadReviewCommand;
+import seedu.voyagers.commands.ReviewCommand;
+import seedu.voyagers.commands.SetBillCurrencyCommand;
+import seedu.voyagers.commands.SimplifyBillCommand;
+
 
 
 import java.util.Arrays;
@@ -39,20 +58,22 @@ public class NewParser {
             values = line.split(" ");
             return new ListCommand(values);
         case "deletemaintrip":
-            return new DeleteCommand(parseArgs(line, ParserDefinitions.DELETE));
+            return new DeleteMainTripCommand(parseArgs(line, ParserDefinitions.DELETEMAINTRIP));
+        case "deletesubtrip":
+            return new DeleteSubTripCommand(parseArgs(line, ParserDefinitions.DELETESUBTRIP));
         case "addmaintrip":
             return new AddTripCommand(parseArgs(line, ParserDefinitions.ADDMAINTRIP));
         case "addsubtrip":
             return new AddSubTripCommand(parseArgs(line, ParserDefinitions.ADDSUBTRIP, true));
-        case "addBill":
+        case "addbill":
             return new AddBillCommand(parseArgs(line, ParserDefinitions.ADDBILL));
-        case "listBills":
+        case "listbills":
             return new ListBillCommand();
         case "simplifybill":
             return new SimplifyBillCommand();
-        case "payBill":
+        case "paybill":
             return new PayBillCommand(parseArgs(line, ParserDefinitions.PAYBILL));
-        case "setBillCurrency":
+        case "setbillcurrency":
             return new SetBillCurrencyCommand(parseArgs(line, ParserDefinitions.SETBILLCURRENCY));
         case "setname":
             values = concatenate(new String[]{"name"},
@@ -83,6 +104,9 @@ public class NewParser {
         case "readreview":
             values = line.split(" ");
             return new ReadReviewCommand(values);
+        case "find":
+            values = parseArgs(line, ParserDefinitions.FIND);
+            return new FindCommand(values);
         default:
             throw new IllegalArgumentException("Invalid command");
 
