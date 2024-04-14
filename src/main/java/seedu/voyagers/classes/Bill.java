@@ -276,6 +276,11 @@ public class Bill implements Payable {
         return s.substring(0, s.length() - 2);
     }
 
+    public String getTripName(){
+        return this.tripName;
+    }
+
+
     @Override
     public String toString() {
         String s = "Trip: " + tripName + "\t\tBill Name: " +
