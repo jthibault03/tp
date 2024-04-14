@@ -1,3 +1,4 @@
 main|Beijing|2024-05-01|2024-05-24|CD|go home|UPCOMING
 sub|Beijing|2024-05-01|2024-05-01|temp|lorem ipsum|UPCOMING
 main|Korea|2024-05-01|2024-07-31|Suwon|dating|UPCOMING
+main|yass|2024-05-01|2033-04-03|here|meow|UPCOMING

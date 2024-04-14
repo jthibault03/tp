@@ -1,26 +1,26 @@
 package seedu.voyagers.utils;
 
 public enum Currency {
-    USD("US Dollar", "$"),
-    EUR("Euro", "€"),
-    GBP("British Pound", "£"),
-    JPY("Japanese Yen", "¥"),
-    AUD("Australian Dollar", "$"),
-    CAD("Canadian Dollar", "$"),
-    CHF("Swiss Franc", "CHF"),
-    CNY("Chinese Yuan Renminbi", "¥"),
-    SEK("Swedish Krona", "kr"),
-    NZD("New Zealand Dollar", "$"),
-    MXN("Mexican Peso", "$"),
-    SGD("Singapore Dollar", "$"),
-    HKD("Hong Kong Dollar", "$"),
-    NOK("Norwegian Krone", "kr"),
-    KRW("South Korean Won", "W"),
-    TRY("Turkish Lira", "₺"),
-    RUB("Russian Ruble", "₽"),
-    INR("Indian Rupee", "₹"),
-    BRL("Brazilian Real", "R$"),
-    ZAR("South African Rand", "R");
+    USD("US Dollar", "$", "USD"),
+    EUR("Euro", "€", "EUR"),
+    GBP("British Pound", "£", "GPB"),
+    JPY("Japanese Yen", "¥", "JPY"),
+    AUD("Australian Dollar", "$", "AUD"),
+    CAD("Canadian Dollar", "$", "CAD"),
+    CHF("Swiss Franc", "CHF", "CHF"),
+    CNY("Chinese Yuan Renminbi", "¥", "CNY"),
+    SEK("Swedish Krona", "kr", "SEK"),
+    NZD("New Zealand Dollar", "$", "NZD"),
+    MXN("Mexican Peso", "$", "MXN"),
+    SGD("Singapore Dollar", "$", "SGD"),
+    HKD("Hong Kong Dollar", "$", "HKD"),
+    NOK("Norwegian Krone", "kr", "NOK"),
+    KRW("South Korean Won", "W", "KRW"),
+    TRY("Turkish Lira", "₺", "TRY"),
+    RUB("Russian Ruble", "₽", "RUB"),
+    INR("Indian Rupee", "₹", "INR"),
+    BRL("Brazilian Real", "R$", "BRL"),
+    ZAR("South African Rand", "R", "ZAR");
 
     //Default conversion rates from SGD to other currencies
     public static final double SGDTOEUR = 0.63;
@@ -45,10 +45,12 @@ public enum Currency {
 
     private final String name;
     private final String symbol;
+    private final String code;
 
-    Currency(String name, String symbol) {
+    Currency(String name, String symbol, String code) {
         this.name = name;
         this.symbol = symbol;
+        this.code = code;
     }
 
     public double currencyConversion(double foreignCurrencyAmount, double conversionRate) {
@@ -59,9 +61,23 @@ public enum Currency {
         return name;
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public static Currency getCurr(String currString) {
+        for (Currency c : Currency.values()) {
+            if (c.getCode().equals(currString)) {
+                return c;
+            }
+        }
+        throw new IllegalArgumentException("Invalid currency code.");
+    }
+
     public String getSymbol() {
         return symbol;
     }
+
 
     /*public Currency getEnum(String name) {
 

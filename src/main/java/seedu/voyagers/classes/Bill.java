@@ -7,6 +7,7 @@ import seedu.voyagers.utils.Payable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 
 //NOTE: this class uses object Double class, since it implements ArrayLists.
 
@@ -49,15 +50,12 @@ public class Bill implements Payable {
         this.participants = setParticipants(args[4], args[2], args[3], args[5]);
         //TODO: check these args are the right index number
         this.percentages = makeDoublesArray(args[5]);
+        this.currency = trip.getCurrency();
+        checkPercentages(percentages);
         this.othersRaw = args[3];
         for (Profile x : participants.keySet()) {
             this.people.add(x);
         }
-
-        checkPercentages(percentages);
-        //new Bill(tripName, billName, payer, amount, currency, participants, percentages);
-        // TODO: participants is a hashmap, rn constructor expects arraylist. fix dis
-        //new Bill(tripName, billName, payer, amount, currency, people, percentages);
     }
 
     public Bill(String tripName, String billName, Profile payer, Double amount, Currency currency,
@@ -125,6 +123,9 @@ public class Bill implements Payable {
         Double amountAsDouble = Double.parseDouble(amount);
         String[] words = payer.concat(" ").concat(others).split("\\s+");
         String[] percentagesArr = percentages.split("\\s+");
+        if (hasDuplicates(words)) {
+            throw new IllegalArgumentException("participant names must be unique");
+        }
         for (int i = 0; i < words.length; i++) {
             Profile person;
             if (ProfileList.findProfile(words[i]) == -1) {
@@ -144,7 +145,6 @@ public class Bill implements Payable {
     }
 
 
-    //Right now, just concerns people within this Bill. Future goal: update to entire trip.
     public void addPeople(Profile[] newPeople) {
         for (Profile newPerson : newPeople) {
             addPerson(newPerson, this.amount / people.size());
@@ -177,6 +177,16 @@ public class Bill implements Payable {
 
     public ArrayList<Profile> getPeople() {
         return people;
+    }
+
+    public boolean hasDuplicates(String[] arr) {
+        HashSet<String> set = new HashSet<>();
+        for (String s : arr) {
+            if (!set.add(s)) { // If unable to add the element to the set, it means it's a duplicate
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void checkPercentages(ArrayList<Double> list) {
@@ -241,6 +251,9 @@ public class Bill implements Payable {
     }
 
     public void setCurrency(Currency currency) {
+        if (currency == null) {
+
+        }
         this.currency = currency;
     }
 

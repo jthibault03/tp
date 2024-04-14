@@ -3,6 +3,7 @@ package seedu.voyagers.classes;
 import java.util.ArrayList;
 import java.util.Date;
 
+import seedu.voyagers.utils.Currency;
 import seedu.voyagers.utils.FormatDate;
 import seedu.voyagers.utils.Status;
 
@@ -16,6 +17,7 @@ public class Trip {
     private String tripType;
     private Status status;
     private Review review;
+    private Currency currency;
 
     private int subTripIndex = 0;
 
@@ -142,6 +144,14 @@ public class Trip {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
+    }
+
+    public Currency getCurrency() {
+        return this.currency;
     }
 
     /**
