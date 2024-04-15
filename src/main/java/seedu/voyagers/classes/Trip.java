@@ -54,6 +54,9 @@ public class Trip {
 
         this.startDate = FormatDate.dateFormat.parse(args[1]);
         this.endDate = FormatDate.dateFormat.parse(args[2]);
+        if (startDate.after(endDate)) {
+            throw new IllegalArgumentException("Start date cannot be after end date");
+        }
         this.location = args[3];
         this.description = args[4];
         if (endDate.before(new Date())) {
