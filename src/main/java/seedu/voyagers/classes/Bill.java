@@ -124,8 +124,14 @@ public class Bill implements Payable {
         String[] words = payer.concat(" ").concat(others).split("\\s+");
         String[] percentagesArr = percentages.split("\\s+");
         if (hasDuplicates(words)) {
-            throw new IllegalArgumentException("participant names must be unique");
+            throw new IllegalArgumentException("Participant names must be unique across /payer and /others for this " +
+                    "command");
         }
+        if (words.length != percentagesArr.length) {
+            throw new IllegalArgumentException("Amount of entries in percentages must match number of people involved " +
+                    "in the bill.");
+        }
+
         for (int i = 0; i < words.length; i++) {
             Profile person;
             if (ProfileList.findProfile(words[i]) == -1) {

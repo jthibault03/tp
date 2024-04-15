@@ -362,7 +362,8 @@ To add a bill to a trip, use the `addbill` command followed by the following fla
  `/trip`: name of the trip this bill belongs to  
 `/n`: name of this bill  
 `/payer`: name of the person who paid the bill  
-`/others`: other people involved in the bill, owing the payer for this expense  
+`/others`: other people involved in the bill, owing the payer for this expense. The payer should not
+be repeated in this section.  
 `/amount`: how much this bill costed. Default currency will be the currency of the trip.
 `/percentages`: the percentage of the total amount that each person is responsible for
 in the bill. Must have the same number of arguments as the number of people in `/payer` and `/others`. 
@@ -374,7 +375,6 @@ addbill /trip China /n dinner /payer Alice /others Bob Carol /amount 50 /percent
 Note:
 - The amount must be positive.
    - The percentage must be between 0 and 100 and the sum of the percentages of all participants must be 100.
-   - The payer may not be involved in the bill: i.e the payer may not be in the list of participants.
 - The listed percentages are attributed to the listed users in the order that they appear. For example,
 in the below command, Bob is responsible for 50% of the bill, Charles for 45%, and Denise for 5%.  
 `addbill /trip China /n breakfast /payer Bob /others Charles Denise /amount 45 /percentages 50 45 5`
