@@ -36,8 +36,9 @@ static classes that manage information across all Trips.
 ### Contributions to the UG
 For the UG, I focused on developing documentation and instructions mainly for the classes/commands I developed.
 ### Contributions to the DG
-I created an outline/overall structure of the DG for teammates to add to. I also mainly
-focused on the classes I created.
+- Created an outline/overall structure of the DG for teammates to add to. 
+- Mainly focused on the classes I created.
+- Created PlantUML diagram for Bill class (work in progress atm)
 ### Community
 - Reviewed PR's for other teams
 - Packaged most of my updates as PRs from my repo into the group repo, for ease
