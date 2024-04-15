@@ -34,6 +34,10 @@ public class ListBillCommand extends Command {
 
         BillList billList = new BillList();
         ArrayList<Bill> bills = billList.getBills();
+        if (bills.size() == 0) {
+            ui.echo("You have no bills in your list.");
+            return;
+        }
         for (int j = 0; j < billList.size(); j++) {
             ui.echo((j + 1) + ". " + bills.get(j).toString());
         }

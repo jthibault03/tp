@@ -400,16 +400,6 @@ To list all bills in Voyagers, use the `listbills` command.
 listbills
 ```
 
-### Simplify bills
-
-In order to settle up all the bills. You can simplify all the bills.
-The simplification will reduce the number of transactions needed to settle up all the bills.
-
-````bash
-simplifybills
-````
-
-
 Note: if the trip is a maintrip, the simplification will be done on all the subtrips of the maintrip.
 
 Note: the simplification will be made using dollars.
@@ -474,6 +464,11 @@ Example output:
 ### Save data
 Remember to properly exit to save trip data.
 
+The data will be saved in the same directory as the jar file, with names:
+- `local-voyagers.txt` for trips storage.
+- `local-bills.txt` for bills storage.
+- `local-reviews.txt` for reviews storage.
+
 ### Enter "exit" to exit the application.
 
 ```bash 
@@ -494,3 +489,20 @@ Output:
 <!---
 @@author azamanis
 -->
+
+## Upcoming Features
+
+### Simplify bills
+
+In order to settle up all the bills. You can simplify all the bills.
+The simplification will reduce the number of transactions needed to settle up all the bills.
+
+````bash
+simplifybills
+````
+
+## FAQ
+1. **Can I have two trips with the same details but different names?**
+    - Yes, you can have two trips with the same details but different names.
+2. **Can I have two trips with the same name but different details?**
+    - No, trip names must be unique.

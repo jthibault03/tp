@@ -32,8 +32,10 @@ public class BillStorage {
                 ArrayList<Double> percentages = new ArrayList<>();
                 String[] peopleNames = inputs[5].split(", ");
                 String[] percentagesString = inputs[6].split(", ");
-                for (int i = 0; i < percentagesString.length; i++) {
-                    people.add(new Profile(peopleNames[i]));
+                for (String peopleName : peopleNames) {
+                    people.add(new Profile(peopleName));
+                }
+                for (int i = 1; i < percentagesString.length; i++) {
                     percentages.add(Double.parseDouble(percentagesString[i]));
                 }
                 Bill bill = new Bill(inputs[0], inputs[1], payer, amount, currency, people, percentages);

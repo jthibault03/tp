@@ -16,12 +16,12 @@ import java.util.ArrayList;
 
 public class SimplifyBillCommand extends Command {
     public void execute(TripList trips, Ui ui, TripStorage tripStorage) {
-        if (trips.size() == 0) {
+        BillList billList = new BillList();
+        ArrayList<Bill> bills = billList.getBills();
+        if (bills.isEmpty()) {
             ui.echo("You have no bills in your list.");
             return;
         } else {
-            BillList billList = null;
-            ArrayList<Bill> bills = new ArrayList<>();
             for (int i = 0; i < trips.size(); i++) {
                 billList = trips.get(i).getBills();
                 bills.add(billList.get(i));
