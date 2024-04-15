@@ -31,7 +31,7 @@ public class ReviewCommand extends Command{
             ui.echo("Trip must be completed before it can be reviewed");
             return;
         }
-        if(args[2].length() > 1){
+        if(args[2].length() > 2){
             ui.echo("Score must be between 0 and 10");
             return;
         }
