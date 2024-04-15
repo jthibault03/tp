@@ -88,11 +88,13 @@ The next diagram shows the flow of the application after the user enters the `si
 ## Bill
 Bill implements Payable, an interface to be used a few times in this project to cover 
 actions involving payment. It is dependent on the Profile and Trip classes, and Parser
-is dependent on the Bill class. We will include this in the UML diagrams to be included soon.
-Currently, the supported public methods can add and remove Profiles, pay the bill, change
-percentages that different people owe, and set and return various attributes. This is still
-not fully fleshed out, as we will add more features and better functionality in subsequent
-releases. 
+is dependent on the Bill class. The commands currently supported are `addbill`, `paybill`, `listbills`, and 
+`setbillcurrency`. 
+
+The following UML diagram shows the flow of the application after the user enters the `addbill` command
+with the correct arguments.
+
+![Sequence Diagram](diagrams/diag_add_bill.png)
 
 ## Review
 The Review class, instantiated solely by the Trip object. 
