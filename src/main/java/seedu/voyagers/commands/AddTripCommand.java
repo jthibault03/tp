@@ -5,6 +5,8 @@ import seedu.voyagers.utils.Ui;
 import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.classes.Trip;
 
+import java.util.ArrayList;
+
 public class AddTripCommand extends Command{
 
     /**
@@ -20,6 +22,20 @@ public class AddTripCommand extends Command{
         final String tripsFileName = "local-voyagers.txt";
 
         try{
+            String[] checkStartDate = args[1].split("-", 3);
+            String[] checkEndDate = args[2].split("-", 3);
+            if (Integer.parseInt(checkStartDate[1]) > 12 || Integer.parseInt(checkStartDate[1]) < 1){
+                throw new IllegalArgumentException("Invalid starting month");
+            }
+            if (Integer.parseInt(checkEndDate[1]) > 12 || Integer.parseInt(checkEndDate[1]) < 1){
+                throw new IllegalArgumentException("Invalid ending month");
+            }
+            if (Integer.parseInt(checkStartDate[2]) > 31 || Integer.parseInt(checkStartDate[2]) < 1){
+                throw new IllegalArgumentException("Invalid starting day");
+            }
+            if (Integer.parseInt(checkEndDate[2]) > 31 || Integer.parseInt(checkEndDate[2]) < 1){
+                throw new IllegalArgumentException("Invalid ending day");
+            }
             Trip trip = new Trip(args);
             trip.setTripType("main");
             trips.add(trip);
