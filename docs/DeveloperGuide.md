@@ -116,14 +116,26 @@ their local devices. We also have customisation options tailored to users’ uni
 
 ## User Stories
 
-|Version| As a ... | I want to ...   | So that I can ...                                    |
-|--------|----------|-----------------|------------------------------------------------------|
-|v1.0|new user| add a new trip  | plan my upcoming travel itinerary                    |
-|v2.0|user| review my trips | give scores or simple comments on my completed trips |
+| As a ... | I want to ...                        | So that I can ...                                    |
+|----------|--------------------------------------|------------------------------------------------------|
+| new user | add a new trip                       | plan my upcoming travel itinerary                    |
+|user | modify, delete, list, and find trips | edit and view my current itinerary |
+| user | add subtrips                         | manage days and other trips within my main trip |
+| user     | review my trips                      | give scores or simple comments on my completed trips |
+| user     | add, list, and pay bills             | easily keep track of expenses across trips           |
+
 
 ## Non-Functional Requirements
 
-{Give non-functional requirements}
+1. Should work on any mainstream OS as long as it has Java 11 or above installed.
+2. A user with good typing speed for English text, conducive to this command-line interface based app.
+3. A user doesn't need to be very tech-savvy, but should still understand how to use flags as described by
+our UG.
+4. The system should have a good performance, responding in less than a few seconds.
+5. Source code is open source.
+6. The product is available as a free service.
+
+
 
 ## Glossary
 
