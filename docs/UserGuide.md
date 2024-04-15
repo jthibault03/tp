@@ -430,6 +430,7 @@ Note: if the trip is a maintrip, the simplification will be done on all the subt
 Note: the simplification will be made using dollars.
 
 #### Currency
+(Not implemented)
 
 The app supports multiple currencies:
 - EUR: Euro
@@ -523,7 +524,7 @@ In order to settle up all the bills. You can simplify all the bills.
 The simplification will reduce the number of transactions needed to settle up all the bills.
 
 ````bash
-simplifybills
+simplifybill
 ````
 
 ## FAQ
