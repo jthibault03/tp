@@ -20,6 +20,7 @@ Voyagers is a Java application designed to manage trips efficiently through a co
     - [Listing Trips by Status](#listing-trips-by-status)
     - [Add Bills](#creating-a-bill)
     - [Pay Bills](#paying-a-bill)
+    - [Set Bill Currency](#setting-bill-currency)
     - [List Bills](#listing-all-bills)
     - [Settle and Simplify Bills](#simplify-bills)
     - [Add Review](#reviewing-trips)
@@ -45,6 +46,7 @@ Voyagers is a Java application designed to manage trips efficiently through a co
     - [Managing Bills](#managing-bills)
       - [Adding Bills](#creating-a-bill)
       - [Paying Bills](#paying-a-bill)
+      - [Setting Bill Currency](#setting-bill-currency)
       - [Listing Bills](#listing-all-bills)
       - [Settling and Simplifying Bills](#simplify-bills)
     - [Reviewing Trips](#reviewing-trips)
@@ -371,7 +373,6 @@ addbill /trip China /n dinner /payer Alice /others Bob Carol /amount 50 /percent
 
 Note:
 - The amount must be positive.
-   - The currency must be a valid currency code. Consult the list of valid currency codes [here](#currency).
    - The percentage must be between 0 and 100 and the sum of the percentages of all participants must be 100.
    - The payer may not be involved in the bill: i.e the payer may not be in the list of participants.
 - The listed percentages are attributed to the listed users in the order that they appear. For example,
@@ -379,10 +380,19 @@ in the below command, Bob is responsible for 50% of the bill, Charles for 45%, a
 `addbill /trip China /n breakfast /payer Bob /others Charles Denise /amount 45 /percentages 50 45 5`
 
 ### Paying a Bill
-To mark a bill as paid, use the `paybill` command followed by the name of the bill.
+To mark a bill as paid, use the `paybill` command followed by the name of the trip and the bill.
 ```bash
-paybill /n dinner
+paybill /trip Korea /n dinner
 ```
+
+### Setting Bill Currency
+To set the currency used in the bill, use the `setbillcurrency` command, followed by the name of the trip, bill, and 
+3-letter currency code.
+```bash
+setbillcurrency /trip China /n breakfast /currency SGD
+```
+
+- Note: The currency must be a valid currency code. Consult the list of valid currency codes [here](#currency).
 
 ### Listing all Bills
 To list all bills in Voyagers, use the `listbills` command.
