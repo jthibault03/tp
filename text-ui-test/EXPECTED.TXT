@@ -8,6 +8,9 @@ Trip file created.
 Review file not found.
 Creating new review file...
 Review file created.
+Bill file not found.
+Creating new bill file...
+Bill file created.
 		____________________________________________________________
 		You have no trips in your list.
 		____________________________________________________________
