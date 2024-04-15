@@ -30,6 +30,7 @@ Voyagers is a Java application designed to manage trips efficiently through a co
     - [Save Data](#save-data)
     - [Exit Application](#exit-application)
 3. [Usage](#usage)
+    - [Running the jar file](#how-to-run-jar-file)
     - [Adding a Main Trip](#adding-a-main-trip)
     - [Setting Trip Details](#setting-trip-details)
     - [Change the Name of a Trip](#change-the-name-of-a-trip)
@@ -82,6 +83,30 @@ each person owes.
 
 The core of Voyagers is to allow users to manage their trips efficiently. Especially adding a new main trip by typing a
 single line.
+
+### How to run jar file
+
+To run the tp.jar file, open a CLT program such as Windows Powershell (Windows), Terminal (macOS), or Linux Terminal (Linux).
+
+Navigate to the folder you copied the jar file to. This folder should be empty except for the jar file when running it for the first time.
+
+In your CLT, enter the following command to run the jar file:
+```bash
+java -jar ./tp.jar
+```
+
+The jar file will run, greet you with its welcome message, and list any saved trips:
+```bash
+                ____________________________________________________________
+                Hello! I'm Voyagers
+                What can I do for you?
+                ____________________________________________________________
+                You have no trips in your list.
+                ____________________________________________________________
+                ____________________________________________________________
+                Enter your next command:
+                ____________________________________________________________
+```
 
 ### Adding a Main Trip
 
