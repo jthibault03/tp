@@ -67,4 +67,3 @@ Furthermore, I contributed to other minimal sections of the DG such as the index
 
 ### Community:
 - **Community 1**: Reported bugs and suggestions for other teams in the project, both during labs and the PE dry run test.
-- 

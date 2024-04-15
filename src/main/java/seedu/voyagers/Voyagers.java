@@ -12,8 +12,8 @@ import seedu.voyagers.commands.ListCommand;
 
 import java.util.ArrayList;
 
-//import static seedu.voyagers.utils.BillStorage.readBillFile;
-//import static seedu.voyagers.utils.ProfileStorage.readProfileFile;
+import static seedu.voyagers.utils.BillStorage.readBillFile;
+import static seedu.voyagers.utils.BillStorage.writeBillFile;
 import static seedu.voyagers.utils.ReviewStorage.readReviewFile;
 import static seedu.voyagers.utils.ReviewStorage.writeReviewFileMain;
 import static seedu.voyagers.utils.TripStorage.readTripFile;
@@ -62,7 +62,7 @@ public class Voyagers {
         readTripFile(tripList.getTrips(), currentDir, TRIPS_FILE_NAME);
         readReviewFile(tripList, currentDir, REVIEWS_FILE_NAME);
         //TODO: load in Profiles and Bills from save file
-        //readBillFile(billList, currentDir, BILLS_FILE_NAME);
+        readBillFile(billList, currentDir, BILLS_FILE_NAME);
         //readProfileFile(profileList, currentDir, PROFILES_FILE_NAME);
 
         new ListCommand().execute(tripList, ui, null);
@@ -83,6 +83,7 @@ public class Voyagers {
 
         writeTripFileMain(tripList.getTrips(), tripList.size(), currentDir, TRIPS_FILE_NAME);
         writeReviewFileMain(tripList, tripList.size(), currentDir, REVIEWS_FILE_NAME);
+        writeBillFile(billList, billList.size(), currentDir, BILLS_FILE_NAME);
     }
 
 }
