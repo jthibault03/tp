@@ -523,7 +523,7 @@ In order to settle up all the bills. You can simplify all the bills.
 The simplification will reduce the number of transactions needed to settle up all the bills.
 
 ````bash
-simplifybills
+simplifybill
 ````
 
 ## FAQ
