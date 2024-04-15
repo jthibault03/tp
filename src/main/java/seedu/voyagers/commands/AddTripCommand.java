@@ -5,7 +5,7 @@ import seedu.voyagers.utils.Ui;
 import seedu.voyagers.utils.TripStorage;
 import seedu.voyagers.classes.Trip;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class AddTripCommand extends Command{
 

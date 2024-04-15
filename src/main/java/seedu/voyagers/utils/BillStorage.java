@@ -41,7 +41,9 @@ public class BillStorage {
                 Bill bill = new Bill(inputs[0], inputs[1], payer, amount, currency, people, percentages);
                 //Bill bill = Bill(String tripName, String billName, Profile payer, Double amount, Currency currency,
                 //ArrayList<Profile> people, ArrayList<Double> percentages)
-                if(inputs[7].equalsIgnoreCase("true")){bill.payBill();}
+                if(inputs[7].equalsIgnoreCase("true")){
+                    bill.payBill();
+                }
                 billList.add(bill);
             }
             s.close();
