@@ -387,8 +387,10 @@ To add a bill to a trip, use the `addbill` command followed by the following fla
  `/trip`: name of the trip this bill belongs to  
 `/n`: name of this bill  
 `/payer`: name of the person who paid the bill  
-`/others`: other people involved in the bill, owing the payer for this expense. The payer should not
-be repeated in this section.  
+`/others`: other people involved in the bill, owing the payer for this expense. Each person
+ should be separated by a space bar. Do not include names with a spacebar; one
+ could instead represent such a name as "John-Paul", for example. The payer should not
+be repeated in this section.   
 `/amount`: how much this bill costed. Default currency will be the currency of the trip.
 `/percentages`: the percentage of the total amount that each person is responsible for
 in the bill. Must have the same number of arguments as the number of people in `/payer` and `/others`. 

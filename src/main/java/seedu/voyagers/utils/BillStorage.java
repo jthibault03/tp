@@ -30,16 +30,20 @@ public class BillStorage {
                 }
                 ArrayList<Profile> people = new ArrayList<>();
                 ArrayList<Double> percentages = new ArrayList<>();
-                String[] peopleNames = inputs[5].split(", ");
+                String[] peopleNames = inputs[5].split(" ");
                 String[] percentagesString = inputs[6].split(", ");
-                people.add(payer);
-                for (String peopleName : peopleNames) {
-                    people.add(new Profile(peopleName));
-                }
                 for (int i = 0; i < percentagesString.length; i++) {
                     percentages.add(Double.parseDouble(percentagesString[i]));
                 }
+                for (int i = 0; i < peopleNames.length; i++) {
+                    people.add(new Profile(peopleNames[i]));
+                }
                 Bill bill = new Bill(inputs[0], inputs[1], payer, amount, currency, people, percentages);
+                //Bill bill = Bill(String tripName, String billName, Profile payer, Double amount, Currency currency,
+                //ArrayList<Profile> people, ArrayList<Double> percentages)
+                if(inputs[7].equalsIgnoreCase("true")){
+                    bill.payBill();
+                }
                 billList.add(bill);
             }
             s.close();

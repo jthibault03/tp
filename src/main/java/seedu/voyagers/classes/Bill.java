@@ -29,14 +29,10 @@ public class Bill implements Payable {
     //people on this bill.
     private ArrayList<Profile> people = new ArrayList<>();
     private ArrayList<Double> percentages = new ArrayList<>();
-    private boolean paid;
+    private boolean isPaid;
 
     public Bill(String[] args, TripList trips) {
-
-        //TODO: setCurrency method and null currency
-
         this.trip = trips.getTrip(args[0]);
-        //TODO: check that error message reveals helpful info if no such trip exists
         this.tripName = args[0];
         this.billName = args[1];
 
@@ -59,25 +55,26 @@ public class Bill implements Payable {
 
     public Bill(String tripName, String billName, Profile payer, Double amount, Currency currency,
                 ArrayList<Profile> people, ArrayList<Double> percentages) {
-        if (people.size() != percentages.size()) {
+        if (people.size() + 1 != percentages.size()) {
             throw new IllegalArgumentException("Number of elements in 'people' and 'percentages' must be equal");
         }
 
         checkPercentages(percentages);
 
         this.participants = new HashMap<>();
+        this.othersRaw = "";
         for (int i = 0; i < people.size(); i++) {
             this.participants.put(people.get(i), (percentages.get(i) * amount) / 100.0);
+            this.othersRaw += people.get(i).getName() + ((i < (people.size() - 1)) ? " " : "");
             //TODO: check; this would be the actual amount they're responsible for
         }
         this.tripName = tripName;
         this.payer = payer;
         this.amount = amount;
         this.currency = currency;
-
         this.billName = billName;
         this.percentages = percentages;
-        this.paid = false;
+        this.isPaid = false;
     }
 
     //sets default percentages to equal when no percentages are provided
@@ -99,12 +96,12 @@ public class Bill implements Payable {
         this.amount = amount;
         this.currency = currency;
         this.participants = participants;
-        this.paid = false;
+        this.isPaid = false;
     }
 
     public Bill(String billName) {
         this.billName = billName;
-        this.paid = false;
+        this.isPaid = false;
     }
 
     public ArrayList<Double> makeDoublesArray(String input) {
@@ -275,7 +272,7 @@ public class Bill implements Payable {
     }
 
     public void payBill() {
-        this.paid = true;
+        this.isPaid = true;
     }
 
     public Profile getPayer() {
@@ -307,7 +304,7 @@ public class Bill implements Payable {
                 + "\t\tAmount: " + amount
                 + "\t\tPercentages: " + percentages
                 + "\t\tCurrency: " + this.currency
-                + "\t\tPaid?: " + this.paid;
+                + "\t\tPaid?: " + this.isPaid;
         return s;
     }
 
@@ -320,10 +317,10 @@ public class Bill implements Payable {
                 + "\t\tCurrency: " + this.currency
                 + "\t\tPaid?: " + this.paid;*/
         String s = tripName + "|" + billName + "|" + payer.getName() +
-                "|" + amount + "|" + currency + "|" + othersRaw.replace(" ", ", ") + "|"
+                "|" + amount + "|" + currency + "|" + othersRaw + "|"
                 + percentages.toString().replace("[", "").
                 replace("]", "") + "|"
-                + paid + "\n";
+                + isPaid + "\n";
         return s;
     }
 
