@@ -430,6 +430,7 @@ Note: if the trip is a maintrip, the simplification will be done on all the subt
 Note: the simplification will be made using dollars.
 
 #### Currency
+(Not implemented)
 
 The app supports multiple currencies:
 - EUR: Euro
