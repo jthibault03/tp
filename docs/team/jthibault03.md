@@ -38,7 +38,7 @@ For the UG, I focused on developing documentation and instructions mainly for th
 ### Contributions to the DG
 - Created an outline/overall structure of the DG for teammates to add to. 
 - Mainly focused on the classes I created.
-- Created PlantUML diagram for Bill class (work in progress atm)
+- Created PlantUML diagram for adding a bill.
 ### Community
 - Reviewed PR's for other teams
 - Packaged most of my updates as PRs from my repo into the group repo, for ease
