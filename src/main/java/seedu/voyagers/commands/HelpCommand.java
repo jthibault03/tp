@@ -39,12 +39,13 @@ public class HelpCommand extends Command{
 
         ui.echo("8. paybill /trip <trip_name> /n <bill_name>", false, false);
         ui.echo("9. listbills - lists all bills", false, false);
-        ui.echo("10. find - Finds a trip", false, false);
+        ui.echo("10. setbillcurrency /trip <trip_name> /n <bill_name> /currency <currency_code>", false, false);
+        ui.echo("11. find - Finds a trip", false, false);
         ui.echo("   find <keyword> - show trips whose names contain the keyword", false, false);
-        ui.echo("11. help - Shows the help message", false, false);
-        ui.echo("12. review <main_trip_name> /s <1-10> /r <reflection> - Give your thoughts on a main trip",
+        ui.echo("12. help - Shows the help message", false, false);
+        ui.echo("13. review <main_trip_name> /s <1-10> /r <reflection> - Give your thoughts on a main trip",
                 false, false);
-        ui.echo("13. readreview <main_trip_name> - Read your review", false, false);
-        ui.echo("14. exit - Exits the program",false, true);
+        ui.echo("14. readreview <main_trip_name> - Read your review", false, false);
+        ui.echo("15. exit - Exits the program",false, true);
     }
 }
