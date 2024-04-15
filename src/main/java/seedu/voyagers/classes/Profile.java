@@ -2,8 +2,6 @@ package seedu.voyagers.classes;
 
 import seedu.voyagers.utils.Currency;
 
-//TODO: update so each person can get a list of the bills they still owe.
-
 public class Profile {
     private String name;
     private Currency currency;

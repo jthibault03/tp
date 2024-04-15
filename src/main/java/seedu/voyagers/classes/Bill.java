@@ -1,7 +1,6 @@
 package seedu.voyagers.classes;
 
 import seedu.voyagers.utils.Currency;
-//import seedu.voyagers.utils.FormatDate;
 import seedu.voyagers.utils.Payable;
 
 import java.util.ArrayList;
@@ -128,8 +127,8 @@ public class Bill implements Payable {
                     "command");
         }
         if (words.length != percentagesArr.length) {
-            throw new IllegalArgumentException("Amount of entries in percentages must match number of people involved " +
-                    "in the bill.");
+            throw new IllegalArgumentException("Amount of entries in percentages must match number of people involved "
+                    + "in the bill.");
         }
 
         for (int i = 0; i < words.length; i++) {

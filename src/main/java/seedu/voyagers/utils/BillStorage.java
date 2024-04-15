@@ -3,7 +3,6 @@ package seedu.voyagers.utils;
 import seedu.voyagers.classes.Bill;
 import seedu.voyagers.classes.BillList;
 import seedu.voyagers.classes.Profile;
-//import seedu.voyagers.classes.ProfileList;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;

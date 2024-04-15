@@ -1,2 +1,1 @@
-Korea|supper|b|100.0|null|a c d|60.0, 20.0, 10.0, 10.0|false
-Korea|dinner|a|100.0|null|b c|40.0, 30.0, 30.0|false
+Korea|dindin|Bob|40.0|null|Carol Alice|33.3, 33.3, 33.3|false
