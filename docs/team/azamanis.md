@@ -28,6 +28,7 @@ I focused mainly in the development of the following classes:
 - TripList
 - Ui
 
+Also I have solved several of the bugs reported during the PE dry run test.
 
 # Enhancements implemented: A summary of the enhancements you implemented.
 
@@ -38,14 +39,13 @@ needed to write a new function for each new command. I changed the parser to be 
 ## Simplifying bills:
 This is one of the most distinctive features of the app, as the rest are basically CRUD operations for the different classes.
 This was mainly a task of reading information articles as the idea was not coming up with an algorithm from scratch.
-After documenting myself, I found a [website](https://medium.com/@mithunmk93/algorithm-behind-splitwises-debt-simplification-feature-8ac485e97688) were the problem was explained and a template code was provided.
+After documenting myself, I found a [website](https://medium.com/@mithunmk93/algorithm-behind-splitwises-debt-simplification-feature-8ac485e97688) where the problem was explained and a template code was provided.
 
 After the documenting process, the task was to adapt the code to our project.
 
 # Contributions to the UG: Which sections did you contribute to the UG?
 
 For the user guide, I have focused in the sections related with the classed I developed.
-
 
 
 # Contributions to the DG: Which sections did you contribute to the DG? Which UML diagrams did you add/updated?
@@ -67,4 +67,4 @@ Furthermore, I contributed to other minimal sections of the DG such as the index
 
 ### Community:
 - **Community 1**: Reported bugs and suggestions for other teams in the project, both during labs and the PE dry run test.
-- **Community 2**: 
+- 
