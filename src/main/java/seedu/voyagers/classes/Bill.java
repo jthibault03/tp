@@ -32,11 +32,7 @@ public class Bill implements Payable {
     private boolean paid;
 
     public Bill(String[] args, TripList trips) {
-
-        //TODO: setCurrency method and null currency
-
         this.trip = trips.getTrip(args[0]);
-        //TODO: check that error message reveals helpful info if no such trip exists
         this.tripName = args[0];
         this.billName = args[1];
 

@@ -8,23 +8,6 @@ This project is a team effort by the NUS CS2113 Group W14-4
 
 Run the JAR File, then follow the prompts through the command-line interface. Refer to this guide for syntax.
 
-## Architecture
-
-{UML Diagram of high-level app architecture}
-Given below is a quick overview of main components and how they interact with each other.
-
-Voyagers {...}  
-Parser {...}  
-Commands {...}  
-Storage {...}  
-Ui {...}  
-Trip {...}  
-Bill {...}
-
-How the architecture components interact with each other
-{Sequence Diagram}
-
-
 ## Design & implementation
 
 The Voyagers application is designed as a command-line interface 
