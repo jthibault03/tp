@@ -102,6 +102,10 @@ It enables users to assign trip ratings (1-10) in Review's 'int score' attribute
 encapsulates individual sentiments in Review's 'String reflection attribute, facilitating comprehensive user feedback.
 Currently, Reviews are not stored when the app exits, this implementation is planned.
 
+## Status
+When a trip is cancelled, the status of the trip is changed to 'cancelled'. Otherwise, the trip will be 'completed', 
+'ongoing' or 'upcoming'. Depending on the starting and ending time of the trip.
+
 ## Product scope
 ### Target user profile
 
